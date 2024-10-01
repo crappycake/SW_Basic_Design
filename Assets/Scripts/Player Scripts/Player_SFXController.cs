@@ -26,6 +26,9 @@ public class Player_SFXController : MonoBehaviour
     SpriteRenderer spriteRenderer;
     Player_HealthManager healthManager;
 
+    Vector3 originalCamPos;
+    float camReturnSpeed = 5f;
+
     void Awake()
     {
         trailRenderer = GetComponent<TrailRenderer>();
@@ -44,6 +47,7 @@ public class Player_SFXController : MonoBehaviour
 
     void Update()
     {
+        ReturnCameraToOriginalPosition(); //return cam to original pos from shake displacement
         TriggerFlipTrailRenderer();
     }
 
@@ -51,6 +55,14 @@ public class Player_SFXController : MonoBehaviour
     {
         cinemachineNoise.m_AmplitudeGain = 0f;
         cinemachineNoise.m_FrequencyGain = 0f;
+
+        originalCamPos = mainCamera.transform.position;
+
+    }
+
+    void ReturnCameraToOriginalPosition()
+    {
+        mainCamera.transform.position = Vector3.MoveTowards(mainCamera.transform.position, originalCamPos, camReturnSpeed * Time.deltaTime);
     }
 
     void TriggerFlipTrailRenderer()
