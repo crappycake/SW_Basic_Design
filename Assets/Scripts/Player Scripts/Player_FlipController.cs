@@ -9,15 +9,11 @@ public class Player_FlipController : MonoBehaviour
     public GameObject startingPosition;
     public GameObject otherPosition;
     private bool isFliped = false;
-    private bool canFlip = true;
-
-    private TrailRenderer trailRenderer;
-
+    [HideInInspector] public bool canFlip = true;
     [SerializeField] float flipSpeed;
 
     void Awake()
     {
-        trailRenderer = GetComponent<TrailRenderer>();
         transform.position = startingPosition.transform.position;
     }
 
@@ -48,13 +44,11 @@ public class Player_FlipController : MonoBehaviour
     
     void MoveTowardsPosition(Vector3 targetPos)
     {
-        trailRenderer.emitting = true;
         transform.position = Vector2.MoveTowards(transform.position, targetPos, flipSpeed * Time.deltaTime);
 
         //can flip again if flipping has finished
         if (Vector2.Distance(transform.position, targetPos) < 0.01f)
         {
-            trailRenderer.emitting = false;
             canFlip = true; 
         }
         else
