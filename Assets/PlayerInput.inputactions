@@ -1,0 +1,34 @@
+{
+    "name": "PlayerInput",
+    "maps": [
+        {
+            "name": "Player Actions",
+            "id": "dbd68853-06d2-4580-8520-8c51d22b2c21",
+            "actions": [
+                {
+                    "name": "Flip",
+                    "type": "Button",
+                    "id": "37f63b2b-d6b4-4ee3-a3fc-cc9b57c6630f",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "be7e160e-31a5-4c99-9ed9-004a36cb2e35",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Flip",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
