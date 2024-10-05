@@ -6,7 +6,7 @@ public class RotateCircle : MonoBehaviour
 {
     [SerializeField] private float rotationSpeed;
 
-    void Update()
+    void FixedUpdate()
     {
         transform.Rotate(0, 0, rotationSpeed * Time.deltaTime);
     }
