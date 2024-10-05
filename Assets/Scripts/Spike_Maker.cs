@@ -6,7 +6,6 @@ public class Spike_Maker : MonoBehaviour
 {
     int[] spike = new int[330];
     int beat = 0;
-    public GameObject spikePrefab;
 
     [Header("Circle 1")]
     [SerializeField] private GameObject circle1;
@@ -37,21 +36,21 @@ public class Spike_Maker : MonoBehaviour
 
     void Summon_Spike(int num)
     {
-        GameObject spikeClone = Instantiate(spikePrefab);
+        GameObject spikeClone = ObjectPool.SharedInstance.GetPooledObject();
+        spikeClone.SetActive(true);
         var spikeScript = spikeClone.GetComponent<AttachToCircle>();
 
         if (num == 1)
         {
             spikeClone.transform.position = new Vector3(spawnPosition1.transform.position.x, spawnPosition1.transform.position.y);
-            spikeClone.transform.SetParent(circle1.transform);
-
+            spikeClone.transform.SetParent(circle1.transform, true);
             spikeScript.attachedObject = circle1;
         }
         else if (num == 2)
         {
             spikeClone.transform.position = new Vector3(spawnPosition1.transform.position.x, spawnPosition2.transform.position.y);
+            spikeClone.transform.SetParent(circle2.transform, true);
             spikeScript.attachedObject = circle2;
-            spikeClone.transform.SetParent(circle2.transform);
         }
     }
 }

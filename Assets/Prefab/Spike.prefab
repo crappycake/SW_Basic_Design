@@ -11,7 +11,9 @@ GameObject:
   - component: {fileID: 9071069902344760326}
   - component: {fileID: 3176040606716000306}
   - component: {fileID: 9020045516795659937}
+  - component: {fileID: 1288342941284952904}
   - component: {fileID: 2385218559271189404}
+  - component: {fileID: -173373837991409217}
   m_Layer: 0
   m_Name: Spike
   m_TagString: Spike
@@ -134,6 +136,33 @@ PolygonCollider2D:
       - {x: -0.5, y: -0.28866667}
       - {x: 0.5, y: -0.28866667}
   m_UseDelaunayMesh: 0
+--- !u!50 &1288342941284952904
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3470413815152025801}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 0.0001
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!114 &2385218559271189404
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -149,3 +178,15 @@ MonoBehaviour:
   attachedObject: {fileID: 0}
   offset: 0.5
   isInitialized: 0
+--- !u!114 &-173373837991409217
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3470413815152025801}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91dc58a1190dab84aa5d61b5d232dd46, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

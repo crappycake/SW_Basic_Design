@@ -56,8 +56,6 @@ public class AttachToCircle : MonoBehaviour
             offset = height / 2f;
         }
 
-        //transform.position = attachedObject.transform.position + (transform.up * (radius + offset));
         transform.parent = attachedObject.transform;
-
     }
 }
