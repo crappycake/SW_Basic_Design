@@ -14,8 +14,6 @@ public class AttachToCircle : MonoBehaviour
     {
         if (!isInitialized) Initialize();
 
-        transform.position = attachedObject.transform.position + (transform.up * (radius + offset));
-
         Vector3 directionToCenter = attachedObject.transform.position - transform.position;
         float angle = Mathf.Atan2(directionToCenter.y, directionToCenter.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0, 0, angle + 90f);
@@ -57,5 +55,9 @@ public class AttachToCircle : MonoBehaviour
             float height = (maxY - minY) * gameObject.transform.localScale.y; 
             offset = height / 2f;
         }
+
+        //transform.position = attachedObject.transform.position + (transform.up * (radius + offset));
+        transform.parent = attachedObject.transform;
+
     }
 }

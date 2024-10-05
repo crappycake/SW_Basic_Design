@@ -8,9 +8,17 @@ public class Spike_Maker : MonoBehaviour
     int beat = 0;
     public GameObject spikePrefab;
 
+    [Header("Circle 1")]
+    [SerializeField] private GameObject circle1;
+    [SerializeField] private GameObject spawnPosition1;
+
+    [Header("Circle 2")]
+    [SerializeField] private GameObject circle2;
+    [SerializeField] private GameObject spawnPosition2;
+
     private void Awake()
     {
-        for (int i = 0; i < spike.Length; i++) { spike[i] = i%2; }
+        for (int i = 0; i < spike.Length; i++) { spike[i] = i % 2; }
     }
     public void Beat_Renderer()
     {
@@ -34,13 +42,16 @@ public class Spike_Maker : MonoBehaviour
 
         if (num == 1)
         {
-            spikeScript.attachedObject = GameObject.Find("Circle");
-            spikeClone.transform.SetParent(GameObject.Find("Circle").transform);
+            spikeClone.transform.position = new Vector3(spawnPosition1.transform.position.x, spawnPosition1.transform.position.y);
+            spikeClone.transform.SetParent(circle1.transform);
+
+            spikeScript.attachedObject = circle1;
         }
         else if (num == 2)
         {
-            spikeScript.attachedObject = GameObject.Find("Circle (1)");
-            spikeClone.transform.SetParent(GameObject.Find("Circle (1)").transform);
+            spikeClone.transform.position = new Vector3(spawnPosition1.transform.position.x, spawnPosition2.transform.position.y);
+            spikeScript.attachedObject = circle2;
+            spikeClone.transform.SetParent(circle2.transform);
         }
     }
 }
