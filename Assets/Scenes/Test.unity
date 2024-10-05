@@ -700,9 +700,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 4566786337078414363, guid: 0b4333c0cc4ecc949938b8e5a40215bb, type: 3}
-      propertyPath: m_Enabled
-      value: 1
+    - target: {fileID: 2860693314709422650, guid: 0b4333c0cc4ecc949938b8e5a40215bb, type: 3}
+      propertyPath: m_Parameters.colorGradient.key1.b
+      value: 0.4862745
+      objectReference: {fileID: 0}
+    - target: {fileID: 2860693314709422650, guid: 0b4333c0cc4ecc949938b8e5a40215bb, type: 3}
+      propertyPath: m_Parameters.colorGradient.key1.g
+      value: 0.4862745
       objectReference: {fileID: 0}
     - target: {fileID: 6173568727651879253, guid: 0b4333c0cc4ecc949938b8e5a40215bb, type: 3}
       propertyPath: m_RootOrder
@@ -772,7 +776,8 @@ PrefabInstance:
       propertyPath: playerHealthImages.Array.data[2]
       value: 
       objectReference: {fileID: 834784121}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2860693314709422650, guid: 0b4333c0cc4ecc949938b8e5a40215bb, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

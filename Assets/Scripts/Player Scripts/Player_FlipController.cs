@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,6 +12,8 @@ public class Player_FlipController : MonoBehaviour
     private bool isFliped = false;
     [HideInInspector] public bool canFlip = true;
     [SerializeField] float flipSpeed;
+
+    public event Action OnFlipFunctionCalled;
 
     void Awake()
     {
@@ -27,7 +30,7 @@ public class Player_FlipController : MonoBehaviour
         if (!canFlip) return;
 
         isFliped = !isFliped;
-        
+        OnFlipFunctionCalled?.Invoke();
     }
 
     void CheckAndFlipPlayer()
