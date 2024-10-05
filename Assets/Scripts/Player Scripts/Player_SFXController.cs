@@ -6,11 +6,10 @@ using UnityEngine.U2D;
 
 public class Player_SFXController : MonoBehaviour
 {
-
-    [Header("Flip SFX")]
+    //FLIP EFFECTS
     private TrailRenderer trailRenderer;
     private Player_FlipController flipController;
-
+    
     [Header("Damage Shake SFX")]
     [SerializeField] private CinemachineVirtualCamera mainCamera;
     private CinemachineBasicMultiChannelPerlin cinemachineNoise;
@@ -22,9 +21,11 @@ public class Player_SFXController : MonoBehaviour
     [SerializeField] private float blinkDuration;
     [SerializeField] private float initialBlinkInterval; //starting blink interval (per second)
     [SerializeField] private float blinkSpeedIncrease; //how much blinking speeds up over time
-
     SpriteRenderer spriteRenderer;
     Player_HealthManager healthManager;
+
+    [Header("Sound Effects")]
+    [SerializeField] private AudioSource flipSoundEffect;
 
     Vector3 originalCamPos;
     float camReturnSpeed = 5f;
@@ -38,6 +39,7 @@ public class Player_SFXController : MonoBehaviour
         cinemachineNoise = mainCamera.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
 
         healthManager.OnDamageTaken += StartDMGCoroutine;
+        flipController.OnFlipFunctionCalled += TriggerFlipSoundEffect;
     }
 
     void Start()
@@ -60,15 +62,21 @@ public class Player_SFXController : MonoBehaviour
 
     }
 
-    void ReturnCameraToOriginalPosition()
-    {
-        mainCamera.transform.position = Vector3.MoveTowards(mainCamera.transform.position, originalCamPos, camReturnSpeed * Time.deltaTime);
-    }
-
     void TriggerFlipTrailRenderer()
     {
         if(!flipController.canFlip) trailRenderer.emitting = true;
         else trailRenderer.emitting = false;
+    }
+
+    void TriggerFlipSoundEffect ()
+    {
+        flipSoundEffect.Play();
+    }
+
+    #region DMG EFFECTS
+    void ReturnCameraToOriginalPosition()
+    {
+        mainCamera.transform.position = Vector3.MoveTowards(mainCamera.transform.position, originalCamPos, camReturnSpeed * Time.deltaTime);
     }
 
     void StartDMGCoroutine()
@@ -114,4 +122,6 @@ public class Player_SFXController : MonoBehaviour
         cinemachineNoise.m_AmplitudeGain = 0f;
         cinemachineNoise.m_FrequencyGain = 0f;
     }
+
+    #endregion
 }
