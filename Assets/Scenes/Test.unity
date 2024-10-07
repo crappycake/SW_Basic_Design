@@ -466,7 +466,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: be1d020c9976d8d459cb88fa08704275, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 304e475978b6456499283e88a0e37290, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -659,7 +659,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 635720958708102882, guid: 0b4333c0cc4ecc949938b8e5a40215bb, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2032672688424017073, guid: 0b4333c0cc4ecc949938b8e5a40215bb, type: 3}
       propertyPath: mainCamera
@@ -1030,6 +1030,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7670589307332282527, guid: 994eee000bdd652479cb710bfc2a362c, type: 3}
+      propertyPath: rotationSpeed
+      value: -60
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1144,6 +1148,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1867852769463473651, guid: 6db4ebf12e0f427488b3a3c33fba6e87, type: 3}
+      propertyPath: rotationSpeed
+      value: 60
+      objectReference: {fileID: 0}
     - target: {fileID: 5664866657660901319, guid: 6db4ebf12e0f427488b3a3c33fba6e87, type: 3}
       propertyPath: m_RootOrder
       value: 5
