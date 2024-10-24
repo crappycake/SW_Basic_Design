@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using UnityEngine;
 
-public class GameStageManager : MonoBehaviour
+public class GameLevelManager : MonoBehaviour
 {
-    public static GameStageManager instance;
+    public static GameLevelManager instance;
 
     //Dictionary that keeps track of number of stars for each stage
-    private Dictionary<string, int> stageStars = new Dictionary<string, int> 
+    private Dictionary<string, int> levelStars = new Dictionary<string, int> 
     {
         {"1-1", 0},
         {"1-2", 0},
@@ -16,7 +16,7 @@ public class GameStageManager : MonoBehaviour
     };
 
     //current stage player is in. ex) 1-1, 1-2
-    private string currentStage; 
+    private string currentLevel; 
 
     void Awake()
     {
@@ -32,23 +32,23 @@ public class GameStageManager : MonoBehaviour
     }
 
     #region CURRENT STAGE GETTER & SETTER
-    public string GetCurrentStage()
+    public string GetCurrentLevel()
     {
-        return currentStage;
+        return currentLevel;
     }
 
      /// <summary>
     /// Stage info should be given as a string. For example, stage 1-1 would equal to "1-1". Number of stars for each stage can simply be used directly as an int.
     /// </summary>
-    public void SetCurrentStage(string stage) 
+    public void SetCurrentLevel(string level) 
     {
-        if (stageStars.ContainsKey(stage))
+        if (levelStars.ContainsKey(level))
         {
-            currentStage = stage;
+            currentLevel = level;
         }
         else
         {
-            Debug.LogError("Stage " + stage + " not found for GameStarManager!");
+            Debug.LogError("level " + level + " not found for GameStarManager!");
         }
     }
     #endregion
@@ -56,15 +56,15 @@ public class GameStageManager : MonoBehaviour
     #region STAGE STARS GETTER & SETTER
     public int GetStarsForCurrentStage()
     {
-        return stageStars[currentStage];
+        return levelStars[currentLevel];
     }
 
     //return number of stars of given "stage"
-    public int GetStarsForGivenStage(string stage)
+    public int GetStarsForGivenStage(string level)
     {
-        if (stageStars.ContainsKey(stage))
+        if (levelStars.ContainsKey(level))
         {
-            return stageStars[stage];
+            return levelStars[level];
         }
 
         return 0;
@@ -78,7 +78,7 @@ public class GameStageManager : MonoBehaviour
             Debug.LogError("Incorrect amount of number of stars delivered to GameStageManager");
             return;
         }
-        stageStars[currentStage] = numberOfStars;
+        levelStars[currentLevel] = numberOfStars;
     }
 
     #endregion

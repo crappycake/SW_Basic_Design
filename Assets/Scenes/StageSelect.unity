@@ -440,6 +440,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37ee299b8a53e3d4093533e097a6f3eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  chapter: 1
   stage: 1
   stage1StarImages:
   - {fileID: 443632509}
@@ -447,6 +448,7 @@ MonoBehaviour:
   - {fileID: 1695810252}
   stage2StarImages: []
   stage3StarImages: []
+  stage4StarImages: []
 --- !u!4 &407051608
 Transform:
   m_ObjectHideFlags: 0
@@ -520,7 +522,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Chapter 1
+  m_text: Stage 1
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

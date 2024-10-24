@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class StageSelectionButtonHandler : MonoBehaviour
 {
-    public void SetStage(string stageToSet)
+    public void SetStage(string levelToSet)
     {
-        if (!string.IsNullOrEmpty(stageToSet))
+        if (!string.IsNullOrEmpty(levelToSet))
         {
-            GameStageManager.instance.SetCurrentStage(stageToSet);
+            GameLevelManager.instance.SetCurrentLevel(levelToSet);
         }
     }
 }
