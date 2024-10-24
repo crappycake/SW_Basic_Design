@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Spike
   - Despawn Position
+  - Star
   layers:
   - Default
   - TransparentFX

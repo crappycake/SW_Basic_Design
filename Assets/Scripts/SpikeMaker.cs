@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Spike_Maker : MonoBehaviour
+public class SpikeMaker : MonoBehaviour
 {
     int[] spike = new int[]
     { 0, 1, 0 ,1 ,0 ,1, 0, 1 ,0 ,1 ,0 ,1 ,0, 1 ,1 ,1 ,0 ,1 ,0 ,1 ,0 ,1 ,0 ,1 ,0 ,1 ,0 ,1 ,1 ,1 ,1,
@@ -43,14 +43,14 @@ public class Spike_Maker : MonoBehaviour
                 break;
             case 1:
                 Debug.Log("yeh");
-                Summon_Spike();
+                SummonSpike();
                 break;
 
         }
         beat++;
     }
 
-    void Summon_Spike()
+    void SummonSpike()
     {
         GameObject spikeClone = ObjectPool.SharedInstance.GetPooledObject();
         spikeClone.SetActive(true);
