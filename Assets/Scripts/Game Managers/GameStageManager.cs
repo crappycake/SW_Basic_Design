@@ -1,14 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using UnityEngine;
 
 public class GameStageManager : MonoBehaviour
 {
     public static GameStageManager instance;
 
-    /// <summary>
-    /// Stage info should be given as a string. For example, stage 1-1 would equal to "1-1". Number of stars for each stage can simply be used directly as an int.
-    /// </summary>
     private Dictionary<string, int> stageStars = new Dictionary<string, int>
     {
         {"1-1", 0},
@@ -37,6 +35,9 @@ public class GameStageManager : MonoBehaviour
         return currentStage;
     }
 
+     /// <summary>
+    /// Stage info should be given as a string. For example, stage 1-1 would equal to "1-1". Number of stars for each stage can simply be used directly as an int.
+    /// </summary>
     public void SetCurrentStage(string stage)
     {
         if (stageStars.ContainsKey(stage))
@@ -54,6 +55,16 @@ public class GameStageManager : MonoBehaviour
     public int GetStarsForCurrentStage()
     {
         return stageStars[currentStage];
+    }
+
+    public int GetStarsForGivenStage(string stage)
+    {
+        if (stageStars.ContainsKey(stage))
+        {
+            return stageStars[stage];
+        }
+
+        return 0;
     }
 
     public void SetStarsForCurrentStage(int numberOfStars)
