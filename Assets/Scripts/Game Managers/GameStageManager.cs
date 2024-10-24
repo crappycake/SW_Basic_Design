@@ -7,14 +7,16 @@ public class GameStageManager : MonoBehaviour
 {
     public static GameStageManager instance;
 
-    private Dictionary<string, int> stageStars = new Dictionary<string, int>
+    //Dictionary that keeps track of number of stars for each stage
+    private Dictionary<string, int> stageStars = new Dictionary<string, int> 
     {
         {"1-1", 0},
         {"1-2", 0},
         {"1-3", 0}
     };
 
-    private string currentStage;
+    //current stage player is in. ex) 1-1, 1-2
+    private string currentStage; 
 
     void Awake()
     {
@@ -38,7 +40,7 @@ public class GameStageManager : MonoBehaviour
      /// <summary>
     /// Stage info should be given as a string. For example, stage 1-1 would equal to "1-1". Number of stars for each stage can simply be used directly as an int.
     /// </summary>
-    public void SetCurrentStage(string stage)
+    public void SetCurrentStage(string stage) 
     {
         if (stageStars.ContainsKey(stage))
         {
@@ -57,6 +59,7 @@ public class GameStageManager : MonoBehaviour
         return stageStars[currentStage];
     }
 
+    //return number of stars of given "stage"
     public int GetStarsForGivenStage(string stage)
     {
         if (stageStars.ContainsKey(stage))
@@ -67,6 +70,7 @@ public class GameStageManager : MonoBehaviour
         return 0;
     }
 
+    //return number of stars of the current stage that the player is in.
     public void SetStarsForCurrentStage(int numberOfStars)
     {
         if (numberOfStars < 0 || numberOfStars > 3)

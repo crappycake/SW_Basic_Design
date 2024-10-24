@@ -5,6 +5,9 @@ using UnityEngine.UI;
 
 public class StageStarUIManager : MonoBehaviour
 {
+    public int stage;
+
+    //array of stage names
     string[] stage1 = {"1-1", "1-2", "1-3"};
     string[] stage2 = {"2-1", "2-2", "2-3"};
  
@@ -12,7 +15,14 @@ public class StageStarUIManager : MonoBehaviour
     [SerializeField] Image[] stage2StarImages;
     [SerializeField] Image[] stage3StarImages;
 
-    public void ShowNumberOfStars(int stage)
+    void Awake()
+    {
+        ShowNumberOfStarsForSelectedStage();
+    }
+    //select which string array and image array to use depending on given "stage"
+    //Gets the number of stars of the given "stage" and sets the amount of stars for the given "stage"
+    //The chapter information is not used... 1 chapter should have 1 of this script.
+    private void ShowNumberOfStarsForSelectedStage()
     {
         string[] currentStage = stage1;
         Image[] images = stage1StarImages;
@@ -37,6 +47,6 @@ public class StageStarUIManager : MonoBehaviour
                 images[j].enabled = true;
             }
         }
-        
+
     }
 }
