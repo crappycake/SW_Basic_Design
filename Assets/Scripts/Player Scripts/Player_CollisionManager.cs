@@ -18,7 +18,7 @@ public class Player_CollisionManager : MonoBehaviour
         }
         else if (collision.gameObject.CompareTag("Star"))
         {
-            GameLevelManager.instance.SetStarsForCurrentStage(3);
+            GameLevelManager.instance.SetStarsForCurrentLevel(3);
         }
     }
 }

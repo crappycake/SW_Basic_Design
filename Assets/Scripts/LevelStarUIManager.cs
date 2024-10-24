@@ -8,13 +8,13 @@ public class LevelStarUIManager : MonoBehaviour
     public int chapter, stage;
 
     //array of stage names
-    string[] chapter1 = { "1-1", "1-2", "1-3" };
-    string[] chapter2 = { "2-1", "2-2", "2-3" };
+    string[] chapter1Stages = { "1-1", "1-2", "1-3" };
+    string[] chapter2Stages = { "2-1", "2-2", "2-3" };
 
-    [SerializeField] Image[] stage1StarImages;
-    [SerializeField] Image[] stage2StarImages;
-    [SerializeField] Image[] stage3StarImages;
-    [SerializeField] Image[] stage4StarImages;
+    [SerializeField] Image[] stage1StarImages = new Image[3];
+    [SerializeField] Image[] stage2StarImages = new Image[3];
+    [SerializeField] Image[] stage3StarImages = new Image[3];
+    [SerializeField] Image[] stage4StarImages = new Image[3];
 
     void Awake()
     {
@@ -26,16 +26,16 @@ public class LevelStarUIManager : MonoBehaviour
     //1 stage should have 1 of this script.
     private void ShowNumberOfStarsForSelectedStage()
     {
-        string[] currentChapter = chapter1;
+        string[] currentChapter = chapter1Stages;
         Image[] images = stage1StarImages;
 
         switch (chapter)
         {
             case 1:
-                currentChapter = chapter1;
+                currentChapter = chapter1Stages;
                 break;
             case 2:
-                currentChapter = chapter2;
+                currentChapter = chapter2Stages;
                 break;
         }
 
@@ -51,7 +51,7 @@ public class LevelStarUIManager : MonoBehaviour
 
         for (int i = 0; i < 3; ++i)
         {
-            int numberOfStars = GameLevelManager.instance.GetStarsForGivenStage(currentChapter[i]);
+            int numberOfStars = GameLevelManager.instance.GetStarsForGivenLevel(currentChapter[i]);
             for (int j = 0; j < numberOfStars; ++j)
             {
                 images[j].enabled = true;

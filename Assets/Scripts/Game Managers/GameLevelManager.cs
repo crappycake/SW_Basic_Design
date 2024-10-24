@@ -54,13 +54,13 @@ public class GameLevelManager : MonoBehaviour
     #endregion
 
     #region STAGE STARS GETTER & SETTER
-    public int GetStarsForCurrentStage()
+    public int GetStarsForCurrentLevel()
     {
         return levelStars[currentLevel];
     }
 
     //return number of stars of given "stage"
-    public int GetStarsForGivenStage(string level)
+    public int GetStarsForGivenLevel(string level)
     {
         if (levelStars.ContainsKey(level))
         {
@@ -71,7 +71,7 @@ public class GameLevelManager : MonoBehaviour
     }
 
     //return number of stars of the current stage that the player is in.
-    public void SetStarsForCurrentStage(int numberOfStars)
+    public void SetStarsForCurrentLevel(int numberOfStars)
     {
         if (numberOfStars < 0 || numberOfStars > 3)
         {
