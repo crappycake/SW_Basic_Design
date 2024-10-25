@@ -4,14 +4,18 @@ using Unity.VisualScripting;
 using UnityEngine;
 using System;
 
-public class Player_HealthManager : MonoBehaviour
+public class PlayerHealthManager : MonoBehaviour
 {
     public int currentHealth;
     [SerializeField] private int maxHealth;
     public bool canTakeDamage = true;
 
     public event Action OnDamageTaken;
+    //subscribed by: PlayerUIController, PlayerSFXController
+
     public event Action OnGameOver;
+    //subscribed by: PlayerUIController, LevelProgressManager
+
     void Start()
     {
         currentHealth = maxHealth;

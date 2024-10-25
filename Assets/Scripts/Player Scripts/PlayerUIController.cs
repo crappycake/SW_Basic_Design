@@ -5,15 +5,15 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Player_UIController : MonoBehaviour
+public class PlayerUIController : MonoBehaviour
 {
     [SerializeField] Image[] playerHealthImages;
     [SerializeField] GameObject gameOverPanel;
-    Player_HealthManager playerHealthManager;
+    PlayerHealthManager playerHealthManager;
 
     void Awake()
     {
-        playerHealthManager = GetComponent<Player_HealthManager>();
+        playerHealthManager = GetComponent<PlayerHealthManager>();
     }
     void Start()
     {

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Security;
@@ -5,7 +6,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Rendering.Universal;
 
-public class Game_BeatManager : MonoBehaviour
+public class LevelBeatManager : MonoBehaviour
 {
     [SerializeField] private float bpm;
     [SerializeField] private AudioSource audioSource;
@@ -18,6 +19,13 @@ public class Game_BeatManager : MonoBehaviour
             float sampledTime = audioSource.timeSamples / (audioSource.clip.frequency * interval.GetIntervalLength(bpm));
             interval.CheckForNewInterval(sampledTime);
         }
+    }
+
+    public int GetAudioSourceProgress()
+    {
+        float progress = audioSource.time / audioSource.clip.length;
+        Debug.Log(progress);
+        return (int) (progress * 100);
     }
 }
 

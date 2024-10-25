@@ -15,6 +15,13 @@ public class GameLevelManager : MonoBehaviour
         {"1-3", 0}
     };
 
+    private Dictionary<string, int> levelProgress = new Dictionary<string, int>
+    {
+        {"1-1", 0},
+        {"1-2", 0},
+        {"1-3", 0}
+    };
+
     //current stage player is in. ex) 1-1, 1-2
     private string currentLevel; 
 
@@ -31,7 +38,7 @@ public class GameLevelManager : MonoBehaviour
         }
     }
 
-    #region CURRENT STAGE GETTER & SETTER
+    #region CURRENT LEVEL GETTER & SETTER
     public string GetCurrentLevel()
     {
         return currentLevel;
@@ -53,14 +60,14 @@ public class GameLevelManager : MonoBehaviour
     }
     #endregion
 
-    #region STAGE STARS GETTER & SETTER
-    public int GetStarsForCurrentLevel()
+    #region LEVEL STARS GETTER & SETTER
+    public int GetCurrentLevelStars()
     {
         return levelStars[currentLevel];
     }
 
     //return number of stars of given "stage"
-    public int GetStarsForGivenLevel(string level)
+    public int GetSelectedLevelStars(string level)
     {
         if (levelStars.ContainsKey(level))
         {
@@ -81,5 +88,31 @@ public class GameLevelManager : MonoBehaviour
         levelStars[currentLevel] = numberOfStars;
     }
 
+    #endregion
+
+    #region LEVEL PROGRESS GETTER & SETTER
+    public int GetCurrentLevelProgress()
+    {
+        return levelProgress[currentLevel];
+    }
+
+    public int GetSelectedLevelProgress(string _level)
+    {
+        if (levelProgress.ContainsKey(_level))
+        {
+            return levelProgress[_level];
+        }
+
+        return 0;
+    }
+
+    public void SetCurrentLevelProgress(int _progress)
+    {
+        if (_progress < 0 || _progress > 100)
+        {
+            Debug.LogError("Current progress value is given wrong at GameLevelManager!");
+        }
+        levelProgress[currentLevel] = _progress;
+    }
     #endregion
 }

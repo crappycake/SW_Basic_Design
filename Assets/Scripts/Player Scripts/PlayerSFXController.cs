@@ -22,7 +22,7 @@ public class Player_SFXController : MonoBehaviour
     [SerializeField] private float initialBlinkInterval; //starting blink interval (per second)
     [SerializeField] private float blinkSpeedIncrease; //how much blinking speeds up over time
     SpriteRenderer spriteRenderer;
-    Player_HealthManager healthManager;
+    PlayerHealthManager healthManager;
 
     [Header("Sound Effects")]
     [SerializeField] private AudioSource flipSoundEffect;
@@ -34,7 +34,7 @@ public class Player_SFXController : MonoBehaviour
     {
         trailRenderer = GetComponent<TrailRenderer>();
         spriteRenderer = GetComponent<SpriteRenderer>();
-        healthManager = GetComponent<Player_HealthManager>();
+        healthManager = GetComponent<PlayerHealthManager>();
         flipController = GetComponent<Player_FlipController>();
         cinemachineNoise = mainCamera.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
 

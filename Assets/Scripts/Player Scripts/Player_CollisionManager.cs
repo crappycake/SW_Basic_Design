@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class Player_CollisionManager : MonoBehaviour
 {
-    Player_HealthManager healthManager;
+    PlayerHealthManager healthManager;
     
     void Awake()
     {
-        healthManager = GetComponent<Player_HealthManager>();
+        healthManager = GetComponent<PlayerHealthManager>();
     }
     void OnTriggerEnter2D(Collider2D collision)
     {
