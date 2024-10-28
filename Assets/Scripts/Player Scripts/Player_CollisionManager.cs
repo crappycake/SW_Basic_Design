@@ -20,5 +20,9 @@ public class Player_CollisionManager : MonoBehaviour
         {
             GameLevelManager.instance.SetStarsForCurrentLevel(3);
         }
+        else if (collision.gameObject.CompareTag("Heart"))
+        {
+            healthManager.RecoverHealth();
+        }
     }
 }

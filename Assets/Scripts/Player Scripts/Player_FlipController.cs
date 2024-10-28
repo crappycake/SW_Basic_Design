@@ -14,6 +14,8 @@ public class Player_FlipController : MonoBehaviour
     [SerializeField] float flipSpeed;
 
     public event Action OnFlipFunctionCalled;
+    //Subscribed by:
+    //1. PlayerSFXController - trigger flip sound   
 
     void Awake()
     {

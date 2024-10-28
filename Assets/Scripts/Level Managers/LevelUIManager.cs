@@ -59,7 +59,7 @@ public class LevelUIManager : MonoBehaviour
 
             // Update progress text and progress bar
             float progress = GameLevelManager.instance.GetSelectedLevelProgress(currentChapterStages[i]);
-            progressTexts[i].text = $"{(int)progress}%";
+            progressTexts[i].text = $"진행도: {(int)progress}%";
             progressBars[i].value = (float) (progress / 100);
         }
     }
