@@ -108,10 +108,9 @@ public class GameLevelManager : MonoBehaviour
 
     public void SetCurrentLevelProgress(int _progress)
     {
-        if (_progress < 0 || _progress > 100)
-        {
-            Debug.LogError("Current progress value is given wrong at GameLevelManager!");
-        }
+        if (_progress < 0)          Debug.LogError("Current progress value is given wrong at GameLevelManager!");
+        else if ( _progress > 100) _progress = 100;
+
         levelProgress[currentLevel] = _progress;
     }
     #endregion
