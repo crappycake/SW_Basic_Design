@@ -8,7 +8,7 @@ public class Fireball : MonoBehaviour
 
     void Start()
     {
-        Debug.Log("파이어보오오오올");
+        Debug.Log("파이어볼 소환");
         Instantiate(FireBall, transform.position, transform.rotation);
     }
 
