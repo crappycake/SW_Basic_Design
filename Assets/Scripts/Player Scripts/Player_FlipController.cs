@@ -17,6 +17,10 @@ public class Player_FlipController : MonoBehaviour
     //Subscribed by:
     //1. PlayerSFXController - trigger flip sound   
 
+    public event Action OnParryingFunctionCalled;
+    //Subscried by:
+    //1. FireballShoot
+
     void Awake()
     {
         transform.position = startingPosition.transform.position;
@@ -33,6 +37,11 @@ public class Player_FlipController : MonoBehaviour
 
         isFliped = !isFliped;
         OnFlipFunctionCalled?.Invoke();
+    }
+
+    void OnParrying()
+    {
+        OnParryingFunctionCalled?.Invoke();
     }
 
     void CheckAndFlipPlayer()

@@ -4,10 +4,11 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Spike
   - Despawn Position
   - Star
   - Heart
+  - Undefined
+  - Damage
   layers:
   - Default
   - TransparentFX
