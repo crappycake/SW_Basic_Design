@@ -5,7 +5,7 @@ using UnityEngine;
 public class SpikeMaker : MonoBehaviour
 {
     int[] spike = new int[]
-    { 0, 1, 0 ,1 ,0 ,1, 0, 1 ,0 ,1 ,0 ,1 ,0, 1 ,1 ,1 ,0 ,1 ,0 ,1 ,0 ,1 ,0 ,1 ,0 ,1 ,0 ,1 ,1 ,1 ,1,
+    { 0, 1, 0 ,1 ,0 ,1, 0, 1 ,0 ,1 ,0 ,1 ,3, 1 ,1 ,1 ,0 ,0 ,0 ,0 ,0 ,0 ,4 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0,
 0, 0, 1 ,0 ,1 ,0 ,1 ,1 ,1 ,0 ,1,0, 1, 0, 1, 1, 1, 0, 1, 0, 1, 0, 1, 1, 1, 0, 1, 0, 1, 0, 1, 1, 1 ,1
 ,0 ,1 ,0 ,1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 1 ,0 ,0 ,1 ,0, 1, 0, 1, 0, 1, 0, 1, 0 ,1, 1, 0,  1, 0 ,1 ,0 ,1 ,1 ,1 ,0, 1,
 0, 1, 1, 1, 0, 1, 0, 1 ,0 ,1 ,1, 1, 1 ,0 ,0, 1, 0, 1 ,1, 1, 1, 0, 0 ,1 ,0 ,0 ,0, 0
@@ -25,13 +25,16 @@ public class SpikeMaker : MonoBehaviour
     [Header("Circle 1")]
     [SerializeField] private GameObject circle1;
     [SerializeField] private GameObject spawnPosition1;
-
+    [SerializeField] private GameObject startPosition;
     [Header("Circle 2")]
     [SerializeField] private GameObject circle2;
     [SerializeField] private GameObject spawnPosition2;
+    [SerializeField] private GameObject otherPosition;
 
+    private AttackArea attackArea;
     private void Awake()
     {
+        attackArea = gameObject.GetComponent<AttackArea>();
         //for (int i = 0; i < spike.Length; i++) { spike[i] = i % 2; }
     }
     public void Beat_Renderer()
@@ -44,6 +47,15 @@ public class SpikeMaker : MonoBehaviour
             case 1:
                 Debug.Log("yeh");
                 SummonSpike();
+                break;
+            case 2:
+                attackArea.SquareArea(otherPosition);   //squareArea에 gameobject를 넣으면 gameobject의 위치에 square이 나옴
+                break;
+            case 3:
+                attackArea.SquareArea(startPosition);
+                break;
+            case 4:
+                attackArea.CircleArea(circle1);         //CircleArea에 gameobject를 넣으면 gameobject가 피격판정이 됨
                 break;
 
         }
@@ -88,4 +100,5 @@ public class SpikeMaker : MonoBehaviour
         }
         */
     }
+
 }

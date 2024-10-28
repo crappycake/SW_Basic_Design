@@ -555,6 +555,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1643816799}
   - component: {fileID: 1643816800}
+  - component: {fileID: 1643816801}
   m_Layer: 0
   m_Name: Spike Maker(TEST)
   m_TagString: Untagged
@@ -591,8 +592,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   circle1: {fileID: 936158185}
   spawnPosition1: {fileID: 148776365}
+  startPosition: {fileID: 2141886083}
   circle2: {fileID: 17060066}
   spawnPosition2: {fileID: 699342629}
+  otherPosition: {fileID: 1373658582}
+--- !u!114 &1643816801
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1643816798}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b786a087223655d40ab683210dc5e310, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  squareAreatemp: {fileID: 8584857235679149319, guid: 586682fd12e496f44baf84b692b83c34, type: 3}
 --- !u!1 &1649071632
 GameObject:
   m_ObjectHideFlags: 0
@@ -1016,6 +1032,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 635720958708102882, guid: 0b4333c0cc4ecc949938b8e5a40215bb, type: 3}
       propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 635720958708102882, guid: 0b4333c0cc4ecc949938b8e5a40215bb, type: 3}
+      propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2032672688424017073, guid: 0b4333c0cc4ecc949938b8e5a40215bb, type: 3}
