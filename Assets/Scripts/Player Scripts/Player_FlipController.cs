@@ -15,7 +15,7 @@ public class Player_FlipController : MonoBehaviour
 
     public event Action OnFlipFunctionCalled;
     //Subscribed by:
-    //1. PlayerSFXController - trigger flip sound
+    //1. PlayerSFXController - trigger flip sound   
 
     void Awake()
     {

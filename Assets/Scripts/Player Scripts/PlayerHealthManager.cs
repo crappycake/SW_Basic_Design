@@ -30,6 +30,12 @@ public class PlayerHealthManager : MonoBehaviour
         if (currentHealth <= 0) GameOver();
     }
 
+    public void RecoverHealth()
+    {
+        if (currentHealth > maxHealth) return;
+        currentHealth++;
+    }
+    
     private void GameOver()
     {
         OnGameOver?.Invoke(); //Trigger game over panel
