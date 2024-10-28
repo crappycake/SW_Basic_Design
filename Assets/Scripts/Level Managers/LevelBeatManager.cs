@@ -24,7 +24,6 @@ public class LevelBeatManager : MonoBehaviour
     public int GetAudioSourceProgress()
     {
         float progress = audioSource.time / audioSource.clip.length;
-        Debug.Log(progress);
         return (int) (progress * 100);
     }
 }
