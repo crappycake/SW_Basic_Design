@@ -12,7 +12,7 @@ public class Player_CollisionManager : MonoBehaviour
     }
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Spike"))
+        if (collision.gameObject.CompareTag("Damage"))
         {
             healthManager.TakeDamage();
         }

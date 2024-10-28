@@ -6,32 +6,36 @@ public class FireballShoot : MonoBehaviour
 {
     public float bpm;
 
+    public Vector3 nowPos;
+    private Vector3 destinationPos;
+    private Vector3 betweenPos;
+    private Vector3 movePos;
 
-    public Vector3 NowPos;
-    private Vector3 DestinationPos;
-    private Vector3 BetweenPos;
-    private Vector3 MovePos;
+    public Transform playerPos;
 
-    public Transform PlayerPos;
+    private bool parrying;
 
+    Player_FlipController playerFlipController;
 
-    private bool Parring;
 
     private void Awake()
     {
-        PlayerPos = GameObject.FindWithTag("Player").transform;
+        playerPos = GameObject.FindWithTag("Player").transform;
+        playerFlipController = FindObjectOfType<Player_FlipController>();
+
+        playerFlipController.OnParryingFunctionCalled += Parry;
     }
 
     void Start()
     {
         Debug.Log("파이어볼 슛");
-        NowPos = transform.position;
-        DestinationPos = PlayerPos.position;
+        nowPos = transform.position;
+        destinationPos = playerPos.position;
         
-        BetweenPos = DestinationPos-NowPos; //요만큼 이동하는데 60/bpm*4 초가 걸린다.
-        MovePos = BetweenPos/(60f);
+        betweenPos = destinationPos-nowPos; //요만큼 이동하는데 60/bpm*4 초가 걸린다.
+        movePos = betweenPos/(60f);
 
-        Parring = false;
+        parrying = false;
 
         Invoke("DestroyBall", 5);
 
@@ -45,18 +49,23 @@ public class FireballShoot : MonoBehaviour
 
     void FixedUpdate()
     {
-        transform.position += new Vector3(MovePos.x, MovePos.y, MovePos.z);
+        transform.position += new Vector3(movePos.x, movePos.y, movePos.z);
     }
 
    
 
-    void OnFlip()
+    void Parry()
     {
-        if (!Parring) //패링 키 X
+        if (!parrying) //패링 가능한 상태 X
+        { 
+            Debug.Log("패링못해!");
             return;
-        else //패링 키O
+        }
+        else //패링 가능한 상태 O
         {
-            MovePos = -MovePos;
+            Debug.Log("패링해!");
+            movePos = -movePos;
+            parrying = false;
         }
 
     }
@@ -66,7 +75,16 @@ public class FireballShoot : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             Debug.Log("패링가능!");
-            Parring = true;
+            parrying = true;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            Debug.Log("패링 불가능!");
+            parrying = false;
         }
     }
 

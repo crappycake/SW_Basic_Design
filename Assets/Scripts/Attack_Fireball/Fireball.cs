@@ -8,8 +8,7 @@ public class Fireball : MonoBehaviour
 
     void Start()
     {
-        Debug.Log("파이어볼 소환");
-        Instantiate(FireBall, transform.position, transform.rotation);
+        StartCoroutine(SummonFireBall());
     }
 
     void Update()
@@ -19,5 +18,18 @@ public class Fireball : MonoBehaviour
 
     private void FixedUpdate()
     {
+
     }
+
+    IEnumerator SummonFireBall()
+    {
+        for (int i=0; i<5; i++)
+        {
+            Debug.Log("파이어볼 소환");
+            Instantiate(FireBall, transform.position, transform.rotation);
+            yield return new WaitForSeconds(3f);
+        }
+        
+    }
+
 }
