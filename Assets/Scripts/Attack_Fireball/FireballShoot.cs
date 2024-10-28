@@ -24,8 +24,7 @@ public class FireballShoot : MonoBehaviour
 
     void Start()
     {
-        Debug.Log(transform.position);
-        Debug.Log("파이어볼슈우우웃");
+        Debug.Log("파이어볼 슛");
         NowPos = transform.position;
         DestinationPos = PlayerPos.position;
         
@@ -46,9 +45,7 @@ public class FireballShoot : MonoBehaviour
 
     void FixedUpdate()
     {
-        transform.position = Vector3.MoveTowards(NowPos, DestinationPos, 0);
-        Debug.Log("now pos: " + NowPos + ", destination: " + DestinationPos);
-        //transform.position += new Vector3(MovePos.x, MovePos.y, MovePos.z);
+        transform.position += new Vector3(MovePos.x, MovePos.y, MovePos.z);
     }
 
    
@@ -66,14 +63,16 @@ public class FireballShoot : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("패링가능!");
-        Parring = true;
+        if (collision.gameObject.tag == "Player")
+        {
+            Debug.Log("패링가능!");
+            Parring = true;
+        }
     }
 
     void DestroyBall()
     {
-        Debug.Log("파이어볼삭제에에");
-        Destroy(gameObject);
+        Debug.Log("파이어볼삭제");
     }
 
 }
