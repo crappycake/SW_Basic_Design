@@ -8,16 +8,12 @@ public class AttackArea : MonoBehaviour
     [Header("Area")]
     [SerializeField] private GameObject squareAreatemp;
     public GameObject squareArea;
+    private float bpm;
     // Start is called before the first frame update
     void Start()
     {
         squareArea = squareAreatemp;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        bpm = GameObject.Find("Beat Manager(TEST)").GetComponent<LevelBeatManager>().Bpm();
     }
 
     #region SquareArea
@@ -46,19 +42,19 @@ public class AttackArea : MonoBehaviour
         {
             c.a = alpha;
             renderer.material.color = c;
-            yield return new WaitForSeconds(.05f);
+            yield return new WaitForSeconds(GetBeat(bpm) / 10);
         }
         for (float alpha = 1f; alpha >= 0; alpha -= 0.1f)
         {
             c.a = alpha;
             renderer.material.color = c;
-            yield return new WaitForSeconds(.05f);
+            yield return new WaitForSeconds(GetBeat(bpm) / 10);
         }
         for (float alpha = 0f; alpha <= 1f; alpha += 0.1f)
         {
             c.a = alpha;
             renderer.material.color = c;
-            yield return new WaitForSeconds(.05f);
+            yield return new WaitForSeconds(GetBeat(bpm) / 10);
         }
         yield return StartCoroutine(DamageSquare(obj));
     }
@@ -70,7 +66,7 @@ public class AttackArea : MonoBehaviour
         renderer.material.color = new Color(255, 0, 0);
         obj.tag = "Damage";
 
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(GetBeat(bpm));
 
         renderer.material.color = new Color(100, 100, 100);
         obj.tag = "Untagged";
@@ -79,6 +75,7 @@ public class AttackArea : MonoBehaviour
     #endregion
 
 
+    #region CircleArea
     public void CircleArea(GameObject Circle)
     {
         StartCoroutine(CircleFadeInOut(Circle));
@@ -92,19 +89,19 @@ public class AttackArea : MonoBehaviour
         {
             c.a = alpha;
             renderer.material.color = c;
-            yield return new WaitForSeconds(.05f);
+            yield return new WaitForSeconds(GetBeat(bpm) / 10);
         }
         for (float alpha = 0f; alpha <= 1; alpha += 0.1f)
         {
             c.a = alpha;
             renderer.material.color = c;
-            yield return new WaitForSeconds(.05f);
+            yield return new WaitForSeconds(GetBeat(bpm) / 10);
         }
         for (float alpha = 1f; alpha >= 0; alpha -= 0.1f)
         {
             c.a = alpha;
             renderer.material.color = c;
-            yield return new WaitForSeconds(.05f);
+            yield return new WaitForSeconds(GetBeat(bpm) / 10);
         }
         yield return StartCoroutine(DamageCircle(obj));
     }
@@ -114,9 +111,16 @@ public class AttackArea : MonoBehaviour
         obj.GetComponent<SpriteRenderer>().material.color = new Color(255, 0, 0);
         obj.tag = "Damage";
 
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(GetBeat(bpm));
 
         obj.GetComponent<SpriteRenderer>().material.color = new Color(255, 255, 255);
         obj.tag = "Untagged";
+    }
+    #endregion
+
+
+    private float GetBeat(float bpm)
+    {
+        return 60f / (bpm); //how many seconds in a beat
     }
 }

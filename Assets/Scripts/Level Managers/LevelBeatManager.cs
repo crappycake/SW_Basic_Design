@@ -26,8 +26,11 @@ public class LevelBeatManager : MonoBehaviour
         float progress = audioSource.time / audioSource.clip.length;
         return (int) (progress * 100);
     }
+    public float Bpm()
+    {
+        return bpm;
+    }
 }
-
 [System.Serializable]
 public class Intervals
 {

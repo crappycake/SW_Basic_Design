@@ -5,7 +5,7 @@ using UnityEngine;
 public class SpikeMaker : MonoBehaviour
 {
     int[] spike = new int[]
-    { 0, 1, 0 ,1 ,0 ,1, 0, 1 ,0 ,1 ,0 ,1 ,3, 1 ,1 ,1 ,0 ,0 ,0 ,0 ,0 ,0 ,4 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0,
+    { 0, 1, 0 ,1 ,0 ,1, 0, 1 ,0 ,1 ,0 ,1 ,1, 1 ,2 ,1 ,0 ,0 ,0 ,0 ,0 ,0 ,1 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0,
 0, 0, 1 ,0 ,1 ,0 ,1 ,1 ,1 ,0 ,1,0, 1, 0, 1, 1, 1, 0, 1, 0, 1, 0, 1, 1, 1, 0, 1, 0, 1, 0, 1, 1, 1 ,1
 ,0 ,1 ,0 ,1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 1 ,0 ,0 ,1 ,0, 1, 0, 1, 0, 1, 0, 1, 0 ,1, 1, 0,  1, 0 ,1 ,0 ,1 ,1 ,1 ,0, 1,
 0, 1, 1, 1, 0, 1, 0, 1 ,0 ,1 ,1, 1, 1 ,0 ,0, 1, 0, 1 ,1, 1, 1, 0, 0 ,1 ,0 ,0 ,0, 0
@@ -49,13 +49,10 @@ public class SpikeMaker : MonoBehaviour
                 SummonSpike();
                 break;
             case 2:
-                attackArea.SquareArea(otherPosition);   //squareArea에 gameobject를 넣으면 gameobject의 위치에 square이 나옴
-                break;
-            case 3:
                 attackArea.SquareArea(startPosition);
                 break;
-            case 4:
-                attackArea.CircleArea(circle1);         //CircleArea에 gameobject를 넣으면 gameobject가 피격판정이 됨
+            case 3:
+                attackArea.CircleArea(circle2);
                 break;
 
         }
