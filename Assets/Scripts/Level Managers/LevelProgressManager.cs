@@ -20,7 +20,6 @@ public class LevelProgressManager : MonoBehaviour
     void UpdateLevelProgress()
     {
         int progress = levelBeatManager.GetAudioSourceProgress();
-        Debug.Log(progress);
         GameLevelManager.instance.SetCurrentLevelProgress(progress);
     }
 
