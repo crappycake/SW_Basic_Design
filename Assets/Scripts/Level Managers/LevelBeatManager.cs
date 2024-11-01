@@ -12,6 +12,11 @@ public class LevelBeatManager : MonoBehaviour
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private Intervals[] intervals;
 
+    private void Awake()
+    {
+
+    }
+    
     private void Update()
     {
         foreach (Intervals interval in intervals)

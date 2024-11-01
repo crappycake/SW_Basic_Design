@@ -14,6 +14,7 @@ public class PlayerUIController : MonoBehaviour
     void Awake()
     {
         playerHealthManager = GetComponent<PlayerHealthManager>();
+        Time.timeScale = 1f;
     }
     void Start()
     {

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class GameLevelManager : MonoBehaviour
@@ -85,6 +86,9 @@ public class GameLevelManager : MonoBehaviour
             Debug.LogError("Incorrect amount of number of stars delivered to GameStageManager");
             return;
         }
+
+        if (numberOfStars <= levelStars[currentLevel]) return;
+
         levelStars[currentLevel] = numberOfStars;
     }
 
@@ -111,6 +115,7 @@ public class GameLevelManager : MonoBehaviour
         if (_progress < 0)          Debug.LogError("Current progress value is given wrong at GameLevelManager!");
         else if ( _progress > 100) _progress = 100;
 
+        if (_progress <= levelProgress[currentLevel]) return;
         levelProgress[currentLevel] = _progress;
     }
     #endregion

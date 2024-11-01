@@ -35,6 +35,7 @@ public class SpikeMaker : MonoBehaviour
     private void Awake()
     {
         attackArea = gameObject.GetComponent<AttackArea>();
+        beat = 0;
         //for (int i = 0; i < spike.Length; i++) { spike[i] = i % 2; }
     }
     public void Beat_Renderer()
