@@ -4,21 +4,7 @@ using UnityEngine;
 
 public class SpikeMaker : MonoBehaviour
 {
-    int[] spike = new int[]
-    { 0, 1, 0 ,1 ,0 ,1, 0, 1 ,0 ,1 ,0 ,1 ,1, 1 ,2 ,1 ,0 ,0 ,0 ,0 ,0 ,0 ,1 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0,
-0, 0, 1 ,0 ,1 ,0 ,1 ,1 ,1 ,0 ,1,0, 1, 0, 1, 1, 1, 0, 1, 0, 1, 0, 1, 1, 1, 0, 1, 0, 1, 0, 1, 1, 1 ,1
-,0 ,1 ,0 ,1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 1 ,0 ,0 ,1 ,0, 1, 0, 1, 0, 1, 0, 1, 0 ,1, 1, 0,  1, 0 ,1 ,0 ,1 ,1 ,1 ,0, 1,
-0, 1, 1, 1, 0, 1, 0, 1 ,0 ,1 ,1, 1, 1 ,0 ,0, 1, 0, 1 ,1, 1, 1, 0, 0 ,1 ,0 ,0 ,0, 0
-,1 ,1 ,0, 0, 1, 1 ,0, 0, 1, 1, 0, 0, 1,1 ,0 ,0 ,1 ,1, 0, 0, 1, 1 ,0 ,0 ,1, 0, 1, 0, 0, 0, 0
-,0 ,1 ,0 ,1 ,0 ,1 ,1 ,1,0 ,1 ,0 ,1 ,0, 1 ,1, 1, 0, 1, 0, 1 ,0 ,1 ,1 ,1 ,0 ,1, 0, 1, 0, 1, 1, 1
-,1 ,0 ,1, 0, 1, 1, 1,  0, 0, 1 ,0 ,1 ,0 ,1 ,1 ,1, 0 ,1 ,0, 1 ,0 ,1 ,1, 1, 0 ,1 ,0 ,1, 0, 1, 0 ,0
-,0, 1, 0 ,0 ,0, 1 ,0, 0, 0, 1, 0, 0 ,0, 1 ,0, 0, 0, 1,0 ,0 ,0,1 ,0 ,0 ,0 ,1 ,0, 0, 1, 1, 1,1
-,0, 1, 0, 1 ,0 ,1 ,1 ,1, 0 ,1 ,0 ,1 ,0, 1, 1, 1,0 ,1 ,0 ,1 ,0 ,1 ,1, 1 ,0, 1, 1 ,1, 0, 1, 1 ,0,
-0, 1 ,0, 1 ,0 ,1 ,1 ,1 ,0 ,1 ,1, 1,0 ,1, 1,1 ,0, 1, 0, 1 ,0 ,1 ,1 ,1, 0, 1 ,1 ,0, 1, 0, 1, 1, 0, 0 ,0, 0 ,1
- };
-
-
-    //{ 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1, 0, 1, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 1, 1, 1, 0, 1, 0, 0, 1, 0, 0, 1, 0, 1, 0, 0, 0, 1, 1, 0, 0, 1, 0, 0, 1, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0, 1, 0, 1, 1, 0, 0, 1, 1, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0, 1, 1, 0, 0, 0, 0, 0, 0, 1, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0, 1, 1, 0, 1, 0, 0, 1, 0, 1, 0, 1, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0, 1, 0, 1, 0, 0, 0, 1, 0, 1, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0 };
+    int[] spike;
     int beat = 0;
     bool flag = false;
 
@@ -36,7 +22,11 @@ public class SpikeMaker : MonoBehaviour
     {
         attackArea = gameObject.GetComponent<AttackArea>();
         beat = 0;
-        //for (int i = 0; i < spike.Length; i++) { spike[i] = i % 2; }
+        Debug.Log(GameLevelManager.instance.GetCurrentLevel());
+
+        spike = BeatMap.instance.GetArray("Test");
+        //spike = BeatMap.instance.GetArray(GameLevelManager.instance.GetCurrentLevel());
+        //1-1 과 같은 숫자로 시작하거나 "-" 문자가 포함된 경우, enum으로 설정이 불가함. 수정 필요
     }
     public void Beat_Renderer()
     {
@@ -80,23 +70,6 @@ public class SpikeMaker : MonoBehaviour
             spikeScript.attachedObject = circle2;
             flag = flag != true;
         }
-
-        /*
-        if (num == 1 && flag == false || num == 2 && flag == true)
-        {
-            spikeClone.transform.position = new Vector3(spawnPosition1.transform.position.x, spawnPosition1.transform.position.y);
-            spikeClone.transform.SetParent(circle1.transform, true);
-            spikeScript.attachedObject = circle1;
-            flag = flag != true;
-        }
-        else if (num == 2 && flag == false || num == 1 && flag == true)
-        {
-            spikeClone.transform.position = new Vector3(spawnPosition1.transform.position.x, spawnPosition2.transform.position.y);
-            spikeClone.transform.SetParent(circle2.transform, true);
-            spikeScript.attachedObject = circle2;
-            flag = flag != true;
-        }
-        */
     }
 
 }
