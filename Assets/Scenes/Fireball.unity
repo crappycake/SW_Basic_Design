@@ -223,6 +223,37 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &432819254
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 432819255}
+  m_Layer: 0
+  m_Name: UpDestination
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &432819255
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 432819254}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 3, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 19
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &476656799
 GameObject:
   m_ObjectHideFlags: 0
@@ -265,7 +296,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &511933317
 GameObject:
@@ -494,6 +525,37 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7750048627881331089, guid: 1d7c3a778ee9c974595505a65ae4f857, type: 3}
   m_PrefabInstance: {fileID: 1583840877387186081}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &759245882
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 759245883}
+  m_Layer: 0
+  m_Name: startDestination
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &759245883
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 759245882}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 3, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 21
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &834784121 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 807639616115986069, guid: 930c51e57ac6cf14491c1eb3d205725b, type: 3}
@@ -521,6 +583,68 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7267981825499932590, guid: 6db4ebf12e0f427488b3a3c33fba6e87, type: 3}
   m_PrefabInstance: {fileID: 8895022700302348532}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1171165181
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1171165182}
+  m_Layer: 0
+  m_Name: DownDestination
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1171165182
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1171165181}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 20
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1321642627
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1321642628}
+  m_Layer: 0
+  m_Name: '___________Fireball_____________ '
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1321642628
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1321642627}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 7.020228, y: 5.614181, z: 0.7290835}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 17
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1373658582 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8440687338857141882, guid: 3e1d1d71eacedbc469ac0bb685cc9d55, type: 3}
@@ -633,6 +757,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39adb35a2a9e0fd409cb26db8e3ac470, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fireballPrefab: {fileID: 2865519444121687294, guid: 70f09f2b41647694181adbfdb53fc0bf, type: 3}
+  startDestination: {fileID: 0}
+  upDestination: {fileID: 432819254}
+  downDestination: {fileID: 1171165181}
   circle1: {fileID: 936158185}
   spawnPosition1: {fileID: 148776365}
   startPosition: {fileID: 0}
@@ -986,7 +1114,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1754055117
 Transform:
   m_ObjectHideFlags: 0
@@ -995,12 +1123,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1754055116}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 21.76, y: -11.2, z: 0}
+  m_LocalPosition: {x: 21.76, y: -2.34, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1754055118
 MonoBehaviour:
@@ -1014,7 +1142,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a07599fa83381e543b80909a583ab224, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FireBall: {fileID: 2865519444121687294, guid: 70f09f2b41647694181adbfdb53fc0bf, type: 3}
+  fireballPrefab: {fileID: 2865519444121687294, guid: 70f09f2b41647694181adbfdb53fc0bf, type: 3}
+  startDestination: {fileID: 759245882}
+  upDestination: {fileID: 432819254}
+  downDestination: {fileID: 1171165181}
 --- !u!114 &1805505046 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6081816962668066345, guid: 930c51e57ac6cf14491c1eb3d205725b, type: 3}

@@ -6,12 +6,11 @@ public class FireballShoot : MonoBehaviour
 {
     public float bpm;
 
-    public Vector3 nowPos;
-    private Vector3 destinationPos;
-    private Vector3 betweenPos;
-    private Vector3 movePos;
+    public Vector3 startPos; //출발점 위치
+    public Vector3 destinationPos; //목적지 위치
 
-    public Transform playerPos;
+    private Vector3 betweenPos; //간격
+    private Vector3 movePos; //움직여야 할 만큼의 거리
 
     private bool parrying;
 
@@ -20,19 +19,17 @@ public class FireballShoot : MonoBehaviour
 
     private void Awake()
     {
-        playerPos = GameObject.FindWithTag("Player").transform;
-        playerFlipController = FindObjectOfType<Player_FlipController>();
-
+        playerFlipController = FindObjectOfType<Player_FlipController>(); //패링 키 이벤트
         playerFlipController.OnParryingFunctionCalled += Parry;
     }
 
     void Start()
     {
         Debug.Log("파이어볼 슛");
-        nowPos = transform.position;
-        destinationPos = playerPos.position;
+        startPos = transform.position;
+        //destinationPos = playerPos.position;
         
-        betweenPos = destinationPos-nowPos; //요만큼 이동하는데 60/bpm*4 초가 걸린다.
+        betweenPos = destinationPos-startPos; //요만큼 이동하는데 60/bpm*4 초가 걸리게 해야한다. 아직 구현 X
         movePos = betweenPos/(60f);
 
         parrying = false;
