@@ -13,7 +13,7 @@ public class SpikeMaker : MonoBehaviour
 
     int[] spike;
     int beat = 0;
-    bool flag = false;
+    bool sameDirection = false; //정방향인지 역방향인지
 
     [Header("Circle 1")]
     [SerializeField] private GameObject circle1;
@@ -30,6 +30,8 @@ public class SpikeMaker : MonoBehaviour
     {
         fireball = fireballPrefab;
         fireball.GetComponent<FireballShoot>().startPos = startDestination.transform.position;
+
+        attackArea = GetComponent<AttackArea>();
     }
 
     private void Awake()
@@ -46,64 +48,202 @@ public class SpikeMaker : MonoBehaviour
     {
         switch (spike[beat])
         {
-            case 0:
-                Debug.Log("non");
-                break;
-            case 1:
-                Debug.Log("yeh");
-                SummonSpike();
-                break;
-            case 2:
-                attackArea.SquareArea(startPosition);
-                break;
-            case 3:
-                attackArea.CircleArea(circle2);
-                break;
-            case 5:
-                shootFireballUp();
-                break;
-            case 6:
-                shootFireballDown();
-                break;
-
+            case 1: SummonSpike("UP");              break;
+            case 2: SummonSpike("DOWN");            break;
+            case 3: SummonJumpPad("UP");            break;
+            case 4: SummonJumpPad("DOWN");          break;
+            case 5: ShootFireBall("UP");            break;
+            case 6: ShootFireBall("DOWN");          break;
+            case 7: SummonAttackArea("UP");         break;
+            case 8: SummonAttackArea("DOWN");       break;
+            case 9: TriggerPlatformAttack("UP");    break;
+            case 10:TriggerPlatformAttack("DOWN");  break;
+            default:                                break;
         }
+
         beat++;
     }
 
-    void SummonSpike()
+    #region SUMMON SPIKE FUNCTIONS
+    void SummonSpike(string direction)
+    {
+        if (direction == "UP")
+        {
+            if (sameDirection == true)
+            {
+                SummonSpikeUp();
+            }
+            else
+            {
+                SummonSpikeDown();
+                sameDirection = !sameDirection;
+            }
+        }
+        else if (direction == "DOWN")
+        {
+            if (sameDirection == true)
+            {
+                SummonSpikeDown();
+            }
+            else
+            {
+                SummonSpikeUp();
+                sameDirection = !sameDirection;
+            }
+        }
+    }
+
+    void SummonSpikeUp()
     {
         GameObject spikeClone = ObjectPool.SharedInstance.GetPooledObject();
         spikeClone.SetActive(true);
         var spikeScript = spikeClone.GetComponent<AttachToCircle>();
 
-        if (flag == false)
+        //위 스파이크 소환
+        spikeClone.transform.position = new Vector3(spawnPosition1.transform.position.x, spawnPosition2.transform.position.y);
+        spikeClone.transform.SetParent(circle2.transform, true);
+        spikeScript.attachedObject = circle2;
+    }
+
+    void SummonSpikeDown()
+    {
+        GameObject spikeClone = ObjectPool.SharedInstance.GetPooledObject();
+        spikeClone.SetActive(true);
+        var spikeScript = spikeClone.GetComponent<AttachToCircle>();
+
+
+        //아래 스파이크 소환
+        spikeClone.transform.position = new Vector3(spawnPosition1.transform.position.x, spawnPosition1.transform.position.y);
+        spikeClone.transform.SetParent(circle1.transform, true);
+        spikeScript.attachedObject = circle1;
+    }
+    #endregion
+
+    #region SUMMON JUMP PAD FUNCTIONS
+    void SummonJumpPad(string direction)
+    {
+
+    }
+    #endregion
+
+    #region SUMMON FIREBALL FUNCTIONS
+    void ShootFireBall(string direction)
+    {
+        if (direction == "UP")
         {
-            spikeClone.transform.position = new Vector3(spawnPosition1.transform.position.x, spawnPosition1.transform.position.y);
-            spikeClone.transform.SetParent(circle1.transform, true);
-            spikeScript.attachedObject = circle1;
-            flag = flag != true;
+            if (sameDirection == true)
+            {
+                ShootFireBallUp();
+            }
+            else
+            {
+                ShootFireballDown();
+                sameDirection = !sameDirection;
+            }
         }
-        else if (flag == true)
+        else if (direction == "DOWN")
         {
-            spikeClone.transform.position = new Vector3(spawnPosition1.transform.position.x, spawnPosition2.transform.position.y);
-            spikeClone.transform.SetParent(circle2.transform, true);
-            spikeScript.attachedObject = circle2;
-            flag = flag != true;
+            if (sameDirection == true)
+            {
+                ShootFireballDown();
+            }
+            else
+            {
+                ShootFireBallUp();
+                sameDirection = !sameDirection;
+            }
         }
     }
 
-    void shootFireballUp()
+    void ShootFireBallUp()
     {
         Debug.Log("위 파이어볼 소환");
         fireball.GetComponent<FireballShoot>().destinationPos = upDestination.transform.position;
-        Instantiate(fireball, startDestination.transform.position, startDestination.transform.rotation);
+        InstantiateFireBall();
     }
 
-    void shootFireballDown()
+    void ShootFireballDown()
     {
         Debug.Log("아래 파이어볼 소환");
         fireball.GetComponent<FireballShoot>().destinationPos = downDestination.transform.position;
-        Instantiate(fireball, startDestination.transform.position, startDestination.transform.rotation);
+        InstantiateFireBall();
     }
 
+    void InstantiateFireBall()
+    {
+        Instantiate(fireball, startDestination.transform.position, startDestination.transform.rotation);
+    }
+    #endregion
+
+    #region SUMMON ATTACK AREA FUNCTIONS
+    void SummonAttackArea(string direction)
+    {
+        if (direction == "UP")
+        {
+            if (sameDirection == true)
+            {
+                //위쪽 생성
+                attackArea.SummonSquareArea(spawnPosition2);
+            }
+            else
+            {
+                //아래쪽 생성
+                attackArea.SummonSquareArea(spawnPosition1);
+                sameDirection = !sameDirection;
+            }
+        }
+        else if (direction == "DOWN")
+        {
+            if (sameDirection == true)
+            {
+                attackArea.SummonSquareArea(spawnPosition1);
+            }
+            else
+            {
+                attackArea.SummonSquareArea(spawnPosition2);
+                sameDirection = !sameDirection;
+            }
+        }
+    }
+    #endregion
+
+    #region CIRCLE AREA FUNCTIONS
+    void TriggerPlatformAttack(string direction)
+    {
+        if (direction == "UP")
+        {
+            if (sameDirection == true)
+            {
+                TriggerPlatformAttackUp();
+            }
+            else
+            {
+                TriggerPlatformAttackDown();
+                sameDirection = !sameDirection;
+            }
+        }
+        else if (direction == "DOWN")
+        {
+            if (sameDirection == true)
+            {
+                TriggerPlatformAttackDown();
+            }
+            else
+            {
+                TriggerPlatformAttackUp();
+                sameDirection = !sameDirection;
+            }
+        }
+    }
+
+    void TriggerPlatformAttackUp()
+    {
+        attackArea.CircleArea(circle2);
+    }
+
+    void TriggerPlatformAttackDown()
+    {
+        attackArea.CircleArea(circle1);
+    }
+    #endregion
 }

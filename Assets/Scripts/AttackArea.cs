@@ -30,10 +30,12 @@ public class AttackArea : MonoBehaviour
         squareArea.transform.position = position.transform.position;
         return newSquareArea;
     }
+    
     private void EnableSquareArea(GameObject obj)
     {
         StartCoroutine(SquareFadeInOut(obj));
     }
+
     IEnumerator SquareFadeInOut(GameObject obj)
     {
         SpriteRenderer renderer = obj.GetComponent<SpriteRenderer>();
