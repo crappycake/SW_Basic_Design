@@ -33,7 +33,7 @@ public class Fireball : MonoBehaviour
         {
             Debug.Log("파이어볼 소환");
             fireball.GetComponent<FireballShoot>().destinationPos = downDestination.transform.position;
-            Instantiate(fireball, transform.position, transform.rotation);
+            Instantiate(fireball, startDestination.transform.position, startDestination.transform.rotation);
             yield return new WaitForSeconds(3f);
         }
         

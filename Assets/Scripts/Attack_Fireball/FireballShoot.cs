@@ -9,8 +9,8 @@ public class FireballShoot : MonoBehaviour
     public Vector3 startPos; //출발점 위치
     public Vector3 destinationPos; //목적지 위치
 
-    private Vector3 betweenPos; //간격
-    private Vector3 movePos; //움직여야 할 만큼의 거리
+    public Vector3 betweenPos; //간격
+    public Vector3 movePos; //움직여야 할 만큼의 거리
 
     private bool parrying;
 
@@ -47,6 +47,8 @@ public class FireballShoot : MonoBehaviour
     void FixedUpdate()
     {
         transform.position += new Vector3(movePos.x, movePos.y, movePos.z);
+        if (transform.position == destinationPos)
+            Debug.Log("목적지 도달!");
     }
 
    

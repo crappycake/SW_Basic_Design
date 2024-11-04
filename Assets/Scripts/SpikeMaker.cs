@@ -96,14 +96,14 @@ public class SpikeMaker : MonoBehaviour
     {
         Debug.Log("위 파이어볼 소환");
         fireball.GetComponent<FireballShoot>().destinationPos = upDestination.transform.position;
-        Instantiate(fireball, transform.position, transform.rotation);
+        Instantiate(fireball, startDestination.transform.position, startDestination.transform.rotation);
     }
 
     void shootFireballDown()
     {
         Debug.Log("아래 파이어볼 소환");
         fireball.GetComponent<FireballShoot>().destinationPos = downDestination.transform.position;
-        Instantiate(fireball, transform.position, transform.rotation);
+        Instantiate(fireball, startDestination.transform.position, startDestination.transform.rotation);
     }
 
 }
