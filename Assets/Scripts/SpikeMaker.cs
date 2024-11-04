@@ -59,10 +59,10 @@ public class SpikeMaker : MonoBehaviour
             case 3:
                 attackArea.CircleArea(circle2);
                 break;
-            case 4:
+            case 5:
                 shootFireballUp();
                 break;
-            case 5:
+            case 6:
                 shootFireballDown();
                 break;
 

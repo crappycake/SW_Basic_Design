@@ -5,11 +5,14 @@ using UnityEngine;
 public class RotateCircle : MonoBehaviour
 {
     [SerializeField] private float rotationSpeed;
+    [SerializeField] private float circle;
+
 
     void Awake()
     {
         Debug.Log(rotationSpeed);
-
+        rotationSpeed = SpeedSetting.instance.RotateSpeed();
+        if (circle % 2 == 0) rotationSpeed *= -1; 
     }
 
     void FixedUpdate()
