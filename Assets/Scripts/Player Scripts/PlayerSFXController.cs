@@ -15,7 +15,7 @@ public class Player_SFXController : MonoBehaviour
     private CinemachineBasicMultiChannelPerlin cinemachineNoise;
     [SerializeField] private float shakeAmplitude;
     [SerializeField] private float shakeFrequency;
-    [SerializeField] private float shakeDuration;
+    private float shakeDuration;
 
     [Header("Damage Blink SFX")]
     [SerializeField] private float blinkDuration;
@@ -40,6 +40,8 @@ public class Player_SFXController : MonoBehaviour
 
         healthManager.OnDamageTaken += StartDMGCoroutine;
         flipController.OnFlipFunctionCalled += TriggerFlipSoundEffect;
+
+        shakeDuration = healthManager.invincibilityTime;
     }
 
     void Start()

@@ -168,7 +168,7 @@ Transform:
   m_Children:
   - {fileID: 8573566492988192366}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &274433734012956635
 SpriteRenderer:
@@ -237,6 +237,7 @@ MonoBehaviour:
   currentHealth: 0
   maxHealth: 3
   canTakeDamage: 1
+  invincibilityTime: 1
 --- !u!114 &9214103997734293465
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -285,7 +286,6 @@ MonoBehaviour:
   mainCamera: {fileID: 0}
   shakeAmplitude: 5
   shakeFrequency: 5
-  shakeDuration: 0.5
   blinkDuration: 1
   initialBlinkInterval: 0.2
   blinkSpeedIncrease: 0.5
