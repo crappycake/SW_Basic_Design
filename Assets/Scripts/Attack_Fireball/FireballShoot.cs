@@ -15,12 +15,14 @@ public class FireballShoot : MonoBehaviour
     private bool parrying;
 
     Player_FlipController playerFlipController;
-
+    FireballSFXController fireballSFXController;
 
     private void Awake()
     {
         playerFlipController = FindObjectOfType<Player_FlipController>(); //패링 키 이벤트
         playerFlipController.OnParryingFunctionCalled += Parry;
+
+        fireballSFXController = GetComponent<FireballSFXController>();
     }
 
     void Start()
@@ -36,12 +38,6 @@ public class FireballShoot : MonoBehaviour
 
         Invoke("DestroyBall", 5);
 
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     void FixedUpdate()
@@ -64,6 +60,7 @@ public class FireballShoot : MonoBehaviour
         {
             Debug.Log("패링해!");
             movePos = -movePos;
+            fireballSFXController.FlipParticleDirectionAfterParry();
             parrying = false;
         }
 
