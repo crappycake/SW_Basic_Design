@@ -180,15 +180,18 @@ public class SpikeMaker : MonoBehaviour
     {
         if (direction == "UP")
         {
+            Debug.Log("1");
             if (sameDirection == true)
-            {
+            {  
                 //困率 积己
-                attackArea.SummonSquareArea(spawnPosition2);
+                Debug.Log("2");
+                attackArea.SquareArea(spawnPosition2);
             }
             else
             {
                 //酒贰率 积己
-                attackArea.SummonSquareArea(spawnPosition1);
+                Debug.Log("3");
+                attackArea.SquareArea(spawnPosition1);
                 sameDirection = !sameDirection;
             }
         }
@@ -196,11 +199,11 @@ public class SpikeMaker : MonoBehaviour
         {
             if (sameDirection == true)
             {
-                attackArea.SummonSquareArea(spawnPosition1);
+                attackArea.SquareArea(spawnPosition1);
             }
             else
             {
-                attackArea.SummonSquareArea(spawnPosition2);
+                attackArea.SquareArea(spawnPosition2);
                 sameDirection = !sameDirection;
             }
         }
