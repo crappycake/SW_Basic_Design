@@ -26,7 +26,7 @@ public class FireballShoot : MonoBehaviour
     void Start()
     {
         Debug.Log("파이어볼 슛");
-        startPos = transform.position;
+        //startPos = transform.position;
         //destinationPos = playerPos.position;
         
         betweenPos = destinationPos-startPos; //요만큼 이동하는데 60/bpm*4 초가 걸리게 해야한다. 아직 구현 X
