@@ -5,6 +5,7 @@ using UnityEngine;
 public class FireballShoot : MonoBehaviour
 {
     public float bpm;
+    [SerializeField] private float parryingSpeedMultiplier;
 
     [HideInInspector] public Vector3 startPos; //출발점 위치
     [HideInInspector] public Vector3 destinationPos; //목적지 위치
@@ -59,7 +60,7 @@ public class FireballShoot : MonoBehaviour
         else //패링 가능한 상태 O
         {
             Debug.Log("패링해!");
-            movePos = -(movePos * 2);
+            movePos = -(movePos * parryingSpeedMultiplier);
             fireballSFXController.FlipParticleDirectionAfterParry();
             parrying = false;
         }
