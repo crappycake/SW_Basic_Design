@@ -17,14 +17,14 @@ public class AttackArea : MonoBehaviour
     }
 
     #region SquareArea
-    public void SquareArea(GameObject position)
+    public void TriggerSquareAreaAttack(GameObject position)
     {
         GameObject temp = SummonSquareArea(position);
         EnableSquareArea(temp);
     }
 
 
-    public GameObject SummonSquareArea(GameObject position)
+    private GameObject SummonSquareArea(GameObject position)
     {
         GameObject newSquareArea = Instantiate(squareArea);
         squareArea.transform.position = position.transform.position;
@@ -78,7 +78,7 @@ public class AttackArea : MonoBehaviour
 
 
     #region CircleArea
-    public void CircleArea(GameObject Circle)
+    public void TriggerCircleAreaAttack(GameObject Circle)
     {
         StartCoroutine(CircleFadeInOut(Circle));
     }

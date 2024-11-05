@@ -4,16 +4,16 @@ using UnityEngine;
 
 public class SpikeMaker : MonoBehaviour
 {
-    //ÆÄÀÌ¾îº¼
-    public GameObject fireballPrefab; //ÆÄÀÌ¾îº¼ ÇÁ¸®ÆÕ!!
-    GameObject fireball; //GetComponent¸¦ À§ÇØ ½ºÅ©¸³Æ® ³»¿¡¼­ ÇÑ¹ø ´õ ¼±¾ð
+    //ï¿½ï¿½ï¿½Ì¾îº¼
+    public GameObject fireballPrefab; //ï¿½ï¿½ï¿½Ì¾îº¼ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½!!
+    GameObject fireball; //GetComponentï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å©ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ¹ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     public GameObject startDestination;
     public GameObject upDestination;
     public GameObject downDestination;
 
     int[] spike;
     int beat = 0;
-    bool sameDirection = false; //Á¤¹æÇâÀÎÁö ¿ª¹æÇâÀÎÁö
+    bool sameDirection = false; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
     [Header("Circle 1")]
     [SerializeField] private GameObject circle1;
@@ -42,7 +42,7 @@ public class SpikeMaker : MonoBehaviour
 
         spike = BeatMap.instance.GetArray("Test");
         //spike = BeatMap.instance.GetArray(GameLevelManager.instance.GetCurrentLevel());
-        //1-1 °ú °°Àº ¼ýÀÚ·Î ½ÃÀÛÇÏ°Å³ª "-" ¹®ÀÚ°¡ Æ÷ÇÔµÈ °æ¿ì, enumÀ¸·Î ¼³Á¤ÀÌ ºÒ°¡ÇÔ. ¼öÁ¤ ÇÊ¿ä
+        //1-1 ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ú·ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï°Å³ï¿½ "-" ï¿½ï¿½ï¿½Ú°ï¿½ ï¿½ï¿½ï¿½Ôµï¿½ ï¿½ï¿½ï¿½, enumï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ò°ï¿½ï¿½ï¿½. ï¿½ï¿½ï¿½ï¿½ ï¿½Ê¿ï¿½
     }
     public void Beat_Renderer()
     {
@@ -99,7 +99,7 @@ public class SpikeMaker : MonoBehaviour
         spikeClone.SetActive(true);
         var spikeScript = spikeClone.GetComponent<AttachToCircle>();
 
-        //À§ ½ºÆÄÀÌÅ© ¼ÒÈ¯
+        //ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å© ï¿½ï¿½È¯
         spikeClone.transform.position = new Vector3(spawnPosition1.transform.position.x, spawnPosition2.transform.position.y);
         spikeClone.transform.SetParent(circle2.transform, true);
         spikeScript.attachedObject = circle2;
@@ -112,7 +112,7 @@ public class SpikeMaker : MonoBehaviour
         var spikeScript = spikeClone.GetComponent<AttachToCircle>();
 
 
-        //¾Æ·¡ ½ºÆÄÀÌÅ© ¼ÒÈ¯
+        //ï¿½Æ·ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å© ï¿½ï¿½È¯
         spikeClone.transform.position = new Vector3(spawnPosition1.transform.position.x, spawnPosition1.transform.position.y);
         spikeClone.transform.SetParent(circle1.transform, true);
         spikeScript.attachedObject = circle1;
@@ -157,14 +157,14 @@ public class SpikeMaker : MonoBehaviour
 
     void ShootFireBallUp()
     {
-        Debug.Log("À§ ÆÄÀÌ¾îº¼ ¼ÒÈ¯");
+        Debug.Log("ï¿½ï¿½ ï¿½ï¿½ï¿½Ì¾îº¼ ï¿½ï¿½È¯");
         fireball.GetComponent<FireballShoot>().destinationPos = upDestination.transform.position;
         InstantiateFireBall();
     }
 
     void ShootFireballDown()
     {
-        Debug.Log("¾Æ·¡ ÆÄÀÌ¾îº¼ ¼ÒÈ¯");
+        Debug.Log("ï¿½Æ·ï¿½ ï¿½ï¿½ï¿½Ì¾îº¼ ï¿½ï¿½È¯");
         fireball.GetComponent<FireballShoot>().destinationPos = downDestination.transform.position;
         InstantiateFireBall();
     }
@@ -183,15 +183,15 @@ public class SpikeMaker : MonoBehaviour
             Debug.Log("1");
             if (sameDirection == true)
             {  
-                //À§ÂÊ »ý¼º
+                //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
                 Debug.Log("2");
-                attackArea.SquareArea(spawnPosition2);
+                attackArea.TriggerSquareAreaAttack(spawnPosition2);
             }
             else
             {
-                //¾Æ·¡ÂÊ »ý¼º
+                //ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
                 Debug.Log("3");
-                attackArea.SquareArea(spawnPosition1);
+                attackArea.TriggerSquareAreaAttack(spawnPosition1);
                 sameDirection = !sameDirection;
             }
         }
@@ -199,11 +199,11 @@ public class SpikeMaker : MonoBehaviour
         {
             if (sameDirection == true)
             {
-                attackArea.SquareArea(spawnPosition1);
+                attackArea.TriggerSquareAreaAttack(spawnPosition1);
             }
             else
             {
-                attackArea.SquareArea(spawnPosition2);
+                attackArea.TriggerSquareAreaAttack(spawnPosition2);
                 sameDirection = !sameDirection;
             }
         }
@@ -241,12 +241,12 @@ public class SpikeMaker : MonoBehaviour
 
     void TriggerPlatformAttackUp()
     {
-        attackArea.CircleArea(circle2);
+        attackArea.TriggerCircleAreaAttack(circle2);
     }
 
     void TriggerPlatformAttackDown()
     {
-        attackArea.CircleArea(circle1);
+        attackArea.TriggerCircleAreaAttack(circle1);
     }
     #endregion
 }
