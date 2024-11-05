@@ -7,6 +7,11 @@ public class FireballSFXController : MonoBehaviour
 {
     public ParticleSystem particleSystem;
     private FireballShoot fireballShoot;
+
+    [SerializeField] private GameObject parrySFX;
+
+    public float parrySFXOffset;
+
     Vector3 direction;
 
     void Awake()
@@ -29,7 +34,19 @@ public class FireballSFXController : MonoBehaviour
         velocityModule.y = new ParticleSystem.MinMaxCurve(direction.y);
     }
 
-    public void FlipParticleDirectionAfterParry()
+    public void CallFunctionsAfterParried()
+    {
+        TriggerParrySFX();
+        FlipParticleDirectionAfterParry();
+    }
+
+    private void TriggerParrySFX()
+    {
+        Vector3 initPosition = new Vector3(transform.position.x - parrySFXOffset, transform.position.y);
+        Instantiate(parrySFX, initPosition, transform.rotation);
+    }
+
+    private void FlipParticleDirectionAfterParry()
     {
         var velocityModule = particleSystem.velocityOverLifetime;
         direction = -direction;

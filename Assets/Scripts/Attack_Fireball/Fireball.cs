@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Fireball : MonoBehaviour
 {
-    public GameObject fireballPrefab; //ÆÄÀÌ¾îº¼ ÇÁ¸®ÆÕ!!
-    GameObject fireball; //GetComponent¸¦ À§ÇØ ½ºÅ©¸³Æ® ³»¿¡¼­ ÇÑ¹ø ´õ ¼±¾ð
+    public GameObject fireballPrefab; //ï¿½ï¿½ï¿½Ì¾îº¼ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½!!
+    GameObject fireball; //GetComponentï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å©ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ¹ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     public GameObject startDestination;
     public GameObject upDestination;
     public GameObject downDestination;
@@ -17,21 +17,11 @@ public class Fireball : MonoBehaviour
         StartCoroutine(SummonFireBall());
     }
 
-    void Update()
-    {
-        
-    }
-
-    private void FixedUpdate()
-    {
-
-    }
-
     IEnumerator SummonFireBall()
     {
         for (int i=0; i<5; i++)
         {
-            Debug.Log("ÆÄÀÌ¾îº¼ ¼ÒÈ¯");
+            Debug.Log("ï¿½ï¿½ï¿½Ì¾îº¼ ï¿½ï¿½È¯");
             fireball.GetComponent<FireballShoot>().destinationPos = downDestination.transform.position;
             Instantiate(fireball, startDestination.transform.position, startDestination.transform.rotation);
             yield return new WaitForSeconds(3f);

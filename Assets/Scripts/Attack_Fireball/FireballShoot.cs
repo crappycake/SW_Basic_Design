@@ -7,11 +7,11 @@ public class FireballShoot : MonoBehaviour
     public float bpm;
     [SerializeField] private float parryingSpeedMultiplier;
 
-    [HideInInspector] public Vector3 startPos; //Ãâ¹ßÁ¡ À§Ä¡
-    [HideInInspector] public Vector3 destinationPos; //¸ñÀûÁö À§Ä¡
+    [HideInInspector] public Vector3 startPos; //ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡
+    [HideInInspector] public Vector3 destinationPos; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡
 
-    [HideInInspector] public Vector3 betweenPos; //°£°Ý
-    [HideInInspector] public Vector3 movePos; //¿òÁ÷¿©¾ß ÇÒ ¸¸Å­ÀÇ °Å¸®
+    [HideInInspector] public Vector3 betweenPos; //ï¿½ï¿½ï¿½ï¿½
+    [HideInInspector] public Vector3 movePos; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½Å­ï¿½ï¿½ ï¿½Å¸ï¿½
 
     private bool parrying;
 
@@ -20,7 +20,7 @@ public class FireballShoot : MonoBehaviour
 
     private void Awake()
     {
-        playerFlipController = FindObjectOfType<Player_FlipController>(); //ÆÐ¸µ Å° ÀÌº¥Æ®
+        playerFlipController = FindObjectOfType<Player_FlipController>(); //ï¿½Ð¸ï¿½ Å° ï¿½Ìºï¿½Æ®
         playerFlipController.OnParryingFunctionCalled += Parry;
 
         fireballSFXController = GetComponent<FireballSFXController>();
@@ -28,11 +28,11 @@ public class FireballShoot : MonoBehaviour
 
     void Start()
     {
-        Debug.Log("ÆÄÀÌ¾îº¼ ½¸");
+        Debug.Log("ï¿½ï¿½ï¿½Ì¾îº¼ ï¿½ï¿½");
         //startPos = transform.position;
         //destinationPos = playerPos.position;
         
-        betweenPos = destinationPos-startPos; //¿ä¸¸Å­ ÀÌµ¿ÇÏ´Âµ¥ 60/bpm*4 ÃÊ°¡ °É¸®°Ô ÇØ¾ßÇÑ´Ù. ¾ÆÁ÷ ±¸Çö X
+        betweenPos = destinationPos-startPos; //ï¿½ä¸¸Å­ ï¿½Ìµï¿½ï¿½Ï´Âµï¿½ 60/bpm*4 ï¿½Ê°ï¿½ ï¿½É¸ï¿½ï¿½ï¿½ ï¿½Ø¾ï¿½ï¿½Ñ´ï¿½. ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ X
         movePos = betweenPos/(60f);
 
         parrying = false;
@@ -45,23 +45,23 @@ public class FireballShoot : MonoBehaviour
     {
         transform.position += new Vector3(movePos.x, movePos.y, movePos.z);
         if (transform.position == destinationPos)
-            Debug.Log("¸ñÀûÁö µµ´Þ!");
+            Debug.Log("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½!");
     }
 
    
 
     void Parry()
     {
-        if (!parrying) //ÆÐ¸µ °¡´ÉÇÑ »óÅÂ X
+        if (!parrying) //ï¿½Ð¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ X
         { 
-            Debug.Log("ÆÐ¸µ¸øÇØ!");
+            Debug.Log("ï¿½Ð¸ï¿½ï¿½ï¿½ï¿½ï¿½!");
             return;
         }
-        else //ÆÐ¸µ °¡´ÉÇÑ »óÅÂ O
+        else //ï¿½Ð¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ O
         {
-            Debug.Log("ÆÐ¸µÇØ!");
+            Debug.Log("ï¿½Ð¸ï¿½ï¿½ï¿½!");
             movePos = -(movePos * parryingSpeedMultiplier);
-            fireballSFXController.FlipParticleDirectionAfterParry();
+            fireballSFXController.CallFunctionsAfterParried();
             parrying = false;
         }
 
@@ -71,7 +71,7 @@ public class FireballShoot : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            Debug.Log("ÆÐ¸µ°¡´É!");
+            Debug.Log("ï¿½Ð¸ï¿½ï¿½ï¿½ï¿½ï¿½!");
             parrying = true;
         }
     }
@@ -80,14 +80,14 @@ public class FireballShoot : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            Debug.Log("ÆÐ¸µ ºÒ°¡´É!");
+            Debug.Log("ï¿½Ð¸ï¿½ ï¿½Ò°ï¿½ï¿½ï¿½!");
             parrying = false;
         }
     }
 
     void DestroyBall()
     {
-        Debug.Log("ÆÄÀÌ¾îº¼»èÁ¦");
+        Debug.Log("ï¿½ï¿½ï¿½Ì¾îº¼ï¿½ï¿½ï¿½ï¿½");
     }
 
 }

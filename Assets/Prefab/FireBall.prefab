@@ -187,6 +187,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   particleSystem: {fileID: 8952588797632581898}
+  parrySFX: {fileID: 1429954232896169633, guid: 83036083a4ebcd34f98131bd3cf6f4d2, type: 3}
+  parrySFXOffset: 0.5
 --- !u!70 &8204187789471204094
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
