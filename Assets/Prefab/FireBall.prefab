@@ -10,10 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 8413820188305061963}
   - component: {fileID: 2323817061403686683}
-  - component: {fileID: 5474855051018280880}
+  - component: {fileID: 2864585944143255261}
   m_Layer: 0
   m_Name: Damage
-  m_TagString: Damage
+  m_TagString: Fireball
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -68,7 +68,7 @@ CapsuleCollider2D:
   m_Offset: {x: -0.014929295, y: 0.03201294}
   m_Size: {x: 0.42905712, y: 0.42905712}
   m_Direction: 0
---- !u!114 &5474855051018280880
+--- !u!114 &2864585944143255261
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -77,7 +77,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 363207177779263514}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 934bfb90e02464d429d42009ac5da4a8, type: 3}
+  m_Script: {fileID: 11500000, guid: 0ce92f1fb3d6b3d488687f57220b0a02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &2865519444121687294
@@ -201,6 +201,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   particleSystem: {fileID: 8952588797632581898}
   parrySFX: {fileID: 1429954232896169633, guid: 83036083a4ebcd34f98131bd3cf6f4d2, type: 3}
+  destroySFX: {fileID: 725748389856807714, guid: 4bda94453d2ca7444a0fff05b2d425f5, type: 3}
   parrySFXOffset: 0.5
 --- !u!70 &8204187789471204094
 CapsuleCollider2D:

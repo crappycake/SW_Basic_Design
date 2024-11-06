@@ -9,6 +9,8 @@ public class PlayerUIController : MonoBehaviour
 {
     [SerializeField] Image[] playerHealthImages;
     [SerializeField] GameObject gameOverPanel;
+
+
     PlayerHealthManager playerHealthManager;
 
     void Awake()
@@ -32,7 +34,7 @@ public class PlayerUIController : MonoBehaviour
         int currentHealth = playerHealthManager.GetPlayerCurrentHealth();
         for (int i = 0; i < playerHealthImages.Length; ++i)
         {
-            playerHealthImages[i].enabled = i < currentHealth;
+                playerHealthImages[i].enabled = i < currentHealth;
         }
     }
 

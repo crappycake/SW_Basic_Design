@@ -7,11 +7,11 @@ public class FireballShoot : MonoBehaviour
     public float bpm;
     [SerializeField] private float parryingSpeedMultiplier;
 
-    [HideInInspector] public Vector3 startPos;
-    [HideInInspector] public Vector3 destinationPos;
+    [HideInInspector] public Vector3 startPos; //????? ???
+    [HideInInspector] public Vector3 destinationPos; //?????? ???
 
-    [HideInInspector] public Vector3 betweenPos;
-    [HideInInspector] public Vector3 movePos;
+    [HideInInspector] public Vector3 betweenPos; //????
+    [HideInInspector] public Vector3 movePos; //???????? ?? ????? ???
 
     private bool parrying;
 
@@ -20,7 +20,7 @@ public class FireballShoot : MonoBehaviour
 
     private void Awake()
     {
-        playerFlipController = FindObjectOfType<Player_FlipController>();
+        playerFlipController = FindObjectOfType<Player_FlipController>(); //?¬Ú? ? ????
         playerFlipController.OnParryingFunctionCalled += Parry;
 
         fireballSFXController = GetComponent<FireballSFXController>();
@@ -28,8 +28,11 @@ public class FireballShoot : MonoBehaviour
 
     void Start()
     {
+        Debug.Log("????? ??");
+        //startPos = transform.position;
+        //destinationPos = playerPos.position;
         
-        betweenPos = destinationPos-startPos;
+        betweenPos = destinationPos-startPos; //?ü¯? ??????? 60/bpm*4 ??? ????? ??????. ???? ???? X
         movePos = betweenPos/(60f);
 
         parrying = false;
@@ -47,10 +50,11 @@ public class FireballShoot : MonoBehaviour
 
     void Parry()
     {
-        if (!parrying) 
+        if (!parrying) //?¬Ú? ?????? ???? X
+        { 
             return;
-
-        else
+        }
+        else //?¬Ú? ?????? ???? O
         {
             movePos = -(movePos * parryingSpeedMultiplier);
             fireballSFXController.CallFunctionsAfterParried();
@@ -62,19 +66,21 @@ public class FireballShoot : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Player")
+        {
             parrying = true;
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Player")
+        {
             parrying = false;
+        }
     }
 
     void DestroyBall()
     {
-        Debug.Log("Fireball far far away...");
         Destroy(gameObject);
     }
-
 }

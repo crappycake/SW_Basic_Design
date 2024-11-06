@@ -10,6 +10,10 @@ public class Player_SFXController : MonoBehaviour
     private TrailRenderer trailRenderer;
     private Player_FlipController flipController;
     
+    [Header("Damage UI SFX")]
+    [SerializeField] GameObject brokenHeartSFX;
+    [SerializeField] private Vector3[] brokenHeartPositions;
+    
     [Header("Damage Shake SFX")]
     [SerializeField] private CinemachineVirtualCamera mainCamera;
     private CinemachineBasicMultiChannelPerlin cinemachineNoise;
@@ -84,8 +88,14 @@ public class Player_SFXController : MonoBehaviour
     void StartDMGCoroutine()
     {
         if (healthManager.currentHealth <= 0) return; // do not trigger SFX if player is dead
+        TriggerBrokenHeartUI();
         StartCoroutine(BlinkAfterTakingDamage());
         StartCoroutine(TriggerCameraShakeAfterDMG());
+    }
+
+    void TriggerBrokenHeartUI()
+    {
+        Instantiate(brokenHeartSFX, brokenHeartPositions[healthManager.currentHealth], Quaternion.identity);
     }
 
     IEnumerator BlinkAfterTakingDamage()
