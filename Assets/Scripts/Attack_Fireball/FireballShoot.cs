@@ -7,11 +7,11 @@ public class FireballShoot : MonoBehaviour
     public float bpm;
     [SerializeField] private float parryingSpeedMultiplier;
 
-    [HideInInspector] public Vector3 startPos; //����� ��ġ
-    [HideInInspector] public Vector3 destinationPos; //������ ��ġ
+    [HideInInspector] public Vector3 startPos; //????? ???
+    [HideInInspector] public Vector3 destinationPos; //?????? ???
 
-    [HideInInspector] public Vector3 betweenPos; //����
-    [HideInInspector] public Vector3 movePos; //�������� �� ��ŭ�� �Ÿ�
+    [HideInInspector] public Vector3 betweenPos; //????
+    [HideInInspector] public Vector3 movePos; //???????? ?? ????? ???
 
     private bool parrying;
 
@@ -20,7 +20,7 @@ public class FireballShoot : MonoBehaviour
 
     private void Awake()
     {
-        playerFlipController = FindObjectOfType<Player_FlipController>(); //�и� Ű �̺�Ʈ
+        playerFlipController = FindObjectOfType<Player_FlipController>(); //?��? ? ????
         playerFlipController.OnParryingFunctionCalled += Parry;
 
         fireballSFXController = GetComponent<FireballSFXController>();
@@ -28,11 +28,11 @@ public class FireballShoot : MonoBehaviour
 
     void Start()
     {
-        Debug.Log("���̾ ��");
+        Debug.Log("????? ??");
         //startPos = transform.position;
         //destinationPos = playerPos.position;
         
-        betweenPos = destinationPos-startPos; //�丸ŭ �̵��ϴµ� 60/bpm*4 �ʰ� �ɸ��� �ؾ��Ѵ�. ���� ���� X
+        betweenPos = destinationPos-startPos; //?��? ??????? 60/bpm*4 ??? ????? ??????. ???? ???? X
         movePos = betweenPos/(60f);
 
         parrying = false;
@@ -44,22 +44,18 @@ public class FireballShoot : MonoBehaviour
     void FixedUpdate()
     {
         transform.position += new Vector3(movePos.x, movePos.y, movePos.z);
-        if (transform.position == destinationPos)
-            Debug.Log("������ ����!");
     }
 
    
 
     void Parry()
     {
-        if (!parrying) //�и� ������ ���� X
+        if (!parrying) //?��? ?????? ???? X
         { 
-            Debug.Log("�и�����!");
             return;
         }
-        else //�и� ������ ���� O
+        else //?��? ?????? ???? O
         {
-            Debug.Log("�и���!");
             movePos = -(movePos * parryingSpeedMultiplier);
             fireballSFXController.CallFunctionsAfterParried();
             parrying = false;
@@ -71,7 +67,6 @@ public class FireballShoot : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            Debug.Log("�и�����!");
             parrying = true;
         }
     }
@@ -80,14 +75,12 @@ public class FireballShoot : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            Debug.Log("�и� �Ұ���!");
             parrying = false;
         }
     }
 
     void DestroyBall()
     {
-        Debug.Log("���̾����");
+        Destroy(gameObject);
     }
-
 }

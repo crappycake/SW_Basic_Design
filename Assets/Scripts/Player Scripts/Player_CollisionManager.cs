@@ -10,6 +10,14 @@ public class Player_CollisionManager : MonoBehaviour
     {
         healthManager = GetComponent<PlayerHealthManager>();
     }
+
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Fireball"))
+        {
+            healthManager.TakeDamage();
+        }
+    }
     void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Damage"))

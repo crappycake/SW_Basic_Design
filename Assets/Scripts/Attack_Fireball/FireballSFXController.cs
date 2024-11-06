@@ -9,6 +9,7 @@ public class FireballSFXController : MonoBehaviour
     private FireballShoot fireballShoot;
 
     [SerializeField] private GameObject parrySFX;
+    [SerializeField] private GameObject destroySFX;
 
     public float parrySFXOffset;
 
@@ -23,7 +24,7 @@ public class FireballSFXController : MonoBehaviour
     {
         UpdateParticleDirection();
     }
-
+    
     private void UpdateParticleDirection()
     {
         var velocityModule = particleSystem.velocityOverLifetime;
@@ -55,4 +56,11 @@ public class FireballSFXController : MonoBehaviour
         velocityModule.x = new ParticleSystem.MinMaxCurve(direction.x);
         velocityModule.y = new ParticleSystem.MinMaxCurve(direction.y);
     }
+
+    public void TriggerDestorySFX()
+    {
+        Instantiate(destroySFX, transform.position, Quaternion.identity);
+        Destroy(gameObject);
+    }
+
 }

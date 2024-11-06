@@ -157,14 +157,12 @@ public class SpikeMaker : MonoBehaviour
 
     void ShootFireBallUp()
     {
-        Debug.Log("�� ���̾ ��ȯ");
         fireball.GetComponent<FireballShoot>().destinationPos = upDestination.transform.position;
         InstantiateFireBall();
     }
 
     void ShootFireballDown()
     {
-        Debug.Log("�Ʒ� ���̾ ��ȯ");
         fireball.GetComponent<FireballShoot>().destinationPos = downDestination.transform.position;
         InstantiateFireBall();
     }
