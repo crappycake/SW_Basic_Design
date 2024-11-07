@@ -16,13 +16,13 @@ public class SpikeMaker : MonoBehaviour
     bool sameDirection = false; //���������� ����������
 
     [Header("Circle 1")]
-    [SerializeField] private GameObject circle1;
-    [SerializeField] private GameObject spawnPosition1;
-    [SerializeField] private GameObject startPosition;
+    [SerializeField] private GameObject circleDown;
+    [SerializeField] private GameObject spikeDownSpawnPosition;
+    [SerializeField] private GameObject playerStartPosition;
     [Header("Circle 2")]
-    [SerializeField] private GameObject circle2;
-    [SerializeField] private GameObject spawnPosition2;
-    [SerializeField] private GameObject otherPosition;
+    [SerializeField] private GameObject circleUp;
+    [SerializeField] private GameObject spikeUpSpawnPosition;
+    [SerializeField] private GameObject playerOtherPosition;
 
     private AttackArea attackArea;
 
@@ -100,9 +100,9 @@ public class SpikeMaker : MonoBehaviour
         var spikeScript = spikeClone.GetComponent<AttachToCircle>();
 
         //�� ������ũ ��ȯ
-        spikeClone.transform.position = new Vector3(spawnPosition1.transform.position.x, spawnPosition2.transform.position.y);
-        spikeClone.transform.SetParent(circle2.transform, true);
-        spikeScript.attachedObject = circle2;
+        spikeClone.transform.position = new Vector3(spikeDownSpawnPosition.transform.position.x, spikeUpSpawnPosition.transform.position.y);
+        spikeClone.transform.SetParent(circleUp.transform, true);
+        spikeScript.attachedObject = circleUp;
     }
 
     void SummonSpikeDown()
@@ -113,9 +113,9 @@ public class SpikeMaker : MonoBehaviour
 
 
         //�Ʒ� ������ũ ��ȯ
-        spikeClone.transform.position = new Vector3(spawnPosition1.transform.position.x, spawnPosition1.transform.position.y);
-        spikeClone.transform.SetParent(circle1.transform, true);
-        spikeScript.attachedObject = circle1;
+        spikeClone.transform.position = new Vector3(spikeDownSpawnPosition.transform.position.x, spikeDownSpawnPosition.transform.position.y);
+        spikeClone.transform.SetParent(circleDown.transform, true);
+        spikeScript.attachedObject = circleDown;
     }
     #endregion
 
@@ -183,13 +183,13 @@ public class SpikeMaker : MonoBehaviour
             {  
                 //���� ����
                 Debug.Log("2");
-                attackArea.TriggerSquareAreaAttack(spawnPosition2);
+                attackArea.TriggerSquareAreaAttack(playerOtherPosition);
             }
             else
             {
                 //�Ʒ��� ����
                 Debug.Log("3");
-                attackArea.TriggerSquareAreaAttack(spawnPosition1);
+                attackArea.TriggerSquareAreaAttack(playerStartPosition);
                 sameDirection = !sameDirection;
             }
         }
@@ -197,11 +197,11 @@ public class SpikeMaker : MonoBehaviour
         {
             if (sameDirection == true)
             {
-                attackArea.TriggerSquareAreaAttack(spawnPosition1);
+                attackArea.TriggerSquareAreaAttack(playerStartPosition);
             }
             else
             {
-                attackArea.TriggerSquareAreaAttack(spawnPosition2);
+                attackArea.TriggerSquareAreaAttack(playerOtherPosition);
                 sameDirection = !sameDirection;
             }
         }
@@ -239,12 +239,12 @@ public class SpikeMaker : MonoBehaviour
 
     void TriggerPlatformAttackUp()
     {
-        attackArea.TriggerCircleAreaAttack(circle2);
+        attackArea.TriggerCircleAreaAttack(circleUp);
     }
 
     void TriggerPlatformAttackDown()
     {
-        attackArea.TriggerCircleAreaAttack(circle1);
+        attackArea.TriggerCircleAreaAttack(circleDown);
     }
     #endregion
 }
