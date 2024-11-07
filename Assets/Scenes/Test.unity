@@ -1533,6 +1533,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1412072615102211748, guid: 2e6391e15f6c1e343a6bef0e25308f22, type: 3}
+      propertyPath: orthographic size
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 2057110272945888275, guid: 2e6391e15f6c1e343a6bef0e25308f22, type: 3}
       propertyPath: m_RootOrder
       value: 0
