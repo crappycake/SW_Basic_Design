@@ -17,6 +17,29 @@ public class BeatMap : MonoBehaviour
         Level1_3
     }
 
+    int[][] level1 = new int[4][]
+    {
+        new int[] //1-1
+        {
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, // 20
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, // 40
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, // 60
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, // 80
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, // 100
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, // 120
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, // 140
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, // 160
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, // 180
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, // 200
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, // 220
+            0, 0, 0, 0, 0, 0 // 226
+        },
+
+
+        new int[] { },
+        new int[] { },
+        new int[] { },
+    };
 
     int[][] TestLevel = new int[5][]
         {
@@ -44,7 +67,7 @@ public class BeatMap : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    
+
     public int[] GetArray()
     {
         Debug.Log("Load Beat Map!!");
@@ -54,9 +77,9 @@ public class BeatMap : MonoBehaviour
         if (Enum.TryParse(typeof(ELevel), currentLevel.Replace("-", "_"), out var enumValue) && Enum.IsDefined(typeof(ELevel), enumValue))
         {
             int index = (int)(ELevel)enumValue;
-            return TestLevel[index];
+            return level1[index];
         }
-        
-        return TestLevel[0];
+
+        return level1[0];
     }
 }

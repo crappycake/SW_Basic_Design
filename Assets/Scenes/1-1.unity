@@ -805,12 +805,12 @@ MonoBehaviour:
   startDestination: {fileID: 216041840}
   upDestination: {fileID: 1318572656}
   downDestination: {fileID: 1710687145}
-  circle1: {fileID: 936158185}
-  spawnPosition1: {fileID: 148776365}
-  startPosition: {fileID: 2141886083}
-  circle2: {fileID: 17060066}
-  spawnPosition2: {fileID: 699342629}
-  otherPosition: {fileID: 1373658582}
+  circleDown: {fileID: 936158185}
+  spikeDownSpawnPosition: {fileID: 148776365}
+  playerStartPosition: {fileID: 2141886083}
+  circleUp: {fileID: 17060066}
+  spikeUpSpawnPosition: {fileID: 699342629}
+  playerOtherPosition: {fileID: 1373658582}
 --- !u!114 &1643816801
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1260,6 +1260,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 40117982785876597, guid: 1d7c3a778ee9c974595505a65ae4f857, type: 3}
+      propertyPath: m_Name
+      value: Despawn Position Down
+      objectReference: {fileID: 0}
     - target: {fileID: 1652292574495858228, guid: 1d7c3a778ee9c974595505a65ae4f857, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5
@@ -1276,6 +1280,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -5
       objectReference: {fileID: 0}
+    - target: {fileID: 2834893422668090045, guid: 1d7c3a778ee9c974595505a65ae4f857, type: 3}
+      propertyPath: m_Name
+      value: Despawn Position Up
+      objectReference: {fileID: 0}
     - target: {fileID: 5160020858257215534, guid: 1d7c3a778ee9c974595505a65ae4f857, type: 3}
       propertyPath: m_LocalPosition.x
       value: -5
@@ -1291,6 +1299,14 @@ PrefabInstance:
     - target: {fileID: 5405022484194908450, guid: 1d7c3a778ee9c974595505a65ae4f857, type: 3}
       propertyPath: m_LocalPosition.y
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7750048627881331089, guid: 1d7c3a778ee9c974595505a65ae4f857, type: 3}
+      propertyPath: m_Name
+      value: Spawn Position Up
+      objectReference: {fileID: 0}
+    - target: {fileID: 8010317541807693911, guid: 1d7c3a778ee9c974595505a65ae4f857, type: 3}
+      propertyPath: m_Name
+      value: Spawn Position Down
       objectReference: {fileID: 0}
     - target: {fileID: 8227737836069356789, guid: 1d7c3a778ee9c974595505a65ae4f857, type: 3}
       propertyPath: m_Name
@@ -1640,7 +1656,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8813043739479041785, guid: 3e1d1d71eacedbc469ac0bb685cc9d55, type: 3}
       propertyPath: m_Name
-      value: Test Stage - Spike Flip Positions
+      value: Test Stage - Player Flip Positions
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1657,7 +1673,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2012296719120833637, guid: 994eee000bdd652479cb710bfc2a362c, type: 3}
       propertyPath: m_Name
-      value: Test Stage - Circle 2
+      value: Test Stage - Circle Up
       objectReference: {fileID: 0}
     - target: {fileID: 4208973162081115524, guid: 994eee000bdd652479cb710bfc2a362c, type: 3}
       propertyPath: m_RootOrder
@@ -1888,7 +1904,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7267981825499932590, guid: 6db4ebf12e0f427488b3a3c33fba6e87, type: 3}
       propertyPath: m_Name
-      value: Test Stage - Circle 1
+      value: Test Stage - Circle Down
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
