@@ -44,14 +44,19 @@ public class BeatMap : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    public int[] GetArray(string input)
+    
+    public int[] GetArray()
     {
         Debug.Log("Load Beat Map!!");
-        if (Enum.TryParse(typeof(ELevel), input, out var enumValue) && Enum.IsDefined(typeof(ELevel), enumValue))
+
+        string currentLevel = GameLevelManager.instance.GetCurrentLevel();
+
+        if (Enum.TryParse(typeof(ELevel), currentLevel.Replace("-", "_"), out var enumValue) && Enum.IsDefined(typeof(ELevel), enumValue))
         {
             int index = (int)(ELevel)enumValue;
             return TestLevel[index];
         }
+        
         return TestLevel[0];
     }
 }

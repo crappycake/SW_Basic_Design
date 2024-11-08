@@ -40,7 +40,7 @@ public class SpikeMaker : MonoBehaviour
         beat = 0;
         Debug.Log(GameLevelManager.instance.GetCurrentLevel());
 
-        spike = BeatMap.instance.GetArray("Test");
+        spike = BeatMap.instance.GetArray();
         //spike = BeatMap.instance.GetArray(GameLevelManager.instance.GetCurrentLevel());
         //1-1 �� ���� ���ڷ� �����ϰų� "-" ���ڰ� ���Ե� ���, enum���� ������ �Ұ���. ���� �ʿ�
     }
