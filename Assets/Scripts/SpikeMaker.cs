@@ -48,6 +48,25 @@ public class SpikeMaker : MonoBehaviour
     {
         switch (spike[beat])
         {
+            case 1: SummonSpikeUp();                break;
+            case 2: SummonSpikeDown();              break;
+            //case 3: SummonJumpPad("UP");            break;
+            //case 4: SummonJumpPad("DOWN");          break;
+            case 5: ShootFireBallUp();              break;
+            case 6: ShootFireballDown();            break;
+            case 7: attackArea.TriggerSquareAreaAttack(playerOtherPosition); break;
+            case 8: attackArea.TriggerSquareAreaAttack(playerStartPosition); break;
+            case 9: attackArea.TriggerCircleAreaAttack(circleUp);            break;
+            case 10:attackArea.TriggerCircleAreaAttack(circleDown);          break;
+            default:                                break;
+        }
+
+        beat++;
+    }
+
+
+    /*
+     
             case 1: SummonSpike("UP");              break;
             case 2: SummonSpike("DOWN");            break;
             case 3: SummonJumpPad("UP");            break;
@@ -59,10 +78,7 @@ public class SpikeMaker : MonoBehaviour
             case 9: TriggerPlatformAttack("UP");    break;
             case 10:TriggerPlatformAttack("DOWN");  break;
             default:                                break;
-        }
-
-        beat++;
-    }
+     */
 
     #region SUMMON SPIKE FUNCTIONS
     void SummonSpike(string direction)
