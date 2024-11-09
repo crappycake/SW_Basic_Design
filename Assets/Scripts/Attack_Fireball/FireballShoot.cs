@@ -15,12 +15,12 @@ public class FireballShoot : MonoBehaviour
 
     private bool parrying;
 
-    Player_FlipController playerFlipController;
+    PlayerFlipController playerFlipController;
     FireballSFXController fireballSFXController;
 
     private void Awake()
     {
-        playerFlipController = FindObjectOfType<Player_FlipController>(); //?¬Ú? ? ????
+        playerFlipController = FindObjectOfType<PlayerFlipController>(); //?ï¿½ï¿½? ? ????
         playerFlipController.OnParryingFunctionCalled += Parry;
 
         fireballSFXController = GetComponent<FireballSFXController>();
@@ -32,7 +32,7 @@ public class FireballShoot : MonoBehaviour
         //startPos = transform.position;
         //destinationPos = playerPos.position;
         
-        betweenPos = destinationPos-startPos; //?ü¯? ??????? 60/bpm*4 ??? ????? ??????. ???? ???? X
+        betweenPos = destinationPos-startPos; //?ï¿½ï¿½? ??????? 60/bpm*4 ??? ????? ??????. ???? ???? X
         movePos = betweenPos/(60f);
 
         parrying = false;
@@ -50,11 +50,11 @@ public class FireballShoot : MonoBehaviour
 
     void Parry()
     {
-        if (!parrying) //?¬Ú? ?????? ???? X
+        if (!parrying) //?ï¿½ï¿½? ?????? ???? X
         { 
             return;
         }
-        else //?¬Ú? ?????? ???? O
+        else //?ï¿½ï¿½? ?????? ???? O
         {
             movePos = -(movePos * parryingSpeedMultiplier);
             fireballSFXController.CallFunctionsAfterParried();

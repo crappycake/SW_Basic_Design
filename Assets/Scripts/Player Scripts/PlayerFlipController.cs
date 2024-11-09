@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.InputSystem;
 
-public class Player_FlipController : MonoBehaviour
+public class PlayerFlipController : MonoBehaviour
 {
     public GameObject startingPosition;
     public GameObject otherPosition;
@@ -20,11 +20,6 @@ public class Player_FlipController : MonoBehaviour
     public event Action OnParryingFunctionCalled;
     //Subscried by:
     //1. FireballShoot
-
-    void Awake()
-    {
-        transform.position = startingPosition.transform.position;
-    }
 
     void Update()
     {
@@ -48,11 +43,11 @@ public class Player_FlipController : MonoBehaviour
     {
         if (isFliped)
         {
-            MoveTowardsPosition(startingPosition.transform.position);
+            MoveTowardsPosition(otherPosition.transform.position);
         }
         else
         {
-            MoveTowardsPosition(otherPosition.transform.position);
+            MoveTowardsPosition(startingPosition.transform.position);
         }
     }
     

@@ -8,7 +8,7 @@ public class Player_SFXController : MonoBehaviour
 {
     //FLIP EFFECTS
     private TrailRenderer trailRenderer;
-    private Player_FlipController flipController;
+    private PlayerFlipController flipController;
     
     [Header("Damage UI SFX")]
     [SerializeField] GameObject brokenHeartSFX;
@@ -39,7 +39,7 @@ public class Player_SFXController : MonoBehaviour
         trailRenderer = GetComponent<TrailRenderer>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         healthManager = GetComponent<PlayerHealthManager>();
-        flipController = GetComponent<Player_FlipController>();
+        flipController = GetComponent<PlayerFlipController>();
         cinemachineNoise = mainCamera.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
 
         healthManager.OnDamageTaken += StartDMGCoroutine;

@@ -16,7 +16,6 @@ public class StageSelectUIManager : MonoBehaviour
     {
         currentIndex = 0;
         maxIndex = stagePanels.Length;
-        Debug.Log(maxIndex);
     }
 
     public void SelectChapter()
