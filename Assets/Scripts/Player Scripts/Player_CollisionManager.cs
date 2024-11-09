@@ -18,6 +18,7 @@ public class Player_CollisionManager : MonoBehaviour
             healthManager.TakeDamage();
         }
     }
+    
     void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Damage"))

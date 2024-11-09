@@ -8,14 +8,16 @@ using UnityEngine.UI;
 public class PlayerUIController : MonoBehaviour
 {
     [SerializeField] Image[] playerHealthImages;
+    [SerializeField] GameObject gameClearPanel;
     [SerializeField] GameObject gameOverPanel;
 
-
     PlayerHealthManager playerHealthManager;
+    LevelBeatManager levelBeatManager;
 
     void Awake()
     {
         playerHealthManager = GetComponent<PlayerHealthManager>();
+        levelBeatManager = FindObjectOfType<LevelBeatManager>();
         Time.timeScale = 1f;
     }
     void Start()
@@ -25,8 +27,11 @@ public class PlayerUIController : MonoBehaviour
         {
             Debug.LogError("Number of health UI icons and max health does not match!");
         }
+
         playerHealthManager.OnDamageTaken += UpdateHealthUI;
-        playerHealthManager.OnGameOver += TriggerGameOver;
+        playerHealthManager.OnGameOver += GameOver;
+
+        levelBeatManager.OnMusicEnded.AddListener(GameClear);
     }
 
     void UpdateHealthUI()
@@ -38,7 +43,13 @@ public class PlayerUIController : MonoBehaviour
         }
     }
 
-    void TriggerGameOver()
+    void GameClear()
+    {
+        Time.timeScale = 0f;
+        gameClearPanel.SetActive(true);
+    }
+
+    void GameOver()
     {
         Time.timeScale = 0f;
         gameOverPanel.SetActive(true);

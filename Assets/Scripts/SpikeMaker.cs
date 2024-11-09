@@ -13,7 +13,6 @@ public class SpikeMaker : MonoBehaviour
 
     int[] spike;
     int beat = 0;
-    bool sameDirection = false; //���������� ����������
 
     [Header("Circle 1")]
     [SerializeField] private GameObject circleDown;
@@ -41,74 +40,31 @@ public class SpikeMaker : MonoBehaviour
         Debug.Log(GameLevelManager.instance.GetCurrentLevel());
 
         spike = BeatMap.instance.GetArray();
-        //spike = BeatMap.instance.GetArray(GameLevelManager.instance.GetCurrentLevel());
-        //1-1 �� ���� ���ڷ� �����ϰų� "-" ���ڰ� ���Ե� ���, enum���� ������ �Ұ���. ���� �ʿ�
     }
+
     public void Beat_Renderer()
     {
+        if (beat >= spike.Length) return;
+        
         switch (spike[beat])
         {
-            case 1: SummonSpikeUp();                break;
-            case 2: SummonSpikeDown();              break;
-            //case 3: SummonJumpPad("UP");            break;
-            //case 4: SummonJumpPad("DOWN");          break;
-            case 5: ShootFireBallUp();              break;
-            case 6: ShootFireballDown();            break;
+            case 1: SummonSpikeUp();                                         break;
+            case 2: SummonSpikeDown();                                       break;
+            //case 3: SummonJumpPad("UP");                                   break;
+            //case 4: SummonJumpPad("DOWN");                                 break;
+            case 5: ShootFireBallUp();                                       break;
+            case 6: ShootFireballDown();                                     break;
             case 7: attackArea.TriggerSquareAreaAttack(playerOtherPosition); break;
             case 8: attackArea.TriggerSquareAreaAttack(playerStartPosition); break;
             case 9: attackArea.TriggerCircleAreaAttack(circleUp);            break;
             case 10:attackArea.TriggerCircleAreaAttack(circleDown);          break;
-            default:                                break;
+            default:                                                         break;
         }
-
+        Debug.Log(beat);
         beat++;
     }
 
-
-    /*
-     
-            case 1: SummonSpike("UP");              break;
-            case 2: SummonSpike("DOWN");            break;
-            case 3: SummonJumpPad("UP");            break;
-            case 4: SummonJumpPad("DOWN");          break;
-            case 5: ShootFireBall("UP");            break;
-            case 6: ShootFireBall("DOWN");          break;
-            case 7: SummonAttackArea("UP");         break;
-            case 8: SummonAttackArea("DOWN");       break;
-            case 9: TriggerPlatformAttack("UP");    break;
-            case 10:TriggerPlatformAttack("DOWN");  break;
-            default:                                break;
-     */
-
-    #region SUMMON SPIKE FUNCTIONS
-    void SummonSpike(string direction)
-    {
-        if (direction == "UP")
-        {
-            if (sameDirection == true)
-            {
-                SummonSpikeUp();
-            }
-            else
-            {
-                SummonSpikeDown();
-                sameDirection = !sameDirection;
-            }
-        }
-        else if (direction == "DOWN")
-        {
-            if (sameDirection == true)
-            {
-                SummonSpikeDown();
-            }
-            else
-            {
-                SummonSpikeUp();
-                sameDirection = !sameDirection;
-            }
-        }
-    }
-
+    #region SUMMON SPIKE FUNCTION
     void SummonSpikeUp()
     {
         GameObject spikeClone = ObjectPool.SharedInstance.GetPooledObject();
@@ -127,7 +83,6 @@ public class SpikeMaker : MonoBehaviour
         spikeClone.SetActive(true);
         var spikeScript = spikeClone.GetComponent<AttachToCircle>();
 
-
         //�Ʒ� ������ũ ��ȯ
         spikeClone.transform.position = new Vector3(spikeDownSpawnPosition.transform.position.x, spikeDownSpawnPosition.transform.position.y);
         spikeClone.transform.SetParent(circleDown.transform, true);
@@ -143,34 +98,6 @@ public class SpikeMaker : MonoBehaviour
     #endregion
 
     #region SUMMON FIREBALL FUNCTIONS
-    void ShootFireBall(string direction)
-    {
-        if (direction == "UP")
-        {
-            if (sameDirection == true)
-            {
-                ShootFireBallUp();
-            }
-            else
-            {
-                ShootFireballDown();
-                sameDirection = !sameDirection;
-            }
-        }
-        else if (direction == "DOWN")
-        {
-            if (sameDirection == true)
-            {
-                ShootFireballDown();
-            }
-            else
-            {
-                ShootFireBallUp();
-                sameDirection = !sameDirection;
-            }
-        }
-    }
-
     void ShootFireBallUp()
     {
         fireball.GetComponent<FireballShoot>().destinationPos = upDestination.transform.position;
@@ -186,81 +113,6 @@ public class SpikeMaker : MonoBehaviour
     void InstantiateFireBall()
     {
         Instantiate(fireball, startDestination.transform.position, startDestination.transform.rotation);
-    }
-    #endregion
-
-    #region SUMMON ATTACK AREA FUNCTIONS
-    void SummonAttackArea(string direction)
-    {
-        if (direction == "UP")
-        {
-            Debug.Log("1");
-            if (sameDirection == true)
-            {  
-                //���� ����
-                Debug.Log("2");
-                attackArea.TriggerSquareAreaAttack(playerOtherPosition);
-            }
-            else
-            {
-                //�Ʒ��� ����
-                Debug.Log("3");
-                attackArea.TriggerSquareAreaAttack(playerStartPosition);
-                sameDirection = !sameDirection;
-            }
-        }
-        else if (direction == "DOWN")
-        {
-            if (sameDirection == true)
-            {
-                attackArea.TriggerSquareAreaAttack(playerStartPosition);
-            }
-            else
-            {
-                attackArea.TriggerSquareAreaAttack(playerOtherPosition);
-                sameDirection = !sameDirection;
-            }
-        }
-    }
-    #endregion
-
-    #region CIRCLE AREA FUNCTIONS
-    void TriggerPlatformAttack(string direction)
-    {
-        if (direction == "UP")
-        {
-            if (sameDirection == true)
-            {
-                TriggerPlatformAttackUp();
-            }
-            else
-            {
-                TriggerPlatformAttackDown();
-                sameDirection = !sameDirection;
-            }
-        }
-        else if (direction == "DOWN")
-        {
-            if (sameDirection == true)
-            {
-                TriggerPlatformAttackDown();
-            }
-            else
-            {
-                TriggerPlatformAttackUp();
-                sameDirection = !sameDirection;
-            }
-        }
-    }
-
-    void TriggerPlatformAttackUp()
-    {
-        attackArea.TriggerCircleAreaAttack(circleUp);
-    }
-
-    void TriggerPlatformAttackDown()
-    {
-        attackArea.TriggerCircleAreaAttack(circleDown);
     }
     #endregion
 }

@@ -11,14 +11,25 @@ public class LevelBeatManager : MonoBehaviour
     [SerializeField] private float bpm;
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private Intervals[] intervals;
+    
+    public UnityEvent OnMusicEnded;
+    bool musicEnded = false;
 
-    private void Awake()
+    void Awake()
     {
+        musicEnded = false;
 
     }
-    
     private void Update()
     {
+        if (musicEnded) return;
+
+        if (!audioSource.isPlaying && audioSource.time >= audioSource.clip.length)
+        {
+            musicEnded = true;
+            OnMusicEnded.Invoke();
+        }
+
         foreach (Intervals interval in intervals)
         {
             float sampledTime = audioSource.timeSamples / (audioSource.clip.frequency * interval.GetIntervalLength(bpm));

@@ -662,6 +662,9 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+  OnMusicEnded:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!4 &1409699069
 Transform:
   m_ObjectHideFlags: 0
@@ -1086,7 +1089,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 1b3ffadcb85f0d9488f054bc855d6f83, type: 3}
+  m_audioClip: {fileID: 8300000, guid: f6ed4c0f90b0fc145a3077a3383ecf0f, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -1396,6 +1399,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1979646799}
     - target: {fileID: 9214103997734293465, guid: 0b4333c0cc4ecc949938b8e5a40215bb, type: 3}
+      propertyPath: gameClearPanel
+      value: 
+      objectReference: {fileID: 5057880983115772889}
+    - target: {fileID: 9214103997734293465, guid: 0b4333c0cc4ecc949938b8e5a40215bb, type: 3}
       propertyPath: playerHealthImages.Array.data[0]
       value: 
       objectReference: {fileID: 1805505046}
@@ -1505,12 +1512,24 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3079579395813578961, guid: e47c3e6b0c14a5b4ab4c24a27b3741f5, type: 3}
+      propertyPath: m_Name
+      value: Game Over Panel
+      objectReference: {fileID: 0}
+    - target: {fileID: 3079579395813578961, guid: e47c3e6b0c14a5b4ab4c24a27b3741f5, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3889356857402495053, guid: e47c3e6b0c14a5b4ab4c24a27b3741f5, type: 3}
       propertyPath: m_Name
       value: Game Over Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 5288595877806231008, guid: e47c3e6b0c14a5b4ab4c24a27b3741f5, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 523630470}
+    - target: {fileID: 8004887466095111837, guid: e47c3e6b0c14a5b4ab4c24a27b3741f5, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1523,6 +1542,11 @@ PrefabInstance:
 --- !u!224 &5057880983115772888 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1091633789689337303, guid: e47c3e6b0c14a5b4ab4c24a27b3741f5, type: 3}
+  m_PrefabInstance: {fileID: 5057880983115772887}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &5057880983115772889 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8004887466095111837, guid: e47c3e6b0c14a5b4ab4c24a27b3741f5, type: 3}
   m_PrefabInstance: {fileID: 5057880983115772887}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5877187401664368170
