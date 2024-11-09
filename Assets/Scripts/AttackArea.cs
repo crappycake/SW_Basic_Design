@@ -27,7 +27,7 @@ public class AttackArea : MonoBehaviour
     private GameObject SummonSquareArea(GameObject position)
     {
         GameObject newSquareArea = Instantiate(squareArea);
-        squareArea.transform.position = position.transform.position;
+        newSquareArea.transform.position = position.transform.position;
         return newSquareArea;
     }
     
