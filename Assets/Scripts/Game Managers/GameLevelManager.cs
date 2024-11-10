@@ -42,6 +42,7 @@ public class GameLevelManager : MonoBehaviour
     #region CURRENT LEVEL GETTER & SETTER
     public string GetCurrentLevel()
     {
+        Debug.Log("aaa " + currentLevel);
         return currentLevel;
     }
 

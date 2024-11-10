@@ -45,7 +45,8 @@ public class SpikeMaker : MonoBehaviour
     public void Beat_Renderer()
     {
         if (beat >= spike.Length) return;
-        
+        Debug.Log("7 " + beat + " " + playerOtherPosition.transform.position);
+        Debug.Log("8 " + beat + " " + playerStartPosition.transform.position);
         switch (spike[beat])
         {
             case 1: SummonSpikeUp();                                         break;

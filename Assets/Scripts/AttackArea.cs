@@ -80,42 +80,43 @@ public class AttackArea : MonoBehaviour
     #region CircleArea
     public void TriggerCircleAreaAttack(GameObject Circle)
     {
-        StartCoroutine(CircleFadeInOut(Circle));
+        SpriteRenderer spriteRenderer = Circle.GetComponent<SpriteRenderer>();
+        StartCoroutine(CircleFadeInOut(Circle, spriteRenderer));
     }
 
-    IEnumerator CircleFadeInOut(GameObject obj)
+    IEnumerator CircleFadeInOut(GameObject obj, SpriteRenderer spriteRenderer)
     {
-        SpriteRenderer renderer = obj.GetComponent<SpriteRenderer>();
-        Color c = renderer.material.color;
+        Color temp = spriteRenderer.color;
+        Color c = spriteRenderer.color;
         for (float alpha = 1f; alpha >= 0; alpha -= 0.1f)
         {
             c.a = alpha;
-            renderer.material.color = c;
+            spriteRenderer.color = c;
             yield return new WaitForSeconds(GetBeat(bpm) / 10);
         }
         for (float alpha = 0f; alpha <= 1; alpha += 0.1f)
         {
             c.a = alpha;
-            renderer.material.color = c;
+            spriteRenderer.color = c;
             yield return new WaitForSeconds(GetBeat(bpm) / 10);
         }
         for (float alpha = 1f; alpha >= 0; alpha -= 0.1f)
         {
             c.a = alpha;
-            renderer.material.color = c;
+            spriteRenderer.color = c;
             yield return new WaitForSeconds(GetBeat(bpm) / 10);
         }
-        yield return StartCoroutine(DamageCircle(obj));
+        yield return StartCoroutine(DamageCircle(obj, temp));
     }
 
-    IEnumerator DamageCircle(GameObject obj)
+    IEnumerator DamageCircle(GameObject obj, Color c)
     {
-        obj.GetComponent<SpriteRenderer>().material.color = new Color(255, 0, 0);
+        obj.GetComponent<SpriteRenderer>().color = new Color(255, 0, 0, 1);
         obj.tag = "Damage";
 
         yield return new WaitForSeconds(GetBeat(bpm) * (float)0.7);
 
-        obj.GetComponent<SpriteRenderer>().material.color = new Color(255, 255, 255);
+        obj.GetComponent<SpriteRenderer>().color = c;
         obj.tag = "Untagged";
     }
     #endregion

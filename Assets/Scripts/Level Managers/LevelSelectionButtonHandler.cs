@@ -8,6 +8,7 @@ public class LevelSelectionButtonHandler : MonoBehaviour
     {
         if (!string.IsNullOrEmpty(levelToSet))
         {
+            Debug.Log(levelToSet);
             GameLevelManager.instance.SetCurrentLevel(levelToSet);
         }
     }
