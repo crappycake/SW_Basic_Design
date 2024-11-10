@@ -86,23 +86,23 @@ public class AttackArea : MonoBehaviour
     IEnumerator CircleFadeInOut(GameObject obj)
     {
         SpriteRenderer renderer = obj.GetComponent<SpriteRenderer>();
-        Color c = renderer.material.color;
+        Color c = renderer.color;
         for (float alpha = 1f; alpha >= 0; alpha -= 0.1f)
         {
             c.a = alpha;
-            renderer.material.color = c;
+            renderer.color = c;
             yield return new WaitForSeconds(GetBeat(bpm) / 10);
         }
         for (float alpha = 0f; alpha <= 1; alpha += 0.1f)
         {
             c.a = alpha;
-            renderer.material.color = c;
+            renderer.color = c;
             yield return new WaitForSeconds(GetBeat(bpm) / 10);
         }
         for (float alpha = 1f; alpha >= 0; alpha -= 0.1f)
         {
             c.a = alpha;
-            renderer.material.color = c;
+            renderer.color = c;
             yield return new WaitForSeconds(GetBeat(bpm) / 10);
         }
         yield return StartCoroutine(DamageCircle(obj));
@@ -110,12 +110,12 @@ public class AttackArea : MonoBehaviour
 
     IEnumerator DamageCircle(GameObject obj)
     {
-        obj.GetComponent<SpriteRenderer>().material.color = new Color(255, 0, 0);
+        obj.GetComponent<SpriteRenderer>().color = new Color(255, 0, 0);
         obj.tag = "Damage";
 
         yield return new WaitForSeconds(GetBeat(bpm));
 
-        obj.GetComponent<SpriteRenderer>().material.color = new Color(255, 255, 255);
+        obj.GetComponent<SpriteRenderer>().color = new Color(255, 255, 255);
         obj.tag = "Untagged";
     }
     #endregion
