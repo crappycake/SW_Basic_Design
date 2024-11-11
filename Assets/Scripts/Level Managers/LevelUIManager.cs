@@ -47,7 +47,7 @@ public class LevelUIManager : MonoBehaviour
         TextMeshProUGUI[] progressTexts = { stage1ProgressText, stage2ProgressText, stage3ProgressText, stage4ProgressText };
         Slider[] progressBars = { stage1ProgressBar, stage2ProgressBar, stage3ProgressBar, stage4ProgressBar };
 
-        for (int i = 0; i < 1; i++) //TO-DO: CHANGE THIS AFTER MAKING ALL UIS OF FOUR STAGES!!
+        for (int i = 0; i < 4; i++) 
         {
             int numberOfStars = GameLevelManager.instance.GetSelectedLevelStars(currentChapterStages[i]);
 
