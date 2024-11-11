@@ -17,7 +17,7 @@ public class BeatMap : MonoBehaviour
         Level1_3
     }
 
-    int[][] level1 = new int[4][]
+    int[][] chapter1 = new int[4][]
     {
         new int[] //1-1
         {
@@ -37,8 +37,19 @@ public class BeatMap : MonoBehaviour
         },
 
 
-        new int[] { },
-         new int[] 
+        new int[] //1-2
+        { //array len 170
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, // 20
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, // 20 40
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, // 20 60
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, // 20 80
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, // 20 100
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, // 20 120
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, // 20 140
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, // 20 160
+        },
+
+         new int[] //1-3
          {
             0,
             7, 0, 0, 0, 8, 0, 0, 0, 9, 0, 0, 0, 10, 0, 0, 0,
@@ -95,9 +106,10 @@ public class BeatMap : MonoBehaviour
         if (Enum.TryParse(typeof(ELevel), currentLevel.Replace("-", "_"), out var enumValue) && Enum.IsDefined(typeof(ELevel), enumValue))
         {
             int index = (int)(ELevel)enumValue;
-            return level1[index];
+            Debug.Log(index);
+            return chapter1[index];
         }
 
-        return level1[0];
+        return chapter1[0];
     }
 }

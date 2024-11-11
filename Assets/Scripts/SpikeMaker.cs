@@ -60,7 +60,6 @@ public class SpikeMaker : MonoBehaviour
             case 10:attackArea.TriggerCircleAreaAttack(circleDown);          break;
             default:                                                         break;
         }
-        Debug.Log(beat);
         beat++;
     }
 
