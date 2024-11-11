@@ -9,14 +9,6 @@ public class BeatMap : MonoBehaviour
 {
     public static BeatMap instance;
 
-    public enum ELevel
-    {
-        Test,
-        Level1_1,
-        Level1_2,
-        Level1_3
-    }
-
     int[][] chapter1 = new int[4][]
     {
         new int[] //1-1
@@ -102,12 +94,11 @@ public class BeatMap : MonoBehaviour
         Debug.Log("Load Beat Map!!");
 
         string currentLevel = GameLevelManager.instance.GetCurrentLevel();
+        string[] split = currentLevel.Split('-');
 
-        if (Enum.TryParse(typeof(ELevel), currentLevel.Replace("-", "_"), out var enumValue) && Enum.IsDefined(typeof(ELevel), enumValue))
+        if (int.TryParse(split[1], out int index))
         {
-            int index = (int)(ELevel)enumValue;
-            Debug.Log(index);
-            return chapter1[index];
+            return chapter1[index-1];
         }
 
         return chapter1[0];
