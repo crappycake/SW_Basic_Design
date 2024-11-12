@@ -14,6 +14,7 @@ public class LevelProgressManager : MonoBehaviour
         playerHealthManager = FindObjectOfType<PlayerHealthManager>();
 
         playerHealthManager.OnGameOver += UpdateLevelProgress;
+        levelBeatManager.OnMusicEnded.AddListener(UpdateLevelProgress);
 
     }
 
