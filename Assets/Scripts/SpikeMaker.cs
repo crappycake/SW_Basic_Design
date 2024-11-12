@@ -57,6 +57,9 @@ public class SpikeMaker : MonoBehaviour
             case 8: attackArea.TriggerSquareAreaAttack(playerStartPosition); break;
             case 9: attackArea.TriggerCircleAreaAttack(circleUp);            break;
             case 10:attackArea.TriggerCircleAreaAttack(circleDown);          break;
+            case 11: attackArea.TriggerSquareAreaAttack(playerOtherPosition, (float)0.5); break;
+            case 12: attackArea.TriggerSquareAreaAttack(playerStartPosition, (float)0.5); break;
+
             default:                                                         break;
         }
         beat++;

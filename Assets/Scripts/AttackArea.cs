@@ -17,10 +17,10 @@ public class AttackArea : MonoBehaviour
     }
 
     #region SquareArea
-    public void TriggerSquareAreaAttack(GameObject position)
+    public void TriggerSquareAreaAttack(GameObject position, float k = 1)
     {
         GameObject temp = SummonSquareArea(position);
-        EnableSquareArea(temp);
+        EnableSquareArea(temp, k);
     }
 
 
@@ -31,12 +31,12 @@ public class AttackArea : MonoBehaviour
         return newSquareArea;
     }
     
-    private void EnableSquareArea(GameObject obj)
+    private void EnableSquareArea(GameObject obj, float k)
     {
-        StartCoroutine(SquareFadeInOut(obj));
+        StartCoroutine(SquareFadeInOut(obj, k));
     }
 
-    IEnumerator SquareFadeInOut(GameObject obj)
+    IEnumerator SquareFadeInOut(GameObject obj, float k)
     {
         SpriteRenderer renderer = obj.GetComponent<SpriteRenderer>();
         Color c = renderer.material.color;
@@ -44,31 +44,31 @@ public class AttackArea : MonoBehaviour
         {
             c.a = alpha;
             renderer.material.color = c;
-            yield return new WaitForSeconds(GetBeat(bpm) / 10);
+            yield return new WaitForSeconds(GetBeat(bpm) / 10 * k);
         }
         for (float alpha = 1f; alpha >= 0; alpha -= 0.1f)
         {
             c.a = alpha;
             renderer.material.color = c;
-            yield return new WaitForSeconds(GetBeat(bpm) / 10);
+            yield return new WaitForSeconds(GetBeat(bpm) / 10 * k);
         }
         for (float alpha = 0f; alpha <= 1f; alpha += 0.1f)
         {
             c.a = alpha;
             renderer.material.color = c;
-            yield return new WaitForSeconds(GetBeat(bpm) / 10);
+            yield return new WaitForSeconds(GetBeat(bpm) / 10 * k);
         }
-        yield return StartCoroutine(DamageSquare(obj));
+        yield return StartCoroutine(DamageSquare(obj, k));
     }
 
-    IEnumerator DamageSquare(GameObject obj)
+    IEnumerator DamageSquare(GameObject obj, float k)
     {
         SpriteRenderer renderer = obj.GetComponent<SpriteRenderer>();
         yield return null;
         renderer.material.color = new Color(255, 0, 0);
         obj.tag = "Damage";
 
-        yield return new WaitForSeconds(GetBeat(bpm) * (float)0.7);
+        yield return new WaitForSeconds(GetBeat(bpm) * (float)0.7 * k);
 
         renderer.material.color = new Color(100, 100, 100);
         obj.tag = "Untagged";
@@ -78,12 +78,12 @@ public class AttackArea : MonoBehaviour
 
 
     #region CircleArea
-    public void TriggerCircleAreaAttack(GameObject Circle)
+    public void TriggerCircleAreaAttack(GameObject Circle, float k = 1)
     {
-        StartCoroutine(CircleFadeInOut(Circle));
+        StartCoroutine(CircleFadeInOut(Circle, k));
     }
 
-    IEnumerator CircleFadeInOut(GameObject obj)
+    IEnumerator CircleFadeInOut(GameObject obj, float k)
     {
         SpriteRenderer renderer = obj.GetComponent<SpriteRenderer>();
         Color c = renderer.color;
@@ -91,29 +91,29 @@ public class AttackArea : MonoBehaviour
         {
             c.a = alpha;
             renderer.color = c;
-            yield return new WaitForSeconds(GetBeat(bpm) / 10);
+            yield return new WaitForSeconds(GetBeat(bpm) / 10 * k);
         }
         for (float alpha = 0f; alpha <= 1; alpha += 0.1f)
         {
             c.a = alpha;
             renderer.color = c;
-            yield return new WaitForSeconds(GetBeat(bpm) / 10);
+            yield return new WaitForSeconds(GetBeat(bpm) / 10 * k);
         }
         for (float alpha = 1f; alpha >= 0; alpha -= 0.1f)
         {
             c.a = alpha;
             renderer.color = c;
-            yield return new WaitForSeconds(GetBeat(bpm) / 10);
+            yield return new WaitForSeconds(GetBeat(bpm) / 10 * k);
         }
-        yield return StartCoroutine(DamageCircle(obj));
+        yield return StartCoroutine(DamageCircle(obj, k));
     }
 
-    IEnumerator DamageCircle(GameObject obj)
+    IEnumerator DamageCircle(GameObject obj, float k)
     {
         obj.GetComponent<SpriteRenderer>().color = new Color(255, 0, 0);
         obj.tag = "Damage";
 
-        yield return new WaitForSeconds(GetBeat(bpm) * (float)0.7);
+        yield return new WaitForSeconds(GetBeat(bpm) * (float)0.7 * k);
 
         obj.GetComponent<SpriteRenderer>().color = new Color(255, 255, 255);
         obj.tag = "Untagged";
