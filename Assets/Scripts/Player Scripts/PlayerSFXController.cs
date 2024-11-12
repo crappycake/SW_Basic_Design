@@ -9,11 +9,11 @@ public class Player_SFXController : MonoBehaviour
     //FLIP EFFECTS
     private TrailRenderer trailRenderer;
     private PlayerFlipController flipController;
-    
+
     [Header("Damage UI SFX")]
     [SerializeField] GameObject brokenHeartSFX;
     [SerializeField] private Vector3[] brokenHeartPositions;
-    
+
     [Header("Damage Shake SFX")]
     [SerializeField] private CinemachineVirtualCamera mainCamera;
     private CinemachineBasicMultiChannelPerlin cinemachineNoise;
@@ -63,16 +63,15 @@ public class Player_SFXController : MonoBehaviour
         cinemachineNoise.m_FrequencyGain = 0f;
 
         originalCamPos = mainCamera.transform.position;
-
     }
 
     void TriggerFlipTrailRenderer()
     {
-        if(!flipController.canFlip) trailRenderer.emitting = true;
+        if (!flipController.canFlip) trailRenderer.emitting = true;
         else trailRenderer.emitting = false;
     }
 
-    void TriggerFlipSoundEffect ()
+    void TriggerFlipSoundEffect()
     {
         flipSoundEffect.Play();
     }
@@ -80,7 +79,17 @@ public class Player_SFXController : MonoBehaviour
     #region DMG EFFECTS
     void ReturnCameraToOriginalPosition()
     {
-        mainCamera.transform.position = Vector3.MoveTowards(mainCamera.transform.position, originalCamPos, camReturnSpeed * Time.deltaTime);
+        float threshold = 0.5f;
+        if (Vector3.Distance(mainCamera.transform.position, originalCamPos) > threshold)
+        {
+            mainCamera.transform.position = Vector3.Lerp(mainCamera.transform.position, originalCamPos, camReturnSpeed * Time.deltaTime);
+            mainCamera.transform.rotation = Quaternion.identity;
+        }
+        else
+        {
+            mainCamera.transform.position = originalCamPos;
+            mainCamera.transform.rotation = Quaternion.identity;
+        }
     }
 
     void StartDMGCoroutine()
