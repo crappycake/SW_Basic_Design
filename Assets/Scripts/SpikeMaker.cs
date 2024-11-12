@@ -4,9 +4,8 @@ using UnityEngine;
 
 public class SpikeMaker : MonoBehaviour
 {
-    //���̾
-    public GameObject fireballPrefab; //���̾ ������!!
-    GameObject fireball; //GetComponent�� ���� ��ũ��Ʈ ������ �ѹ� �� ����
+    public GameObject fireballPrefab;
+    GameObject fireball;
     public GameObject startDestination;
     public GameObject upDestination;
     public GameObject downDestination;

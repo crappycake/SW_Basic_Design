@@ -7,11 +7,11 @@ public class FireballShoot : MonoBehaviour
     public float bpm;
     [SerializeField] private float parryingSpeedMultiplier;
 
-    [HideInInspector] public Vector3 startPos; //????? ???
-    [HideInInspector] public Vector3 destinationPos; //?????? ???
+    [HideInInspector] public Vector3 startPos;
+    [HideInInspector] public Vector3 destinationPos;
 
-    [HideInInspector] public Vector3 betweenPos; //????
-    [HideInInspector] public Vector3 movePos; //???????? ?? ????? ???
+    [HideInInspector] public Vector3 betweenPos;
+    [HideInInspector] public Vector3 movePos;
 
     private bool parrying;
 
@@ -20,7 +20,7 @@ public class FireballShoot : MonoBehaviour
 
     private void Awake()
     {
-        playerFlipController = FindObjectOfType<PlayerFlipController>(); //?��? ? ????
+        playerFlipController = FindObjectOfType<PlayerFlipController>();
         playerFlipController.OnParryingFunctionCalled += Parry;
 
         fireballSFXController = GetComponent<FireballSFXController>();
@@ -28,12 +28,11 @@ public class FireballShoot : MonoBehaviour
 
     void Start()
     {
-        Debug.Log("????? ??");
         //startPos = transform.position;
         //destinationPos = playerPos.position;
         
-        betweenPos = destinationPos-startPos; //?��? ??????? 60/bpm*4 ??? ????? ??????. ???? ???? X
-        movePos = betweenPos/(60f);
+        betweenPos = destinationPos-startPos;
+        movePos = betweenPos/(40f);
 
         parrying = false;
 
@@ -50,11 +49,11 @@ public class FireballShoot : MonoBehaviour
 
     void Parry()
     {
-        if (!parrying) //?��? ?????? ???? X
+        if (!parrying)
         { 
             return;
         }
-        else //?��? ?????? ???? O
+        else
         {
             movePos = -(movePos * parryingSpeedMultiplier);
             fireballSFXController.CallFunctionsAfterParried();

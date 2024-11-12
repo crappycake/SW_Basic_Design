@@ -9,4 +9,11 @@ public class GeneralButtonHandler : MonoBehaviour
     {
         SceneManager.LoadScene(_sceneName);
     }
+
+    public void LoadTestScene(string _sceneName)
+    {
+        GameLevelManager.instance.SetCurrentLevel(_sceneName);
+        Debug.Log(_sceneName);
+        SceneManager.LoadScene(_sceneName);
+    }
 }
