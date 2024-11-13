@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpikeMaker : MonoBehaviour
+public class MapInvoker : MonoBehaviour
 {
     public GameObject fireballPrefab;
     GameObject fireball;
@@ -10,7 +10,8 @@ public class SpikeMaker : MonoBehaviour
     public GameObject upDestination;
     public GameObject downDestination;
 
-    int[] spike;
+    int[] BeatMap;
+    int[] SFXMap;
     int beat = 0;
 
     [Header("Circle 1")]
@@ -38,14 +39,15 @@ public class SpikeMaker : MonoBehaviour
         beat = 0;
         Debug.Log(GameLevelManager.instance.GetCurrentLevel());
 
-        spike = BeatMap.instance.GetArray();
+        BeatMap = global::BeatMap.instance.GetBeatMap();
+        SFXMap = global::SFXMap.instance.GetSFXMap();
     }
 
     public void Beat_Renderer()
     {
-        if (beat >= spike.Length) return;
+        if (beat >= BeatMap.Length) return;
         
-        switch (spike[beat])
+        switch (BeatMap[beat])
         {
             case 1: SummonSpikeUp();                                         break;
             case 2: SummonSpikeDown();                                       break;
@@ -62,6 +64,17 @@ public class SpikeMaker : MonoBehaviour
 
             default:                                                         break;
         }
+
+        /*
+        switch (SFXMap[beat])
+        {
+            case 1:
+            case 2:
+            case 3:
+
+            default:break;
+        }
+        */
         beat++;
     }
 
