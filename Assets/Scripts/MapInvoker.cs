@@ -1,11 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 
 public class MapInvoker : MonoBehaviour
 {
+    [Header("Obstacle Prefabs")]
     public GameObject fireballPrefab;
-    GameObject fireball;
+    public GameObject starPrefab;
+
+    [Header("Game Positions")]
     public GameObject startDestination;
     public GameObject upDestination;
     public GameObject downDestination;
@@ -24,6 +28,7 @@ public class MapInvoker : MonoBehaviour
     [SerializeField] private GameObject playerOtherPosition;
 
     private AttackArea attackArea;
+    private GameObject fireball;
 
     private void Start()
     {
@@ -46,23 +51,25 @@ public class MapInvoker : MonoBehaviour
     public void Beat_Renderer()
     {
         if (beat >= BeatMap.Length) return;
-        
+
         switch (BeatMap[beat])
         {
-            case 1: SummonSpikeUp();                                         break;
-            case 2: SummonSpikeDown();                                       break;
+            case 1: SummonSpikeUp(); break;
+            case 2: SummonSpikeDown(); break;
             //case 3: SummonJumpPad("UP");                                   break;
             //case 4: SummonJumpPad("DOWN");                                 break;
-            case 5: ShootFireBallUp();                                       break;
-            case 6: ShootFireballDown();                                     break;
+            case 5: ShootFireBallUp(); break;
+            case 6: ShootFireballDown(); break;
             case 7: attackArea.TriggerSquareAreaAttack(playerOtherPosition); break;
             case 8: attackArea.TriggerSquareAreaAttack(playerStartPosition); break;
-            case 9: attackArea.TriggerCircleAreaAttack(circleUp);            break;
-            case 10:attackArea.TriggerCircleAreaAttack(circleDown);          break;
-            case 11: attackArea.TriggerSquareAreaAttack(playerOtherPosition, (float)0.5); break;
-            case 12: attackArea.TriggerSquareAreaAttack(playerStartPosition, (float)0.5); break;
+            case 9: attackArea.TriggerCircleAreaAttack(circleUp); break;
+            case 10: attackArea.TriggerCircleAreaAttack(circleDown); break;
+            case 11: attackArea.TriggerSquareAreaAttack(playerOtherPosition, 0.5f); break;
+            case 12: attackArea.TriggerSquareAreaAttack(playerStartPosition, 0.5f); break;
+            case 13: SummonStarUp(); break;
+            case 14: SummonStarDown(); break;
 
-            default:                                                         break;
+            default: break;
         }
 
         /*
@@ -127,6 +134,26 @@ public class MapInvoker : MonoBehaviour
     void InstantiateFireBall()
     {
         Instantiate(fireball, startDestination.transform.position, startDestination.transform.rotation);
+    }
+    #endregion
+
+    #region SUMMON STAR FUNCTIONS
+    void SummonStarUp()
+    {
+        GameObject newStar = Instantiate(starPrefab, spikeUpSpawnPosition.transform.position, quaternion.identity);
+        newStar.transform.SetParent(circleUp.transform, true);
+
+        AttachToCircle attachToCircle = newStar.GetComponent<AttachToCircle>();
+        attachToCircle.attachedObject = circleUp;
+    }
+
+    void SummonStarDown()
+    {
+        GameObject newStar = Instantiate(starPrefab, spikeDownSpawnPosition.transform.position, quaternion.identity);
+        newStar.transform.SetParent(circleDown.transform, true);
+
+        AttachToCircle attachToCircle = newStar.GetComponent<AttachToCircle>();
+        attachToCircle.attachedObject = circleDown;
     }
     #endregion
 }
