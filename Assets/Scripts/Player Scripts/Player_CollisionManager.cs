@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerCollisionManager : MonoBehaviour
+public class Player_CollisionManager : MonoBehaviour
 {
     private PlayerHealthManager healthManager;
     private LevelProgressManager levelProgressManager;
@@ -10,6 +10,7 @@ public class PlayerCollisionManager : MonoBehaviour
     void Awake()
     {
         healthManager = GetComponent<PlayerHealthManager>();
+        levelProgressManager = FindObjectOfType<LevelProgressManager>();
     }
 
     void OnTriggerEnter2D(Collider2D collision)
@@ -18,9 +19,11 @@ public class PlayerCollisionManager : MonoBehaviour
         {
             healthManager.TakeDamage();
         }
-        else if (collision.gameObject.CompareTag("Star"))
+
+        if (collision.gameObject.CompareTag("Star"))
         {
             levelProgressManager.AddStars();
+            Debug.Log("STAR!");
         }
     }
     

@@ -38,7 +38,7 @@ public class LevelProgressManager : MonoBehaviour
 
     void UpdateLevelStars()
     {
-        GameLevelManager.instance.SetStarsForCurrentLevel(numberOfStars);
+        GameLevelManager.instance.SetCurrentLevelStars(numberOfStars);
     }
 
 }

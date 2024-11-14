@@ -6,6 +6,7 @@ public class SpawnPosition : MonoBehaviour
 {
     [SerializeField] private int circle;
     Vector3 position;
+    
     void Awake()
     {
         float speed = SpeedSetting.instance.RotateSpeed();
@@ -19,10 +20,6 @@ public class SpawnPosition : MonoBehaviour
         {
             position = new Vector3(circleSize * Mathf.Cos(theta), 8 - circleSize * Mathf.Sin(theta), 0);
         }
-
-        Debug.Log(Mathf.Cos(theta));
-        Debug.Log(Mathf.Sin(theta));
-
         gameObject.transform.position = position;
     }
 }

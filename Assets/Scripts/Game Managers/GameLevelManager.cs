@@ -79,8 +79,9 @@ public class GameLevelManager : MonoBehaviour
     }
 
     //return number of stars of the current stage that the player is in.
-    public void SetStarsForCurrentLevel(int numberOfStars)
+    public void SetCurrentLevelStars(int numberOfStars)
     {
+        Debug.Log(numberOfStars);
         if (numberOfStars < 0 || numberOfStars > 3)
         {
             Debug.LogError("Incorrect amount of number of stars delivered to GameStageManager");

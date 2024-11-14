@@ -10,7 +10,6 @@ public class LevelUIManager : MonoBehaviour
 
     // Array of stage names by chapter
     string[] chapter1Stages = { "1-1", "1-2", "1-3", "1-4" };
-    string[] chapter2Stages = { "2-1", "2-2", "2-3", "2-4" };
 
     #region UI REFERENCES
     [Header("Stage 1")]
@@ -34,7 +33,7 @@ public class LevelUIManager : MonoBehaviour
     [SerializeField] Slider stage4ProgressBar;
     #endregion
 
-    void OnEnable()
+    void Awake()
     {
         UpdateUIForSelectedChapter();
     }
@@ -42,15 +41,14 @@ public class LevelUIManager : MonoBehaviour
     // Updates the UI for all stages in the selected chapter
     private void UpdateUIForSelectedChapter()
     {
-        string[] currentChapterStages = SelectChapterArray();
         Image[][] starImages = { stage1StarImages, stage2StarImages, stage3StarImages, stage4StarImages };
         TextMeshProUGUI[] progressTexts = { stage1ProgressText, stage2ProgressText, stage3ProgressText, stage4ProgressText };
         Slider[] progressBars = { stage1ProgressBar, stage2ProgressBar, stage3ProgressBar, stage4ProgressBar };
 
         for (int i = 0; i < 4; i++) 
         {
-            int numberOfStars = GameLevelManager.instance.GetSelectedLevelStars(currentChapterStages[i]);
-
+            int numberOfStars = GameLevelManager.instance.GetSelectedLevelStars(chapter1Stages[i]);
+            Debug.Log(numberOfStars);
             // Update stars
             for (int j = 0; j < starImages[i].Length; j++)
             {
@@ -58,22 +56,9 @@ public class LevelUIManager : MonoBehaviour
             }
 
             // Update progress text and progress bar
-            float progress = GameLevelManager.instance.GetSelectedLevelProgress(currentChapterStages[i]);
+            float progress = GameLevelManager.instance.GetSelectedLevelProgress(chapter1Stages[i]);
             progressTexts[i].text = $"진행도: {(int)progress}%";
             progressBars[i].value = (float) (progress / 100);
-        }
-    }
-
-    private string[] SelectChapterArray()
-    {
-        switch (chapter)
-        {
-            case 1:
-                return chapter1Stages;
-            case 2:
-                return chapter2Stages;
-            default:
-                return chapter1Stages; // Default to chapter 1 if no chapter is set
         }
     }
 }
