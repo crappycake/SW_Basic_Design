@@ -68,6 +68,14 @@ public class MapInvoker : MonoBehaviour
             case 12: attackArea.TriggerSquareAreaAttack(playerStartPosition, 0.5f); break;
             case 13: SummonStarUp(); break;
             case 14: SummonStarDown(); break;
+            case 15: 
+                SummonSpikeUp();
+                SummonStarDown();
+                break;
+            case 16:
+                SummonSpikeDown();
+                SummonStarUp();
+                break;
 
             default: break;
         }

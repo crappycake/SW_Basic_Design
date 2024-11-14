@@ -7,15 +7,14 @@ using UnityEngine.Rendering.UI;
 public class StageSelectUIManager : MonoBehaviour
 {
     [SerializeField] GameObject[] stagePanels;
-    [SerializeField] GameObject moveLeftButton;
-    [SerializeField] GameObject moveRightButton;
+
     private int currentIndex = 0;
     private int maxIndex;
 
     void Awake()
     {
         currentIndex = 0;
-        maxIndex = stagePanels.Length;
+        maxIndex = stagePanels.Length - 1;
     }
 
     public void SelectChapter()
@@ -34,15 +33,16 @@ public class StageSelectUIManager : MonoBehaviour
     public void MoveLeft()
     {
         currentIndex--;
-        if (currentIndex< 0) currentIndex = 0;
+        if (currentIndex < 0) currentIndex = 0;
 
         UpdatePanels();
     }
 
     private void UpdatePanels()
     {
+        Debug.Log(currentIndex);
         stagePanels[currentIndex].SetActive(true);
-        for (int i = 0; i < maxIndex; ++i)
+        for (int i = 0; i < maxIndex + 1; ++i)
         {
             if (i == currentIndex) continue;
             

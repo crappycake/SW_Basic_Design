@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class PlayerCollisionManager : MonoBehaviour
 {
-    PlayerHealthManager healthManager;
+    private PlayerHealthManager healthManager;
+    private LevelProgressManager levelProgressManager;
     
     void Awake()
     {
@@ -19,8 +20,7 @@ public class PlayerCollisionManager : MonoBehaviour
         }
         else if (collision.gameObject.CompareTag("Star"))
         {
-            int currentStar = GameLevelManager.instance.GetCurrentLevelStars();
-            GameLevelManager.instance.SetStarsForCurrentLevel(currentStar + 1);
+            levelProgressManager.AddStars();
         }
     }
     
