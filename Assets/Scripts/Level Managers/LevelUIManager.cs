@@ -48,7 +48,6 @@ public class LevelUIManager : MonoBehaviour
         for (int i = 0; i < 4; i++) 
         {
             int numberOfStars = GameLevelManager.instance.GetSelectedLevelStars(chapter1Stages[i]);
-            Debug.Log(numberOfStars);
             // Update stars
             for (int j = 0; j < starImages[i].Length; j++)
             {

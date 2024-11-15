@@ -137,8 +137,6 @@ public class BeatMap : MonoBehaviour
 
     public int[] GetBeatMap()
     {
-        Debug.Log("Load Beat Map!!");
-
         string currentLevel = GameLevelManager.instance.GetCurrentLevel();
         string[] split = currentLevel.Split('-');
 

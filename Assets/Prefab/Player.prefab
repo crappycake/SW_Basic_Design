@@ -293,6 +293,7 @@ MonoBehaviour:
   shakeAmplitude: 3
   shakeFrequency: 3
   shakeDuration: 0.3
+  collisionVFX: {fileID: 5880797563127281583, guid: 265d3a5ba69981a4698ceabcedf368b0, type: 3}
   blinkDuration: 1
   initialBlinkInterval: 0.2
   blinkSpeedIncrease: 0.5
@@ -309,6 +310,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4b5159825de5754588ce12aa092a59c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnCollideWithSpike:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &4004441518526047225
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using Cinemachine;
+using Unity.Mathematics;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.U2D;
 
@@ -14,12 +16,14 @@ public class Player_SFXController : MonoBehaviour
     [SerializeField] GameObject brokenHeartSFX;
     [SerializeField] private Vector3[] brokenHeartPositions;
 
-    [Header("Damage Shake SFX")]
+    [Header("Damage SFX")]
     [SerializeField] private CinemachineVirtualCamera mainCamera;
     private CinemachineBasicMultiChannelPerlin cinemachineNoise;
     [SerializeField] private float shakeAmplitude;
     [SerializeField] private float shakeFrequency;
     [SerializeField] private float shakeDuration;
+    [SerializeField] private GameObject collisionVFX;
+    private PlayerCollisionManager collisionManager;
 
     [Header("Damage Blink SFX")]
     [SerializeField] private float blinkDuration;
@@ -41,9 +45,11 @@ public class Player_SFXController : MonoBehaviour
         healthManager = GetComponent<PlayerHealthManager>();
         flipController = GetComponent<PlayerFlipController>();
         cinemachineNoise = mainCamera.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
+        collisionManager = GetComponent<PlayerCollisionManager>();
 
         healthManager.OnDamageTaken += StartDMGCoroutine;
         flipController.OnFlipFunctionCalled += TriggerFlipSoundEffect;
+        collisionManager.OnCollideWithSpike.AddListener(TriggerSpikeCollisionVFX);
     }
 
     void Start()
@@ -65,6 +71,7 @@ public class Player_SFXController : MonoBehaviour
         originalCamPos = mainCamera.transform.position;
     }
 
+    #region FLIP EFFECTS
     void TriggerFlipTrailRenderer()
     {
         if (!flipController.canFlip) trailRenderer.emitting = true;
@@ -75,19 +82,15 @@ public class Player_SFXController : MonoBehaviour
     {
         flipSoundEffect.Play();
     }
+    #endregion
 
     #region DMG EFFECTS
     void ReturnCameraToOriginalPosition()
     {
-        float threshold = 0.5f;
+        float threshold = 0.1f;
         if (Vector3.Distance(mainCamera.transform.position, originalCamPos) > threshold)
         {
-            mainCamera.transform.position = Vector3.Lerp(mainCamera.transform.position, originalCamPos, camReturnSpeed * Time.deltaTime);
-            mainCamera.transform.rotation = Quaternion.identity;
-        }
-        else
-        {
-            mainCamera.transform.position = originalCamPos;
+            mainCamera.transform.position = Vector3.MoveTowards(mainCamera.transform.position, originalCamPos, camReturnSpeed * Time.deltaTime);
             mainCamera.transform.rotation = Quaternion.identity;
         }
     }
@@ -95,6 +98,7 @@ public class Player_SFXController : MonoBehaviour
     void StartDMGCoroutine()
     {
         if (healthManager.currentHealth <= 0) return; // do not trigger SFX if player is dead
+
         TriggerBrokenHeartUI();
         StartCoroutine(BlinkAfterTakingDamage());
         StartCoroutine(TriggerCameraShakeAfterDMG());
@@ -142,5 +146,12 @@ public class Player_SFXController : MonoBehaviour
         cinemachineNoise.m_FrequencyGain = 0f;
     }
 
+    private void TriggerSpikeCollisionVFX()
+    {
+        if (!healthManager.canTakeDamage) return;
+
+        Vector3 offsetPos = new Vector3(gameObject.transform.position.x + 0.2f, gameObject.transform.position.y);
+        Instantiate(collisionVFX, offsetPos, quaternion.identity);
+    }
     #endregion
 }

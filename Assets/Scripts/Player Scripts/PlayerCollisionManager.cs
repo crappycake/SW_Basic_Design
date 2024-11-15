@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
-public class Player_CollisionManager : MonoBehaviour
+public class PlayerCollisionManager : MonoBehaviour
 {
     private PlayerHealthManager healthManager;
     private LevelProgressManager levelProgressManager;
+    
+    public UnityEvent OnCollideWithSpike;
     
     void Awake()
     {
@@ -23,7 +26,6 @@ public class Player_CollisionManager : MonoBehaviour
         if (collision.gameObject.CompareTag("Star"))
         {
             levelProgressManager.AddStars();
-            Debug.Log("STAR!");
         }
     }
     
@@ -31,6 +33,7 @@ public class Player_CollisionManager : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Damage"))
         {
+            OnCollideWithSpike.Invoke();
             healthManager.TakeDamage();
         }
         else if (collision.gameObject.CompareTag("Heart"))

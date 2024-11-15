@@ -24,7 +24,7 @@ public class PlayerHealthManager : MonoBehaviour
 
     public void TakeDamage()
     {
-        if (!canTakeDamage) return; //this is controlled in the SFXController script.
+        if (!canTakeDamage) return;
 
         StartCoroutine(ToggleInvincibility());
         currentHealth -= 1;
