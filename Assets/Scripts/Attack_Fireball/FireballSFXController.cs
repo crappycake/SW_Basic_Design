@@ -10,6 +10,7 @@ public class FireballSFXController : MonoBehaviour
 
     [SerializeField] private GameObject parrySFX;
     [SerializeField] private GameObject destroySFX;
+    [SerializeField] private AudioSource destroySound;
 
     public float parrySFXOffset;
 
@@ -24,7 +25,7 @@ public class FireballSFXController : MonoBehaviour
     {
         UpdateParticleDirection();
     }
-    
+
     private void UpdateParticleDirection()
     {
         var velocityModule = particleSystem.velocityOverLifetime;
@@ -60,6 +61,14 @@ public class FireballSFXController : MonoBehaviour
     public void TriggerDestorySFX()
     {
         Instantiate(destroySFX, transform.position, Quaternion.identity);
+
+        GameObject tempAudioObject = new GameObject("TempAudio");
+        AudioSource tempAudioSource = tempAudioObject.AddComponent<AudioSource>();
+        tempAudioSource.clip = destroySound.clip;
+        tempAudioSource.volume = destroySound.volume;
+        tempAudioSource.pitch = destroySound.pitch;
+        tempAudioSource.Play();
+
         Destroy(gameObject);
     }
 
