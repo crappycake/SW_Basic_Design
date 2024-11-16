@@ -13,14 +13,16 @@ public class GameLevelManager : MonoBehaviour
     {
         {"1-1", 0},
         {"1-2", 0},
-        {"1-3", 0}
+        {"1-3", 0},
+        {"1-4", 0}
     };
 
     private Dictionary<string, int> levelProgress = new Dictionary<string, int>
     {
         {"1-1", 0},
         {"1-2", 0},
-        {"1-3", 0}
+        {"1-3", 0},
+        {"1-4", 0}
     };
 
     //current stage player is in. ex) 1-1, 1-2

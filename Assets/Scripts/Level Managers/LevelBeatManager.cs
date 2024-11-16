@@ -61,10 +61,11 @@ public class Intervals
 
     public void CheckForNewInterval(float interval)
     {
+        trigger.Invoke();
         if (Mathf.FloorToInt(interval) != lastInterval)
         {
             lastInterval = Mathf.FloorToInt(interval);
-            trigger.Invoke();
+            //trigger.Invoke();
         }
     }
 }
