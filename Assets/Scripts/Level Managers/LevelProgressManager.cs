@@ -7,7 +7,7 @@ public class LevelProgressManager : MonoBehaviour
 {
     private LevelBeatManager levelBeatManager;
     private PlayerHealthManager playerHealthManager;
-    private int numberOfStars;
+    [HideInInspector] public int numberOfStars;
 
     void Awake()
     {

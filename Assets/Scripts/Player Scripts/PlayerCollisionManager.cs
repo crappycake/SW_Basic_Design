@@ -9,6 +9,7 @@ public class PlayerCollisionManager : MonoBehaviour
     private LevelProgressManager levelProgressManager;
     
     public UnityEvent OnCollideWithSpike;
+    public UnityEvent OnGetStar;
     
     void Awake()
     {
@@ -26,6 +27,7 @@ public class PlayerCollisionManager : MonoBehaviour
         if (collision.gameObject.CompareTag("Star"))
         {
             levelProgressManager.AddStars();
+            OnGetStar.Invoke();
         }
     }
     

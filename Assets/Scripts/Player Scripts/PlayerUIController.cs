@@ -8,16 +8,22 @@ using UnityEngine.UI;
 public class PlayerUIController : MonoBehaviour
 {
     [SerializeField] Image[] playerHealthImages;
+    [SerializeField] Image[] playerStarImages;
     [SerializeField] GameObject gameClearPanel;
     [SerializeField] GameObject gameOverPanel;
 
     PlayerHealthManager playerHealthManager;
+    PlayerCollisionManager playerCollisionManager;
     LevelBeatManager levelBeatManager;
+    LevelProgressManager levelProgressManager;
 
     void Awake()
     {
         playerHealthManager = GetComponent<PlayerHealthManager>();
+        playerCollisionManager = GetComponent<PlayerCollisionManager>();
         levelBeatManager = FindObjectOfType<LevelBeatManager>();
+        levelProgressManager = FindObjectOfType<LevelProgressManager>();
+
         Time.timeScale = 1f;
     }
     void Start()
@@ -29,6 +35,8 @@ public class PlayerUIController : MonoBehaviour
         }
 
         playerHealthManager.OnDamageTaken += UpdateHealthUI;
+        playerCollisionManager.OnGetStar.AddListener(UpdateStarUI);
+
         playerHealthManager.OnGameOver += GameOver;
 
         levelBeatManager.OnMusicEnded.AddListener(GameClear);
@@ -40,6 +48,15 @@ public class PlayerUIController : MonoBehaviour
         for (int i = 0; i < playerHealthImages.Length; ++i)
         {
                 playerHealthImages[i].enabled = i < currentHealth;
+        }
+    }
+
+    void UpdateStarUI()
+    {
+        int currentStar = levelProgressManager.numberOfStars;
+        for (int i = 0; i < playerStarImages.Length; ++i)
+        {
+                playerStarImages[i].enabled = i < currentStar;
         }
     }
 

@@ -254,6 +254,10 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  playerStarImages:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   gameClearPanel: {fileID: 0}
   gameOverPanel: {fileID: 0}
 --- !u!114 &8795675272183284380
@@ -311,6 +315,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   OnCollideWithSpike:
+    m_PersistentCalls:
+      m_Calls: []
+  OnGetStar:
     m_PersistentCalls:
       m_Calls: []
 --- !u!114 &4004441518526047225
