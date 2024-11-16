@@ -17,7 +17,6 @@ public class LevelProgressManager : MonoBehaviour
         playerHealthManager.OnGameOver += UpdateLevelProgress;
         levelBeatManager.OnMusicEnded.AddListener(UpdateLevelProgress);
         levelBeatManager.OnMusicEnded.AddListener(UpdateLevelStars);
-
     }
 
     void Start()
@@ -39,6 +38,8 @@ public class LevelProgressManager : MonoBehaviour
     void UpdateLevelStars()
     {
         GameLevelManager.instance.SetCurrentLevelStars(numberOfStars);
+
+        if (playerHealthManager.currentHealth == playerHealthManager.maxHealth) GameLevelManager.instance.SetCurrentLevelPrefectClear();
     }
 
 }

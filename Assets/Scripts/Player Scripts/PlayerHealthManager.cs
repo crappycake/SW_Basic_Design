@@ -7,7 +7,7 @@ using System;
 public class PlayerHealthManager : MonoBehaviour
 {
     public int currentHealth;
-    [SerializeField] private int maxHealth;
+    public int maxHealth;
     public bool canTakeDamage = true;
     public float invincibilityTime;
 
@@ -50,15 +50,5 @@ public class PlayerHealthManager : MonoBehaviour
     private void GameOver()
     {
         OnGameOver?.Invoke(); //Trigger game over panel
-    }
-
-    public int GetPlayerMaxHealth()
-    {
-        return maxHealth;
-    }
-
-    public int GetPlayerCurrentHealth()
-    {
-        return currentHealth;
     }
 }

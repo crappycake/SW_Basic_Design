@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class GameLevelManager : MonoBehaviour
 {
@@ -13,14 +14,24 @@ public class GameLevelManager : MonoBehaviour
     {
         {"1-1", 0},
         {"1-2", 0},
-        {"1-3", 0}
+        {"1-3", 0},
+        {"1-4", 0}
     };
 
     private Dictionary<string, int> levelProgress = new Dictionary<string, int>
     {
         {"1-1", 0},
         {"1-2", 0},
-        {"1-3", 0}
+        {"1-3", 0},
+        {"1-4", 0}
+    };
+
+    private Dictionary<string, bool> perfectClear = new Dictionary<string, bool>
+    {
+        {"1-1", false},
+        {"1-2", false},
+        {"1-3", false},
+        {"1-4", false}
     };
 
     //current stage player is in. ex) 1-1, 1-2
@@ -81,7 +92,6 @@ public class GameLevelManager : MonoBehaviour
     //return number of stars of the current stage that the player is in.
     public void SetCurrentLevelStars(int numberOfStars)
     {
-        Debug.Log(numberOfStars);
         if (numberOfStars < 0 || numberOfStars > 3)
         {
             Debug.LogError("Incorrect amount of number of stars delivered to GameStageManager");
@@ -90,7 +100,7 @@ public class GameLevelManager : MonoBehaviour
 
         if (numberOfStars <= levelStars[currentLevel]) return;
 
-        levelStars[currentLevel] = numberOfStars;
+        levelStars[currentLevel] = numberOfStars;        
     }
 
     #endregion
@@ -118,6 +128,19 @@ public class GameLevelManager : MonoBehaviour
 
         if (_progress <= levelProgress[currentLevel]) return;
         levelProgress[currentLevel] = _progress;
+    }
+    #endregion
+
+    #region LEVEL PERFECT CLEAR
+
+    public void SetCurrentLevelPrefectClear()
+    {
+        perfectClear[currentLevel] = true;
+    }
+
+    public bool IsSelectedLevelPerfectClear(string selected)
+    {
+        return perfectClear[selected];
     }
     #endregion
 }

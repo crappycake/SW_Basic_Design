@@ -23,7 +23,7 @@ public class PlayerUIController : MonoBehaviour
     void Start()
     {
         //if number of lives != number of UI shown, throw an error
-        if (playerHealthManager.GetPlayerMaxHealth() != playerHealthImages.Length)
+        if (playerHealthManager.maxHealth != playerHealthImages.Length)
         {
             Debug.LogError("Number of health UI icons and max health does not match!");
         }
@@ -36,7 +36,7 @@ public class PlayerUIController : MonoBehaviour
 
     void UpdateHealthUI()
     {
-        int currentHealth = playerHealthManager.GetPlayerCurrentHealth();
+        int currentHealth = playerHealthManager.currentHealth;
         for (int i = 0; i < playerHealthImages.Length; ++i)
         {
                 playerHealthImages[i].enabled = i < currentHealth;
