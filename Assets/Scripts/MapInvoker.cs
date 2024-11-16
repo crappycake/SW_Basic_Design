@@ -14,21 +14,25 @@ public class MapInvoker : MonoBehaviour
     public GameObject upDestination;
     public GameObject downDestination;
 
-    int[] BeatMap;
-    int[] SFXMap;
-    int beat = 0;
-
     [Header("Circle 1")]
     [SerializeField] private GameObject circleDown;
     [SerializeField] private GameObject spikeDownSpawnPosition;
     [SerializeField] private GameObject playerStartPosition;
+
     [Header("Circle 2")]
     [SerializeField] private GameObject circleUp;
     [SerializeField] private GameObject spikeUpSpawnPosition;
     [SerializeField] private GameObject playerOtherPosition;
 
+    [Header("SFX Prefabs")]
+    [SerializeField] private GameObject testSFX;
+
     private AttackArea attackArea;
     private GameObject fireball;
+
+    int[] BeatMap;
+    int[] SFXMap;
+    int beat = 0;
 
     private void Start()
     {
@@ -42,7 +46,6 @@ public class MapInvoker : MonoBehaviour
     {
         attackArea = gameObject.GetComponent<AttackArea>();
         beat = 0;
-        Debug.Log(GameLevelManager.instance.GetCurrentLevel());
 
         BeatMap = global::BeatMap.instance.GetBeatMap();
         SFXMap = global::SFXMap.instance.GetSFXMap();
@@ -50,7 +53,7 @@ public class MapInvoker : MonoBehaviour
 
     public void Beat_Renderer()
     {
-        if (beat >= BeatMap.Length) return;
+        if (beat >= BeatMap.Length || beat>= SFXMap.Length) return;
 
         switch (BeatMap[beat])
         {
@@ -80,16 +83,14 @@ public class MapInvoker : MonoBehaviour
             default: break;
         }
 
-        /*
         switch (SFXMap[beat])
         {
-            case 1:
+            case 1: TriggerTestSFX(); break;
             case 2:
             case 3:
 
             default:break;
         }
-        */
         beat++;
     }
 
@@ -162,6 +163,13 @@ public class MapInvoker : MonoBehaviour
 
         AttachToCircle attachToCircle = newStar.GetComponent<AttachToCircle>();
         attachToCircle.attachedObject = circleDown;
+    }
+    #endregion
+
+    #region SFX FUNCTIONS
+    void TriggerTestSFX()
+    {
+        Instantiate(testSFX, Vector3.zero, Quaternion.identity);
     }
     #endregion
 }

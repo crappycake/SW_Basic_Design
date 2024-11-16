@@ -994,6 +994,7 @@ MonoBehaviour:
   circleUp: {fileID: 17060066}
   spikeUpSpawnPosition: {fileID: 699342629}
   playerOtherPosition: {fileID: 1373658582}
+  testSFX: {fileID: 8472128668451917206, guid: a4a96bb339309f3488367e21e32e8946, type: 3}
 --- !u!114 &1643816801
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1567,6 +1568,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8795675272183284380, guid: 0b4333c0cc4ecc949938b8e5a40215bb, type: 3}
+      propertyPath: flipSpeed
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 8795675272183284380, guid: 0b4333c0cc4ecc949938b8e5a40215bb, type: 3}
       propertyPath: otherPosition
       value: 
       objectReference: {fileID: 1373658582}
@@ -1755,7 +1760,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2057110272945888275, guid: 2e6391e15f6c1e343a6bef0e25308f22, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 2057110272945888275, guid: 2e6391e15f6c1e343a6bef0e25308f22, type: 3}
       propertyPath: m_LocalPosition.z
