@@ -9,6 +9,7 @@ public class FireballSFXController : MonoBehaviour
     private FireballShoot fireballShoot;
 
     [SerializeField] private GameObject parrySFX;
+    [SerializeField] private AudioSource parrySound;
     [SerializeField] private GameObject destroySFX;
     [SerializeField] private AudioSource destroySound;
 
@@ -44,6 +45,7 @@ public class FireballSFXController : MonoBehaviour
 
     private void TriggerParrySFX()
     {
+        parrySound.Play();
         Vector3 initPosition = new Vector3(transform.position.x - parrySFXOffset, transform.position.y);
         Instantiate(parrySFX, initPosition, transform.rotation);
     }

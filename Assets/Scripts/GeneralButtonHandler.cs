@@ -15,7 +15,7 @@ public class GeneralButtonHandler : MonoBehaviour
     IEnumerator WaitForClickSound(string _sceneName)
     {
         yield return new WaitForSecondsRealtime(clickAudio.clip.length);
-        
+
         SceneManager.LoadScene(_sceneName);
     }
 
