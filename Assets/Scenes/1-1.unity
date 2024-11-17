@@ -853,6 +853,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &870552227 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2776001151524326674, guid: e47c3e6b0c14a5b4ab4c24a27b3741f5, type: 3}
+  m_PrefabInstance: {fileID: 5057880983115772887}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &872338934 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4138296157074396844, guid: 930c51e57ac6cf14491c1eb3d205725b, type: 3}
@@ -1789,6 +1794,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 5057880983115772889}
     - target: {fileID: 9214103997734293465, guid: 0b4333c0cc4ecc949938b8e5a40215bb, type: 3}
+      propertyPath: perfectClearText
+      value: 
+      objectReference: {fileID: 870552227}
+    - target: {fileID: 9214103997734293465, guid: 0b4333c0cc4ecc949938b8e5a40215bb, type: 3}
       propertyPath: playerStarImages.Array.data[0]
       value: 
       objectReference: {fileID: 7471839015512902773}
@@ -1919,7 +1928,7 @@ PrefabInstance:
       objectReference: {fileID: 523630472}
     - target: {fileID: 3889356857402495053, guid: e47c3e6b0c14a5b4ab4c24a27b3741f5, type: 3}
       propertyPath: m_Name
-      value: Game Over Canvas
+      value: Game Canvas
       objectReference: {fileID: 0}
     - target: {fileID: 5288595877806231008, guid: e47c3e6b0c14a5b4ab4c24a27b3741f5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -1929,10 +1938,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 523630472}
-    - target: {fileID: 8004887466095111837, guid: e47c3e6b0c14a5b4ab4c24a27b3741f5, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

@@ -168,7 +168,7 @@ Transform:
   m_Children:
   - {fileID: 8573566492988192366}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &274433734012956635
 SpriteRenderer:
@@ -260,6 +260,7 @@ MonoBehaviour:
   - {fileID: 0}
   gameClearPanel: {fileID: 0}
   gameOverPanel: {fileID: 0}
+  perfectClearText: {fileID: 0}
 --- !u!114 &8795675272183284380
 MonoBehaviour:
   m_ObjectHideFlags: 0

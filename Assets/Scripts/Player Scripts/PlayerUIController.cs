@@ -11,6 +11,7 @@ public class PlayerUIController : MonoBehaviour
     [SerializeField] Image[] playerStarImages;
     [SerializeField] GameObject gameClearPanel;
     [SerializeField] GameObject gameOverPanel;
+    [SerializeField] GameObject perfectClearText;
 
     PlayerHealthManager playerHealthManager;
     PlayerCollisionManager playerCollisionManager;
@@ -65,6 +66,11 @@ public class PlayerUIController : MonoBehaviour
     {
         Time.timeScale = 0f;
         gameClearPanel.SetActive(true);
+        
+        if (GameLevelManager.instance.IsCurrentLevelPerfectClear())
+        {
+            perfectClearText.SetActive(true);
+        }
     }
 
     void GameOver()

@@ -138,6 +138,11 @@ public class GameLevelManager : MonoBehaviour
         perfectClear[currentLevel] = true;
     }
 
+    public bool IsCurrentLevelPerfectClear()
+    {
+        return perfectClear[currentLevel];
+    }
+
     public bool IsSelectedLevelPerfectClear(string selected)
     {
         return perfectClear[selected];
