@@ -63,6 +63,8 @@ public class BossInvoker : MonoBehaviour
     void InstantiateFireBall(GameObject boss, GameObject pos)
     {
         fireball.GetComponent<FireballShoot>().destinationPos = pos.transform.position;
+        fireball.GetComponent<FireballShoot>().startPos = boss.transform.position;
+
         Instantiate(fireball, boss.transform.position, boss.transform.rotation);
     }
     private float GetBeat(float bpm)
