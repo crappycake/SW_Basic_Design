@@ -590,7 +590,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 24300002, guid: 4d304fecff1d6484bb58bd197ee41a18, type: 2}
-  m_audioClip: {fileID: 8300000, guid: edccca4fe07265f4f908261eb00f050c, type: 3}
+  m_audioClip: {fileID: 8300000, guid: c0d18c43dac0a22498333b9fccf20a41, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -1913,6 +1913,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 523630470}
+    - target: {fileID: 3485650986115332101, guid: e47c3e6b0c14a5b4ab4c24a27b3741f5, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 523630472}
     - target: {fileID: 3889356857402495053, guid: e47c3e6b0c14a5b4ab4c24a27b3741f5, type: 3}
       propertyPath: m_Name
       value: Game Over Canvas
@@ -1921,6 +1925,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 523630470}
+    - target: {fileID: 5288595877806231008, guid: e47c3e6b0c14a5b4ab4c24a27b3741f5, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 523630472}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
