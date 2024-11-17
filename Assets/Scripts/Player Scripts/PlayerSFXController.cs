@@ -23,6 +23,7 @@ public class Player_SFXController : MonoBehaviour
     [SerializeField] private float shakeFrequency;
     [SerializeField] private float shakeDuration;
     [SerializeField] private GameObject collisionVFX;
+    [SerializeField] private AudioSource collisionSFX;
     private PlayerCollisionManager collisionManager;
 
     [Header("Damage Blink SFX")]
@@ -49,7 +50,7 @@ public class Player_SFXController : MonoBehaviour
 
         healthManager.OnDamageTaken += StartDMGCoroutine;
         flipController.OnFlipFunctionCalled += TriggerFlipSoundEffect;
-        collisionManager.OnCollideWithSpike.AddListener(TriggerSpikeCollisionVFX);
+        collisionManager.OnCollideWithSpike.AddListener(TriggerSpikeCollisionEffects);
     }
 
     void Start()
@@ -146,10 +147,11 @@ public class Player_SFXController : MonoBehaviour
         cinemachineNoise.m_FrequencyGain = 0f;
     }
 
-    private void TriggerSpikeCollisionVFX()
+    private void TriggerSpikeCollisionEffects()
     {
         if (!healthManager.canTakeDamage) return;
 
+        collisionSFX.Play();
         Vector3 offsetPos = new Vector3(gameObject.transform.position.x + 0.2f, gameObject.transform.position.y);
         Instantiate(collisionVFX, offsetPos, quaternion.identity);
     }
