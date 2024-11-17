@@ -105,7 +105,7 @@ public class BeatMap : MonoBehaviour
             7, 0, 0, 0, 8, 0, 0, 0, 9, 0, 0, 0, 10, 0, 0, 0,
             7, 0, 0, 0, 8, 0, 0, 0, 9, 0, 0, 0, 10, 0, 0, 0,*/
          }, //1-3
-        new int[] { },
+        new int[] {0, 0, 0, 2, 2, 1, 1, 2,2, 1, 1, }
     };
 
     int[][] TestLevel = new int[5][]
