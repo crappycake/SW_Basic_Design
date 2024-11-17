@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LevelSelectionButtonHandler : MonoBehaviour
+public class LevelStartButtonHandler : MonoBehaviour
 {
     public void SetStage(string levelToSet)
     {

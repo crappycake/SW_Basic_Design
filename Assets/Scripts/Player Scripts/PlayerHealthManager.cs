@@ -15,7 +15,7 @@ public class PlayerHealthManager : MonoBehaviour
     //subscribed by: PlayerUIController, PlayerSFXController
 
     public event Action OnGameOver;
-    //subscribed by: PlayerUIController, LevelProgressManager
+    //subscribed by: PlayerUIController, LevelProgressManager, LevelBeatManager
 
     void Start()
     {

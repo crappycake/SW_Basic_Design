@@ -13,7 +13,7 @@ public class AttackArea : MonoBehaviour
     void Start()
     {
         squareArea = squareAreatemp;
-        bpm = GameObject.Find("Beat Manager(TEST)").GetComponent<LevelBeatManager>().Bpm();
+        bpm = GameObject.Find("Beat Manager").GetComponent<LevelBeatManager>().Bpm();
     }
 
     #region SquareArea

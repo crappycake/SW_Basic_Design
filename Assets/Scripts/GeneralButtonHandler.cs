@@ -5,8 +5,17 @@ using UnityEngine.SceneManagement;
 
 public class GeneralButtonHandler : MonoBehaviour
 {
+    public AudioSource clickAudio;
+
     public void LoadSelectedScene(string _sceneName)
     {
+        StartCoroutine(WaitForClickSound(_sceneName));
+    }
+
+    IEnumerator WaitForClickSound(string _sceneName)
+    {
+        yield return new WaitForSecondsRealtime(clickAudio.clip.length);
+        
         SceneManager.LoadScene(_sceneName);
     }
 

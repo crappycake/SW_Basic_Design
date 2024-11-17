@@ -44,7 +44,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 24300002, guid: 4d304fecff1d6484bb58bd197ee41a18, type: 2}
   m_audioClip: {fileID: 8300000, guid: c08c50415545bab449a30c607f64ddd0, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -290,9 +290,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   brokenHeartSFX: {fileID: 6855314210357232287, guid: 7c2a9b83b809a0848915fabd9596b68b, type: 3}
   brokenHeartPositions:
-  - {x: 16.6, y: 6, z: 0}
-  - {x: -14.8, y: 6, z: 0}
-  - {x: -13.6, y: 6, z: 0}
+  - {x: -8.4, y: 4, z: 0}
+  - {x: -7.5, y: 4, z: 0}
+  - {x: -6.5, y: 4, z: 0}
   mainCamera: {fileID: 0}
   shakeAmplitude: 3
   shakeFrequency: 3

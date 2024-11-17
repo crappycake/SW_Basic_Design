@@ -7,6 +7,8 @@ using UnityEngine.Rendering.UI;
 public class StageSelectUIManager : MonoBehaviour
 {
     [SerializeField] GameObject[] stagePanels;
+    [SerializeField] GameObject moveLeftButton;
+    [SerializeField] GameObject moveRightButton;
 
     private int currentIndex = 0;
     private int maxIndex;
@@ -14,6 +16,7 @@ public class StageSelectUIManager : MonoBehaviour
     void Awake()
     {
         currentIndex = 0;
+        moveLeftButton.SetActive(false);
         maxIndex = stagePanels.Length - 1;
     }
 
@@ -25,7 +28,13 @@ public class StageSelectUIManager : MonoBehaviour
     public void MoveRight()
     {
         currentIndex++;
-        if (currentIndex > maxIndex) currentIndex = maxIndex;
+        moveLeftButton.SetActive(true);
+
+        if (currentIndex >= maxIndex) 
+        {
+            currentIndex = maxIndex;
+            moveRightButton.SetActive(false);
+        }
 
         UpdatePanels();
     }
@@ -33,7 +42,13 @@ public class StageSelectUIManager : MonoBehaviour
     public void MoveLeft()
     {
         currentIndex--;
-        if (currentIndex < 0) currentIndex = 0;
+        moveRightButton.SetActive(true);
+
+        if (currentIndex <= 0) 
+        {
+            currentIndex = 0;
+            moveLeftButton.SetActive(false);
+        }
 
         UpdatePanels();
     }

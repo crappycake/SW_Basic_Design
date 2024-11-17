@@ -26,6 +26,7 @@ public class PlayerUIController : MonoBehaviour
 
         Time.timeScale = 1f;
     }
+
     void Start()
     {
         //if number of lives != number of UI shown, throw an error

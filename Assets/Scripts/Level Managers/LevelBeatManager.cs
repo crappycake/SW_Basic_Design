@@ -15,11 +15,16 @@ public class LevelBeatManager : MonoBehaviour
     public UnityEvent OnMusicEnded;
     bool musicEnded = false;
 
+    private PlayerHealthManager playerHealthManager;
+
     void Awake()
     {
         musicEnded = false;
 
+        playerHealthManager = FindObjectOfType<PlayerHealthManager>();
+        playerHealthManager.OnGameOver += StopMusic;
     }
+
     private void Update()
     {
         if (musicEnded) return;
@@ -42,6 +47,13 @@ public class LevelBeatManager : MonoBehaviour
         float progress = audioSource.time / audioSource.clip.length;
         return (int) (progress * 100);
     }
+
+    private void StopMusic()
+    {
+        musicEnded = true;
+        audioSource.Stop();
+    }
+
     public float Bpm()
     {
         return bpm;
