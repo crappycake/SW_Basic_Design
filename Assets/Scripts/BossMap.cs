@@ -8,7 +8,7 @@ public class BossMap : MonoBehaviour
 
     int[] chapter1 = new int[]
     {
-        0, 0, 5, 0
+        0, 0, 2, 0, 0, 4, 0, 3, 0, 0, 4, 0, 1, 0, 0, 5, 6, 5, 6,
     };
 
     // Update is called once per frame
