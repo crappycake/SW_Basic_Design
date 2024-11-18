@@ -1916,11 +1916,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8004887466095111837, guid: e47c3e6b0c14a5b4ab4c24a27b3741f5, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8543455473901732125, guid: e47c3e6b0c14a5b4ab4c24a27b3741f5, type: 3}
       propertyPath: m_text
-      value: "\uC2DC\uB828 \uADF9\uBCF5 \uC2E4\uD328"
+      value: "\uC2DC\uB828 \uC2E4\uD328"
       objectReference: {fileID: 0}
     - target: {fileID: 8543455473901732125, guid: e47c3e6b0c14a5b4ab4c24a27b3741f5, type: 3}
       propertyPath: m_fontAsset
