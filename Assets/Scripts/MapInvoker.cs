@@ -27,6 +27,9 @@ public class MapInvoker : MonoBehaviour
     [Header("SFX Prefabs")]
     [SerializeField] private GameObject testSFX;
 
+    [Header("Start Title")]
+    [SerializeField] private GameObject Title;
+
     private AttackArea attackArea;
     private GameObject fireball;
 
@@ -57,6 +60,10 @@ public class MapInvoker : MonoBehaviour
 
         switch (BeatMap[beat])
         {
+           // case -1: FadeIn(); break;
+            //case -2: FadeOut(); break;
+
+
             case 1: SummonSpikeUp(); break;
             case 2: SummonSpikeDown(); break;
             //case 3: SummonJumpPad("UP");                                   break;
@@ -93,6 +100,25 @@ public class MapInvoker : MonoBehaviour
         }
         beat++;
     }
+
+    /*
+    #region TITLE FUNCTION
+    void FadeIn()
+    {
+        if (Title == null) Debug.Log("Title is null");
+        StageTitle stageTitle = Title.GetComponent<StageTitle>();
+        if (stageTitle != null) Debug.Log("stageTitle is null");
+        stageTitle.FadeIn();
+    }
+
+    void FadeOut()
+    {
+        StageTitle stageTitle = Title.GetComponent<StageTitle>();
+        stageTitle.FadeOut();
+    }
+
+    #endregion
+    */
 
     #region SUMMON SPIKE FUNCTION
     void SummonSpikeUp()
