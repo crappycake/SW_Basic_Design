@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Net.NetworkInformation;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
@@ -12,6 +13,7 @@ public class PlayerUIController : MonoBehaviour
     [SerializeField] GameObject gameClearPanel;
     [SerializeField] GameObject gameOverPanel;
     [SerializeField] GameObject perfectClearText;
+    [SerializeField] TextMeshProUGUI gameProgressText;
 
     PlayerHealthManager playerHealthManager;
     PlayerCollisionManager playerCollisionManager;
@@ -77,5 +79,7 @@ public class PlayerUIController : MonoBehaviour
     {
         Time.timeScale = 0f;
         gameOverPanel.SetActive(true);
+        int progress = GameLevelManager.instance.GetCurrentLevelProgress();
+        gameProgressText.text = $"ÁøÇàµµ: {(int)progress}%"; ;
     }
 }

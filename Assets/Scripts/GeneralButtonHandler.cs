@@ -7,6 +7,11 @@ public class GeneralButtonHandler : MonoBehaviour
 {
     public AudioSource clickAudio;
 
+    public void RestartScene()
+    {
+        StartCoroutine(WaitForClickSound(GameLevelManager.instance.GetCurrentLevel()));
+    }
+
     public void LoadSelectedScene(string _sceneName)
     {
         StartCoroutine(WaitForClickSound(_sceneName));
