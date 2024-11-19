@@ -62,7 +62,7 @@ public class MapInvoker : MonoBehaviour
         {
            // case -1: FadeIn(); break;
             //case -2: FadeOut(); break;
-
+            
 
             case 1: SummonSpikeUp(); break;
             case 2: SummonSpikeDown(); break;

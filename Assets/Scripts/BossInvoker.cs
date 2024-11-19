@@ -21,7 +21,7 @@ public class BossInvoker : MonoBehaviour
     void Start()
     {
         fireball = fireballPrefab;
-        bpm = GameObject.Find("Beat Manager(TEST)").GetComponent<LevelBeatManager>().Bpm();
+        bpm = GameObject.Find("Beat Manager").GetComponent<LevelBeatManager>().Bpm();
     }
 
     void Awake()
@@ -37,17 +37,45 @@ public class BossInvoker : MonoBehaviour
     public void Beat_Renderer()
     {
         if (beat >= BossMap.Length) return;
+        if(BossMap[beat] != 0) {
+            switch (BossMap[beat] / 10)
+            {
+                case 0:
+                    switch (BossMap[beat] % 10)
+                    {
+                        case 1: StartCoroutine(MoveBoss(boss, movePositions[0], 1f)); break;
+                        case 2: StartCoroutine(MoveBoss(boss, movePositions[1], 1f)); break;
+                        case 3: StartCoroutine(MoveBoss(boss, movePositions[2], 1f)); break;
+                        case 4: StartCoroutine(MoveBoss(boss, movePositions[3], 1f)); break;
+                        case 5: StartCoroutine(MoveBoss(boss, movePositions[4], 1f)); break;
+                        case 6: StartCoroutine(MoveBoss(boss, movePositions[5], 1f)); break;
+                        case 7: StartCoroutine(MoveBoss(boss, movePositions[6], 1f)); break;
+                        case 8: StartCoroutine(MoveBoss(boss, movePositions[7], 1f)); break;
+                        case 9: StartCoroutine(MoveBoss(boss, movePositions[8], 1f)); break;
+                        default: break;
+                    }
+                    break;
 
-        switch(BossMap[beat])
-        {
-            case 1: StartCoroutine(MoveBoss(boss, movePositions[0], 1f)); break;
-            case 2: StartCoroutine(MoveBoss(boss, movePositions[1], 1f)); break;
-            case 3: StartCoroutine(MoveBoss(boss, movePositions[2], 1f)); break;
-            case 4: attackArea.TriggerSquareAreaAttack(boss); break;
-            case 5: InstantiateFireBall(boss, upDestination); break;
-            case 6: InstantiateFireBall(boss, downDestination); break;
-            default: break;
-        }
+                case 1:
+                    switch (BossMap[beat] % 10)
+                    {
+                        case 1: attackArea.TriggerSquareAreaAttack(boss); break;
+                        case 2: attackArea.TriggerSquareAreaAttack(boss, (float)0.5); break;
+                        default: break;
+                    }
+                    break;
+                case 2:
+                    switch (BossMap[beat] % 10)
+                    {
+                        case 1: InstantiateFireBall(boss, upDestination); break;
+                        case 2: InstantiateFireBall(boss, downDestination); break;
+                        default: break;
+                    }
+                    break;
+                default: break;
+            }
+         }
+
         beat++;
     }
 
