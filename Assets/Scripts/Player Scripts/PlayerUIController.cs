@@ -58,10 +58,40 @@ public class PlayerUIController : MonoBehaviour
     void UpdateStarUI()
     {
         int currentStar = levelProgressManager.numberOfStars;
+
         for (int i = 0; i < playerStarImages.Length; ++i)
         {
-                playerStarImages[i].enabled = i < currentStar;
+            if (i < currentStar)
+            {
+                playerStarImages[i].enabled = true;
+                StartCoroutine(AnimateStar(playerStarImages[i].rectTransform));
+            }
+            else
+            {
+                playerStarImages[i].enabled = false;
+            }
         }
+    }
+
+    private IEnumerator AnimateStar(RectTransform starRectTransform)
+    {
+        float duration = 0.5f; 
+        float elapsed = 0f;
+        Vector3 originalScale = Vector3.one;
+        Vector3 startScale = Vector3.zero;
+
+        starRectTransform.localScale = startScale; 
+
+        while (elapsed < duration)
+        {
+            elapsed += Time.deltaTime;
+            float t = elapsed / duration;
+
+            starRectTransform.localScale = Vector3.Lerp(startScale, originalScale, Mathf.SmoothStep(0f, 1f, t));
+            yield return null;
+        }
+
+        starRectTransform.localScale = originalScale;
     }
 
     void GameClear()
