@@ -33,6 +33,9 @@ public class Player_SFXController : MonoBehaviour
     SpriteRenderer spriteRenderer;
     PlayerHealthManager healthManager;
 
+    [Header("Flip SFX")]
+    [SerializeField] private GameObject flipVFX;
+
     [Header("Sound Effects")]
     [SerializeField] private AudioSource flipSoundEffect;
 
@@ -49,7 +52,9 @@ public class Player_SFXController : MonoBehaviour
         collisionManager = GetComponent<PlayerCollisionManager>();
 
         healthManager.OnDamageTaken += StartDMGCoroutine;
-        flipController.OnFlipFunctionCalled += TriggerFlipSoundEffect;
+        flipController.OnFlipFunctionCalled += TriggerFlipSound;
+        flipController.OnFlipEnded += TriggerFlipVFX;
+
         collisionManager.OnCollideWithSpike.AddListener(TriggerSpikeCollisionEffects);
     }
 
@@ -61,7 +66,7 @@ public class Player_SFXController : MonoBehaviour
     void Update()
     {
         ReturnCameraToOriginalPosition(); //return cam to original pos from shake displacement
-        TriggerFlipTrailRenderer();
+        //TriggerFlipTrailRenderer();
     }
 
     void Initialize()
@@ -79,10 +84,43 @@ public class Player_SFXController : MonoBehaviour
         else trailRenderer.emitting = false;
     }
 
-    void TriggerFlipSoundEffect()
+    void TriggerFlipSound()
     {
         flipSoundEffect.Play();
     }
+
+    void TriggerFlipVFX()
+    {
+        GameObject spawnedVFX;
+
+        Vector3 spawnPosition;
+        if (flipController.isFliped)
+        {
+            spawnPosition = gameObject.transform.position;
+            spawnPosition.y += 0.5f;
+        }
+        else
+        {
+            spawnPosition = gameObject.transform.position;
+            spawnPosition.y -= 0.5f;
+        }
+
+        // Instantiate the VFX
+        spawnedVFX = Instantiate(flipVFX, spawnPosition, Quaternion.identity);
+
+        // Adjust the rotation of the particle system
+        ParticleSystem.MainModule mainModule = spawnedVFX.GetComponent<ParticleSystem>().main;
+
+        if (flipController.isFliped)
+        {
+            mainModule.startRotation = 0f; // Upright direction
+        }
+        else
+        {
+            mainModule.startRotation = Mathf.PI; // Flipped direction (180 degrees in radians)
+        }
+    }
+
     #endregion
 
     #region DMG EFFECTS

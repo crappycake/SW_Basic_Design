@@ -277,6 +277,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startingPosition: {fileID: 0}
   otherPosition: {fileID: 0}
+  isFliped: 0
   canFlip: 1
   flipSpeed: 50
 --- !u!114 &2032672688424017073
@@ -305,8 +306,8 @@ MonoBehaviour:
   blinkDuration: 1
   initialBlinkInterval: 0.2
   blinkSpeedIncrease: 0.5
+  flipVFX: {fileID: 3432958286849152088, guid: 87ee7299dd44ed747af24dbb91bcd33b, type: 3}
   flipSoundEffect: {fileID: 1729235210038439067}
-  parrySoundEffect: {fileID: 8970463004666342511}
 --- !u!114 &8540236327997108200
 MonoBehaviour:
   m_ObjectHideFlags: 0

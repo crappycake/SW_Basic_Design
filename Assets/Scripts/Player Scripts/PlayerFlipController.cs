@@ -9,13 +9,19 @@ public class PlayerFlipController : MonoBehaviour
 {
     public GameObject startingPosition;
     public GameObject otherPosition;
-    private bool isFliped = false;
+    [HideInInspector] public bool isFliped = false;
     [HideInInspector] public bool canFlip = true;
     [SerializeField] float flipSpeed;
+
+    private bool flipInvoked = true;
 
     public event Action OnFlipFunctionCalled;
     //Subscribed by:
     //1. PlayerSFXController - trigger flip sound   
+
+    public event Action OnFlipEnded;
+    //Subscribed by:
+    //1. PlayerSFXController - trigger flip vfx
 
     public event Action OnParryingFunctionCalled;
     //Subscried by:
@@ -31,6 +37,7 @@ public class PlayerFlipController : MonoBehaviour
         if (!canFlip) return;
 
         isFliped = !isFliped;
+        flipInvoked = false;
         OnFlipFunctionCalled?.Invoke();
     }
 
@@ -59,6 +66,11 @@ public class PlayerFlipController : MonoBehaviour
         if (Vector2.Distance(transform.position, targetPos) < 0.01f)
         {
             canFlip = true; 
+            if (!flipInvoked) 
+            {
+                OnFlipEnded.Invoke();
+                flipInvoked = true;
+            }
         }
         else
         {
