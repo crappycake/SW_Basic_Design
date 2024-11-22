@@ -13,7 +13,12 @@ public class FireballCollisionTrigger : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collider)
     {
+        Debug.Log(gameObject.tag);
         if (collider.gameObject.CompareTag("Player"))
+        {
+            fireballSFXController.TriggerDestorySFX();
+        }
+        else if(gameObject.CompareTag("Fireball_parried") && collider.gameObject.CompareTag("Boss"))
         {
             fireballSFXController.TriggerDestorySFX();
         }

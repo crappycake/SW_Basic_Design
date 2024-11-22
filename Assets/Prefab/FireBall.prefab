@@ -185,6 +185,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bpm: 150
   parryingSpeedMultiplier: 3.5
+  Damage: {fileID: 363207177779263514}
   startPos: {x: 0, y: 0, z: 0}
   destinationPos: {x: 0, y: 0, z: 0}
   betweenPos: {x: 0, y: 0, z: 0}

@@ -6,7 +6,7 @@ public class FireballShoot : MonoBehaviour
 {
     public float bpm;
     [SerializeField] private float parryingSpeedMultiplier;
-
+    [SerializeField] private GameObject Damage;
     [HideInInspector] public Vector3 startPos;
     [HideInInspector] public Vector3 destinationPos;
 
@@ -55,6 +55,7 @@ public class FireballShoot : MonoBehaviour
         }
         else
         {
+            Damage.tag = "Fireball_parried";
             movePos = -(movePos * parryingSpeedMultiplier);
             fireballSFXController.CallFunctionsAfterParried();
             parrying = false;

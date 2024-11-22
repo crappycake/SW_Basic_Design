@@ -1727,6 +1727,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 5057880983115772889}
     - target: {fileID: 9214103997734293465, guid: 0b4333c0cc4ecc949938b8e5a40215bb, type: 3}
+      propertyPath: gameProgressText
+      value: 
+      objectReference: {fileID: 5057880983115772890}
+    - target: {fileID: 9214103997734293465, guid: 0b4333c0cc4ecc949938b8e5a40215bb, type: 3}
       propertyPath: playerHealthImages.Array.data[0]
       value: 
       objectReference: {fileID: 1805505046}
@@ -1873,6 +1877,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8004887466095111837, guid: e47c3e6b0c14a5b4ab4c24a27b3741f5, type: 3}
   m_PrefabInstance: {fileID: 5057880983115772887}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &5057880983115772890 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 501687793297156907, guid: e47c3e6b0c14a5b4ab4c24a27b3741f5, type: 3}
+  m_PrefabInstance: {fileID: 5057880983115772887}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &6203972532231488497
 PrefabInstance:
   m_ObjectHideFlags: 0

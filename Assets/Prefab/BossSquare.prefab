@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4503030389076251834}
   - component: {fileID: 6318045575987141918}
   - component: {fileID: -5973664563189254384}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: BossSquare
   m_TagString: Untagged
   m_Icon: {fileID: 0}
