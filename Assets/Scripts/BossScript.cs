@@ -9,12 +9,15 @@ public class BossScript : MonoBehaviour
 
     [SerializeField] Slider bossSlider;
 
+    private void Start()
+    {
+        bossSlider.maxValue = health;
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Fireball_parried"))
         {
             OnDamaged(1);
-            
         }
     }
 
