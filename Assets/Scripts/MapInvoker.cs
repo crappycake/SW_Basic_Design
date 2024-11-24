@@ -127,7 +127,6 @@ public class MapInvoker : MonoBehaviour
         spikeClone.SetActive(true);
         var spikeScript = spikeClone.GetComponent<AttachToCircle>();
 
-        //�� ������ũ ��ȯ
         spikeClone.transform.position = new Vector3(spikeDownSpawnPosition.transform.position.x, spikeUpSpawnPosition.transform.position.y);
         spikeClone.transform.SetParent(circleUp.transform, true);
         spikeScript.attachedObject = circleUp;
@@ -139,7 +138,6 @@ public class MapInvoker : MonoBehaviour
         spikeClone.SetActive(true);
         var spikeScript = spikeClone.GetComponent<AttachToCircle>();
 
-        //�Ʒ� ������ũ ��ȯ
         spikeClone.transform.position = new Vector3(spikeDownSpawnPosition.transform.position.x, spikeDownSpawnPosition.transform.position.y);
         spikeClone.transform.SetParent(circleDown.transform, true);
         spikeScript.attachedObject = circleDown;
