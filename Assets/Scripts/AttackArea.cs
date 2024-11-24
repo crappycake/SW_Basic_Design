@@ -43,19 +43,22 @@ public class AttackArea : MonoBehaviour
         for (float alpha = 0f; alpha <= 1f; alpha += 0.1f)
         {
             c.a = alpha;
-            renderer.material.color = c;
+            renderer.color = c;
             yield return new WaitForSeconds(GetBeat(bpm) / 10 * k);
         }
         for (float alpha = 1f; alpha >= 0; alpha -= 0.1f)
         {
             c.a = alpha;
-            renderer.material.color = c;
+            renderer.color = c;
             yield return new WaitForSeconds(GetBeat(bpm) / 10 * k);
         }
+        c.r = 255;
+        c.g = 255;
+        c.b = 0;
         for (float alpha = 0f; alpha <= 1f; alpha += 0.1f)
         {
             c.a = alpha;
-            renderer.material.color = c;
+            renderer.color = c;
             yield return new WaitForSeconds(GetBeat(bpm) / 10 * k);
         }
         yield return StartCoroutine(DamageSquare(obj, k));
@@ -99,6 +102,9 @@ public class AttackArea : MonoBehaviour
             renderer.color = c;
             yield return new WaitForSeconds(GetBeat(bpm) / 10 * k);
         }
+        c.r = 255;
+        c.g = 255;
+        c.b = 0;
         for (float alpha = 1f; alpha >= 0; alpha -= 0.1f)
         {
             c.a = alpha;
