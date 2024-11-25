@@ -206,13 +206,13 @@ public class TutorialMaker : MonoBehaviour
         tutorialCnt++;
         isShow = false;
     }
-
+    
     public void JustShowTutor()
     {
         Tutorial.text = Tutorzip[tutorialCnt].dialogue;
         isShow = true;
     }
-
+    /*
     public void DoTutor(KeyCode flag)
     {
         if (Input.GetKeyDown(flag))
@@ -221,11 +221,15 @@ public class TutorialMaker : MonoBehaviour
             isShow = false;
         }
     }
+    */
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Damage" || collision.gameObject.tag == "Fireball")
+        { 
             isDamage = true;
+            Debug.Log("collision!");
+        }
     }
 
 

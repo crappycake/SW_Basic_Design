@@ -1399,7 +1399,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.46449515
+  m_Radius: 0.53336823
 --- !u!114 &1280243312
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1480,7 +1480,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acf27b8a418b4d546845b8abbb6f10dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bpm: 150
+  bpm: 180
   audioSource: {fileID: 1409699070}
   intervals:
   - steps: 1
@@ -2311,7 +2311,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4566786337078414363, guid: 0b4333c0cc4ecc949938b8e5a40215bb, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6173568727651879253, guid: 0b4333c0cc4ecc949938b8e5a40215bb, type: 3}
       propertyPath: m_RootOrder
@@ -2850,7 +2850,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6481564535956290307, guid: 930c51e57ac6cf14491c1eb3d205725b, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7948844906290031067, guid: 930c51e57ac6cf14491c1eb3d205725b, type: 3}
       propertyPath: m_Name
