@@ -145,7 +145,11 @@ public class Player_SFXController : MonoBehaviour
 
     void TriggerBrokenHeartUI()
     {
-        Instantiate(brokenHeartSFX, brokenHeartPositions[healthManager.currentHealth], Quaternion.identity);
+        if (brokenHeartSFX != null)
+        {
+            Instantiate(brokenHeartSFX, brokenHeartPositions[healthManager.currentHealth], Quaternion.identity);
+
+        }
     }
 
     IEnumerator BlinkAfterTakingDamage()

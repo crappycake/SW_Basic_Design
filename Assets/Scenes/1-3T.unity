@@ -1291,6 +1291,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89b3845d4d364f44c820bf0f1342529f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CircleUP: {fileID: 17060066}
+  CircleDown: {fileID: 936158185}
   Tutorial: {fileID: 733759677}
   fireballPrefab: {fileID: 2865519444121687294, guid: 70f09f2b41647694181adbfdb53fc0bf, type: 3}
   startDestination: {fileID: 216041840}
@@ -1381,7 +1383,7 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}

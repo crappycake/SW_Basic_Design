@@ -10,6 +10,7 @@ public class RotateCircle : MonoBehaviour
 
     void Awake()
     {
+        Time.timeScale = 1f;
         rotationSpeed = SpeedSetting.instance.RotateSpeed();
         if (circle % 2 == 0) rotationSpeed *= -1; 
     }

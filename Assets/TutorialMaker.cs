@@ -14,6 +14,9 @@ public class Tutorial
 
 public class TutorialMaker : MonoBehaviour
 {
+    public GameObject CircleUP;
+    public GameObject CircleDown;
+
     #region ATTACK VARIABLE
     [SerializeField] private Text Tutorial;
 
@@ -64,6 +67,9 @@ public class TutorialMaker : MonoBehaviour
 
     void Start()
     {
+        circleUp.GetComponent<RotateCircle>().enabled = true;
+        circleDown.GetComponent<RotateCircle>().enabled = true;
+
         //Tutorial
         isShow = false;
         isDamage = false;
@@ -147,15 +153,18 @@ public class TutorialMaker : MonoBehaviour
         switch (SceneNum)
         {
             case 1:
-                AttackSwitch(2);
+                if (tutorialCnt == 2)
+                    AttackSwitch(1);
+                else
+                    AttackSwitch(2);
                 break;
             case 2:
                 if (tutorialCnt == 1)
-                    AttackSwitch(7);
+                    AttackSwitch(8);
                 else if (tutorialCnt == 2)
                     AttackSwitch(9);
                 else
-                    AttackSwitch(7);
+                    AttackSwitch(8);
                 break;
             case 3:
                 AttackSwitch(6);
@@ -228,7 +237,16 @@ public class TutorialMaker : MonoBehaviour
         if (collision.gameObject.tag == "Damage" || collision.gameObject.tag == "Fireball")
         { 
             isDamage = true;
-            Debug.Log("collision!");
+            Debug.Log("collision enter!");
+        }
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Damage" || collision.gameObject.tag == "Fireball")
+        {
+            isDamage = true;
+            Debug.Log("collision stay!");
         }
     }
 

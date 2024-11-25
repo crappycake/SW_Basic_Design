@@ -17,6 +17,18 @@ public class GeneralButtonHandler : MonoBehaviour
         StartCoroutine(WaitForClickSound(_sceneName));
     }
 
+    public void LoadStageScene(string _sceneName)
+    {
+        int progress = GameLevelManager.instance.GetSelectedLevelProgress(_sceneName);
+
+        if (progress == 0)
+        {
+            _sceneName += "T";
+        }
+
+        StartCoroutine(WaitForClickSound(_sceneName));
+    }
+
     IEnumerator WaitForClickSound(string _sceneName)
     {
         yield return new WaitForSecondsRealtime(clickAudio.clip.length);

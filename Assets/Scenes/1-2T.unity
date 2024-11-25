@@ -1291,6 +1291,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89b3845d4d364f44c820bf0f1342529f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CircleUP: {fileID: 17060066}
+  CircleDown: {fileID: 936158185}
   Tutorial: {fileID: 733759677}
   fireballPrefab: {fileID: 2865519444121687294, guid: 70f09f2b41647694181adbfdb53fc0bf, type: 3}
   startDestination: {fileID: 216041840}
@@ -1394,7 +1396,7 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -2305,6 +2307,10 @@ PrefabInstance:
       propertyPath: mainCamera
       value: 
       objectReference: {fileID: 149059288}
+    - target: {fileID: 2032672688424017073, guid: 0b4333c0cc4ecc949938b8e5a40215bb, type: 3}
+      propertyPath: brokenHeartSFX
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 2363021768157990605, guid: 0b4333c0cc4ecc949938b8e5a40215bb, type: 3}
       propertyPath: m_Name
       value: Player
@@ -2312,6 +2318,10 @@ PrefabInstance:
     - target: {fileID: 4566786337078414363, guid: 0b4333c0cc4ecc949938b8e5a40215bb, type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4566786337078414363, guid: 0b4333c0cc4ecc949938b8e5a40215bb, type: 3}
+      propertyPath: maxHealth
+      value: 99999
       objectReference: {fileID: 0}
     - target: {fileID: 6173568727651879253, guid: 0b4333c0cc4ecc949938b8e5a40215bb, type: 3}
       propertyPath: m_RootOrder
@@ -2365,6 +2375,10 @@ PrefabInstance:
       propertyPath: startingPosition
       value: 
       objectReference: {fileID: 2141886083}
+    - target: {fileID: 9214103997734293465, guid: 0b4333c0cc4ecc949938b8e5a40215bb, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9214103997734293465, guid: 0b4333c0cc4ecc949938b8e5a40215bb, type: 3}
       propertyPath: gameOverPanel
       value: 
@@ -2850,7 +2864,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6481564535956290307, guid: 930c51e57ac6cf14491c1eb3d205725b, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7948844906290031067, guid: 930c51e57ac6cf14491c1eb3d205725b, type: 3}
       propertyPath: m_Name
