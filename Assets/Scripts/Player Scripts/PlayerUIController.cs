@@ -32,11 +32,6 @@ public class PlayerUIController : MonoBehaviour
 
     void Start()
     {
-        //if number of lives != number of UI shown, throw an error
-        if (playerHealthManager.maxHealth != playerHealthImages.Length)
-        {
-            Debug.LogError("Number of health UI icons and max health does not match!");
-        }
 
         playerHealthManager.OnDamageTaken += UpdateHealthUI;
         playerCollisionManager.OnGetStar.AddListener(UpdateStarUI);
