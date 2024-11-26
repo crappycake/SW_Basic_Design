@@ -565,7 +565,7 @@ RectTransform:
   m_GameObject: {fileID: 480979718}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.1, y: 1.1, z: 1.1}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 671169100}
@@ -1291,6 +1291,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89b3845d4d364f44c820bf0f1342529f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CircleUP: {fileID: 0}
+  CircleDown: {fileID: 0}
   Tutorial: {fileID: 733759677}
   fireballPrefab: {fileID: 2865519444121687294, guid: 70f09f2b41647694181adbfdb53fc0bf, type: 3}
   startDestination: {fileID: 216041840}
