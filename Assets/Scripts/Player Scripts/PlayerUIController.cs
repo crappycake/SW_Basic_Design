@@ -104,7 +104,7 @@ public class PlayerUIController : MonoBehaviour
     {
         Time.timeScale = 0f;
         gameOverPanel.SetActive(true);
-        int progress = GameLevelManager.instance.GetCurrentLevelProgress();
+        int progress = levelBeatManager.GetAudioSourceProgress();
         gameProgressText.text = $"ÁøÇàµµ: {(int)progress}%"; ;
     }
 }
