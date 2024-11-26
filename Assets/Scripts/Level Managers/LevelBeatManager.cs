@@ -44,8 +44,21 @@ public class LevelBeatManager : MonoBehaviour
 
     public int GetAudioSourceProgress()
     {
+        if (audioSource.clip == null)
+        {
+            Debug.LogError("Audio clip is not assigned!");
+            return 0;
+        }
+
+        if (!audioSource.isPlaying || audioSource.time == 0)
+        {
+            Debug.Log("Audio not started or at the beginning.");
+            return 0;
+        }
+
         float progress = audioSource.time / audioSource.clip.length;
-        return (int) (progress * 100);
+        Debug.Log($"Progress: {progress * 100}%");
+        return (int)(progress * 100);
     }
 
     private void StopMusic()

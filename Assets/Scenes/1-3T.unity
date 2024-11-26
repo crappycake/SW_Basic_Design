@@ -2294,6 +2294,10 @@ PrefabInstance:
       propertyPath: mainCamera
       value: 
       objectReference: {fileID: 149059288}
+    - target: {fileID: 2032672688424017073, guid: 0b4333c0cc4ecc949938b8e5a40215bb, type: 3}
+      propertyPath: brokenHeartSFX
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 2363021768157990605, guid: 0b4333c0cc4ecc949938b8e5a40215bb, type: 3}
       propertyPath: m_Name
       value: Player

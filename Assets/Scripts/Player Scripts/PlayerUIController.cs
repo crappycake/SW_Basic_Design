@@ -27,18 +27,14 @@ public class PlayerUIController : MonoBehaviour
         levelBeatManager = FindObjectOfType<LevelBeatManager>();
         levelProgressManager = FindObjectOfType<LevelProgressManager>();
 
-        Time.timeScale = 1f;
-    }
-
-    void Start()
-    {
-
         playerHealthManager.OnDamageTaken += UpdateHealthUI;
         playerCollisionManager.OnGetStar.AddListener(UpdateStarUI);
 
         playerHealthManager.OnGameOver += GameOver;
 
         levelBeatManager.OnMusicEnded.AddListener(GameClear);
+
+        Time.timeScale = 1f;
     }
 
     void UpdateHealthUI()
@@ -102,9 +98,17 @@ public class PlayerUIController : MonoBehaviour
 
     void GameOver()
     {
-        Time.timeScale = 0f;
-        gameOverPanel.SetActive(true);
         int progress = levelBeatManager.GetAudioSourceProgress();
-        gameProgressText.text = $"진행도: {(int)progress}%"; ;
+        Time.timeScale = 0f;
+        StartCoroutine(GameOverCoroutine(progress));
+    }
+
+    IEnumerator GameOverCoroutine(int _progress)
+    {
+        yield return new WaitForSecondsRealtime(1.5f);
+
+        gameOverPanel.SetActive(true);
+        Debug.Log(_progress);
+        gameProgressText.text = $"진행도: {_progress}%";
     }
 }

@@ -96,8 +96,6 @@ public class TutorialMaker : MonoBehaviour
 
     void Update()
     {
-        Debug.Log("tutoralcnt:" + tutorialCnt);
-
         /*
         //Get Key, And Next
         if (tutorialCnt == 0)

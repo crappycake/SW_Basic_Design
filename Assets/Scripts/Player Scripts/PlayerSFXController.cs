@@ -148,7 +148,6 @@ public class Player_SFXController : MonoBehaviour
         if (brokenHeartSFX != null)
         {
             Instantiate(brokenHeartSFX, brokenHeartPositions[healthManager.currentHealth], Quaternion.identity);
-
         }
     }
 
