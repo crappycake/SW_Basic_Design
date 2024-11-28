@@ -142,8 +142,6 @@ public class SFXMap : MonoBehaviour
 
     public int[] GetSFXMap()
     {
-        Debug.Log("Load Beat Map!!");
-
         string currentLevel = GameLevelManager.instance.GetCurrentLevel();
         string[] split = currentLevel.Split('-');
 
