@@ -33,6 +33,7 @@ public class MenuHierarchyController : MonoBehaviour
         //player is in-game or in menu
         if (menuStack.Count == 0)
         {
+            Debug.Log("Hi");
             menuStack.Push(topMenu);
             menuStack.Peek().SetActive(true);
             if (!isOnMainMenu)
@@ -58,6 +59,8 @@ public class MenuHierarchyController : MonoBehaviour
                 topMenu = previousTopMenu;
             }
         }
+
+        Debug.Log(menuStack.Count);
     }
 
     public void AddToStack(GameObject obj)
@@ -82,6 +85,8 @@ public class MenuHierarchyController : MonoBehaviour
             menuStack.Clear();
             topMenu = previousTopMenu;
         }
+
+        Debug.Log(menuStack.Count);
     }
 
     //menu stack needs to be cleared when leaving menu by clicking on button

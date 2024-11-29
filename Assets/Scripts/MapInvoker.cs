@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
+using UnityEngine.Assertions.Must;
 
 public class MapInvoker : MonoBehaviour
 {
@@ -56,6 +57,8 @@ public class MapInvoker : MonoBehaviour
 
     public void Beat_Renderer()
     {
+        if (Time.timeScale == 0f) return;
+
         if (beat >= BeatMap.Length || beat>= SFXMap.Length) return;
 
         switch (BeatMap[beat])

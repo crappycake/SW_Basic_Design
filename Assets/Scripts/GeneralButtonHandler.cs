@@ -42,4 +42,9 @@ public class GeneralButtonHandler : MonoBehaviour
         Debug.Log(_sceneName);
         SceneManager.LoadScene(_sceneName);
     }
+
+    public void Resume()
+    {
+        Time.timeScale = 1.0f;
+    }
 }
