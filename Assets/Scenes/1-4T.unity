@@ -2970,6 +2970,7 @@ MonoBehaviour:
   dialogueBox: {fileID: 1783386708}
   name: {fileID: 224049559}
   txt: {fileID: 1227320611}
+  istutorial: 1
   dialoguezip:
   - dialugue: "\uC55E\uC120 \uBAA8\uB4E0 \uC7A5\uC560\uBB3C\uB4E4\uC774 \uC3DF\uC544\uC9C0\uB294
       \uACF3\uC774\uB2E4."

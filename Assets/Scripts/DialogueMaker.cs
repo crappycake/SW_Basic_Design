@@ -2,7 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using UnityEngine.SceneManagement;
+using UnityEngine.Events;
 //Dialog
 [System.Serializable]
 public class Dialogue
@@ -11,6 +12,8 @@ public class Dialogue
     public string dialugue;
     public string name;
     public Sprite standing;
+
+    public UnityEvent Effect;
 }
 
 public class DialogueMaker : MonoBehaviour
@@ -22,7 +25,7 @@ public class DialogueMaker : MonoBehaviour
     [SerializeField] private Image dialogueBox;
     [SerializeField] private Text name;
     [SerializeField] private Text txt;
-
+    [SerializeField] private bool istutorial;
     private bool isDialogue = false;
 
     private int count = 0;
@@ -56,6 +59,8 @@ public class DialogueMaker : MonoBehaviour
         txt.text = dialoguezip[count].dialugue;
         name.text = dialoguezip[count].name;
         standing.sprite = dialoguezip[count].standing;
+
+        dialoguezip[count].Effect.Invoke();
         count++;
     }
 
@@ -76,9 +81,16 @@ public class DialogueMaker : MonoBehaviour
                     NextDialogue();
                 else
                 {
-                    OnOffDialogue(false);
-                    player.GetComponent<PlayerFlipController>().enabled = true;
-                    gameObject.GetComponent<TutorialMaker>().enabled = true;
+                    if (istutorial)
+                    {
+                        OnOffDialogue(false);
+                        player.GetComponent<PlayerFlipController>().enabled = true;
+                        gameObject.GetComponent<TutorialMaker>().enabled = true;
+                    }
+                    else
+                    {
+                        SceneManager.LoadScene("MainMenu");
+                    }
 
                 }
             }

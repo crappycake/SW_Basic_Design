@@ -100,7 +100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78a048e733d17524aba3becb75774f8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 25
+  health: 15
   bossSlider: {fileID: 2353333185094676541}
 --- !u!58 &309216745743311963
 CircleCollider2D:
