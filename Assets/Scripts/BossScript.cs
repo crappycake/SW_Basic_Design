@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.Events;
 
 public class BossScript : MonoBehaviour
 {
@@ -11,6 +12,8 @@ public class BossScript : MonoBehaviour
     [SerializeField] Slider bossSlider;
     [SerializeField] GameObject destroySFX;
     [SerializeField] private AudioSource destroySound;
+
+    public UnityEvent OnBossDead;
 
     float posx = -0.5f;
     float posy = -0.5f;
@@ -47,7 +50,13 @@ public class BossScript : MonoBehaviour
 
     void TriggerDeath()
     {
+        StartCoroutine(WaitForBossDeath());
         SceneManager.LoadScene("1-4 Ending1");
+    }
+
+    IEnumerator WaitForBossDeath()
+    {
+        yield return new WaitForSecondsRealtime(1f);
     }
 
     IEnumerator TriggerExplosion()

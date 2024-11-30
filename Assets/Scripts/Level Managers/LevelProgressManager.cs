@@ -9,6 +9,8 @@ public class LevelProgressManager : MonoBehaviour
     private PlayerHealthManager playerHealthManager;
     [HideInInspector] public int numberOfStars;
 
+    private BossScript bossScript;
+
     void Awake()
     {
         levelBeatManager = FindObjectOfType<LevelBeatManager>();
@@ -17,6 +19,10 @@ public class LevelProgressManager : MonoBehaviour
         playerHealthManager.OnGameOver += UpdateLevelProgress;
         levelBeatManager.OnMusicEnded.AddListener(UpdateLevelProgress);
         levelBeatManager.OnMusicEnded.AddListener(UpdateLevelStars);
+
+        bossScript = FindObjectOfType<BossScript>();
+
+        if (bossScript != null ) bossScript.OnBossDead.AddListener(UpdateLevelProgress);
     }
 
     void Start()
