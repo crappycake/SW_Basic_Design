@@ -50,6 +50,7 @@ public class BossScript : MonoBehaviour
 
     void TriggerDeath()
     {
+        Time.timeScale = 0f;
         StartCoroutine(WaitForBossDeath());
         SceneManager.LoadScene("1-4 Ending1");
     }
