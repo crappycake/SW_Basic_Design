@@ -55,7 +55,6 @@ public class StageSelectUIManager : MonoBehaviour
 
     private void UpdatePanels()
     {
-        Debug.Log(currentIndex);
         stagePanels[currentIndex].SetActive(true);
         for (int i = 0; i < maxIndex + 1; ++i)
         {

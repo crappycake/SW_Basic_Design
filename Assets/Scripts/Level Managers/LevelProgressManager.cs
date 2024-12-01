@@ -22,7 +22,7 @@ public class LevelProgressManager : MonoBehaviour
 
         bossScript = FindObjectOfType<BossScript>();
 
-        if (bossScript != null ) bossScript.OnBossDead.AddListener(UpdateLevelProgress);
+        if (bossScript != null ) bossScript.OnBossDead.AddListener(BossCleared);
     }
 
     void Start()
@@ -34,6 +34,11 @@ public class LevelProgressManager : MonoBehaviour
     {
         int progress = levelBeatManager.GetAudioSourceProgress();
         GameLevelManager.instance.SetCurrentLevelProgress(progress);
+    }
+
+    void BossCleared()
+    {
+        GameLevelManager.instance.SetCurrentLevelProgress(100);
     }
 
     public void AddStars()

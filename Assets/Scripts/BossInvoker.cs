@@ -28,7 +28,6 @@ public class BossInvoker : MonoBehaviour
     {
         attackArea = GetComponent<AttackArea>();
         boss = Instantiate(boss);
-        Debug.Log(boss.transform.position);
         boss.transform.localPosition = movePositions[0].transform.position;
         BossMap = global::BossMap.instance.GetBossMap();
         beat = 0;
