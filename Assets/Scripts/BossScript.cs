@@ -31,7 +31,7 @@ public class BossScript : MonoBehaviour
         if (collision.gameObject.CompareTag("Fireball_parried"))
         {
             OnDamaged(1);
-            if (health <= 0)
+            if (health <= 15)
                 TriggerDeath();
                 
         }
@@ -52,12 +52,12 @@ public class BossScript : MonoBehaviour
     {
         Time.timeScale = 0f;
         StartCoroutine(WaitForBossDeath());
-        SceneManager.LoadScene("1-4 Ending1");
     }
 
     IEnumerator WaitForBossDeath()
     {
         yield return new WaitForSecondsRealtime(1f);
+        SceneManager.LoadScene("1-4 Ending1");
     }
 
     IEnumerator TriggerExplosion()
