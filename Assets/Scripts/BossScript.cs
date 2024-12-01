@@ -31,7 +31,7 @@ public class BossScript : MonoBehaviour
         if (collision.gameObject.CompareTag("Fireball_parried"))
         {
             OnDamaged(1);
-            if (health <= 15)
+            if (health <= 0)
                 TriggerDeath();
                 
         }
