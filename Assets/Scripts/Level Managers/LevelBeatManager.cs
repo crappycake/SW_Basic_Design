@@ -31,6 +31,7 @@ public class LevelBeatManager : MonoBehaviour
 
         if (!audioSource.isPlaying && audioSource.time >= audioSource.clip.length)
         {
+            Debug.Log("HE!!");
             musicEnded = true;
             OnMusicEnded.Invoke();
         }

@@ -50,6 +50,8 @@ public class BossScript : MonoBehaviour
 
     void TriggerDeath()
     {
+        OnBossDead.Invoke();
+
         Time.timeScale = 0f;
         StartCoroutine(WaitForBossDeath());
     }
