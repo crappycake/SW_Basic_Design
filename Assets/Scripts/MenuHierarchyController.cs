@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
 public class MenuHierarchyController : MonoBehaviour
@@ -14,6 +15,8 @@ public class MenuHierarchyController : MonoBehaviour
     [SerializeField] PlayerInput playerInput;
 
     private AudioSource buttonClickSound;
+
+    public UnityEvent OnPauseToggled;
 
     private void Awake()
     {
@@ -30,6 +33,8 @@ public class MenuHierarchyController : MonoBehaviour
     public void TogglePause()
     {
         buttonClickSound.Play();
+        OnPauseToggled.Invoke();
+
         //player is in-game or in menu
         if (menuStack.Count == 0)
         {
