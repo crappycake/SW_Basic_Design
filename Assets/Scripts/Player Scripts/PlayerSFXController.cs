@@ -120,7 +120,6 @@ public class Player_SFXController : MonoBehaviour
             mainModule.startRotation = Mathf.PI; // Flipped direction (180 degrees in radians)
         }
     }
-
     #endregion
 
     #region DMG EFFECTS
