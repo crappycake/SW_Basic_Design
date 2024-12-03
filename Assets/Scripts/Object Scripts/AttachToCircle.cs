@@ -38,7 +38,7 @@ public class AttachToCircle : MonoBehaviour
         else if (boxCollider != null)
         {
             float height = boxCollider.size.y * gameObject.transform.localScale.y;
-            offset = height / 2f;
+            offset = height; // / 2f;
         }
         else if (polygonCollider != null) //for triangles
         {
@@ -52,7 +52,7 @@ public class AttachToCircle : MonoBehaviour
                 if (vertex.y > maxY) maxY = vertex.y;
             }
 
-            float height = (maxY - minY) * gameObject.transform.localScale.y; 
+            float height = (maxY - minY) * gameObject.transform.localScale.y;
             offset = height / 2f;
         }
 

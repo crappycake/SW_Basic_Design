@@ -57,6 +57,11 @@ public class FireballShoot : MonoBehaviour
         {
             Damage.tag = "Fireball_parried";
             movePos = -(movePos * parryingSpeedMultiplier);
+
+            Vector3 currentScale = transform.localScale;
+            currentScale.x *= -1;
+            transform.localScale = currentScale;
+
             fireballSFXController.CallFunctionsAfterParried();
             parrying = false;
         }

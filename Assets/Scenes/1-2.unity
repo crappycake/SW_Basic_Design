@@ -3287,7 +3287,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fireballPrefab: {fileID: 2865519444121687294, guid: 70f09f2b41647694181adbfdb53fc0bf, type: 3}
-  starPrefab: {fileID: 0}
+  starPrefab: {fileID: 935248269927852924, guid: 677f24414bff8e841b2ac63212259ab4, type: 3}
   startDestination: {fileID: 216041840}
   upDestination: {fileID: 1318572656}
   downDestination: {fileID: 1710687145}

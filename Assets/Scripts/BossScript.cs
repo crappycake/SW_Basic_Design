@@ -50,14 +50,16 @@ public class BossScript : MonoBehaviour
 
     void TriggerDeath()
     {
+        OnBossDead.Invoke();
+
         Time.timeScale = 0f;
         StartCoroutine(WaitForBossDeath());
-        SceneManager.LoadScene("1-4 Ending1");
     }
 
     IEnumerator WaitForBossDeath()
     {
         yield return new WaitForSecondsRealtime(1f);
+        SceneManager.LoadScene("1-4 Ending1");
     }
 
     IEnumerator TriggerExplosion()

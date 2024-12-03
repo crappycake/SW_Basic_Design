@@ -16,6 +16,7 @@ public class LevelBeatManager : MonoBehaviour
     bool musicEnded = false;
 
     private PlayerHealthManager playerHealthManager;
+    private MenuHierarchyController menuHierarchyController;
 
     void Awake()
     {
@@ -23,6 +24,9 @@ public class LevelBeatManager : MonoBehaviour
 
         playerHealthManager = FindObjectOfType<PlayerHealthManager>();
         playerHealthManager.OnGameOver += StopMusic;
+
+        menuHierarchyController = FindObjectOfType<MenuHierarchyController>();
+        menuHierarchyController.OnPauseToggled.AddListener(PauseMusic);
     }
 
     private void Update()
@@ -61,6 +65,11 @@ public class LevelBeatManager : MonoBehaviour
         return (int)(progress * 100);
     }
 
+    private void PauseMusic()
+    {
+        if (audioSource.isPlaying) audioSource.Pause();
+        else audioSource.UnPause();
+    }
     private void StopMusic()
     {
         musicEnded = true;

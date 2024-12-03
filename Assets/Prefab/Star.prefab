@@ -28,9 +28,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 935248269927852924}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.2, y: 0.2, z: 0.99999994}
-  m_ConstrainProportionsScale: 1
+  m_LocalPosition: {x: -0.027, y: -0.0809, z: 0}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 0.49999997}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6520807619807897229}
   - {fileID: 9155324686978249831}
@@ -78,7 +78,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 2640b453ad7f2cb44a5c4f88078eb781, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e8237ff00070e7642935044d0af358b9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -102,7 +102,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attachedObject: {fileID: 0}
-  offset: 3
+  offset: 5
   isInitialized: 0
 --- !u!114 &7739744093507653461
 MonoBehaviour:
@@ -148,18 +148,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0051515102, y: 0.2719512}
+  m_Offset: {x: 0.01027751, y: -0.00999999}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 8.94, y: 8.94}
+    oldSize: {x: 5.02, y: 5.02}
     newSize: {x: 8.94, y: 8.94}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 5.657457, y: 4.942626}
+  m_Size: {x: 5.076902, y: 4.942626}
   m_EdgeRadius: 0
 --- !u!1 &7873292167961927967
 GameObject:
@@ -344,6 +344,18 @@ PrefabInstance:
     - target: {fileID: 1652143759095011302, guid: e2c1ac940434a5242b54d72b66654687, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3200230632959378334, guid: e2c1ac940434a5242b54d72b66654687, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.b
+      value: 0.35767174
+      objectReference: {fileID: 0}
+    - target: {fileID: 3200230632959378334, guid: e2c1ac940434a5242b54d72b66654687, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.g
+      value: 0.6624629
+      objectReference: {fileID: 0}
+    - target: {fileID: 3200230632959378334, guid: e2c1ac940434a5242b54d72b66654687, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.r
+      value: 0.9622642
       objectReference: {fileID: 0}
     - target: {fileID: 7831740662026284754, guid: e2c1ac940434a5242b54d72b66654687, type: 3}
       propertyPath: m_Intensity
