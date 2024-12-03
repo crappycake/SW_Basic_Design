@@ -178,13 +178,16 @@ public class Player_SFXController : MonoBehaviour
 
     IEnumerator TriggerCameraShakeAfterDMG()
     {
-        cinemachineNoise.m_AmplitudeGain = 5f;
-        cinemachineNoise.m_FrequencyGain = 5f;
+        if (CameraSetting.instance.IsCameraVibrate())
+        {
+            cinemachineNoise.m_AmplitudeGain = 5f;
+            cinemachineNoise.m_FrequencyGain = 5f;
 
-        yield return new WaitForSeconds(shakeDuration);
+            yield return new WaitForSeconds(shakeDuration);
 
-        cinemachineNoise.m_AmplitudeGain = 0f;
-        cinemachineNoise.m_FrequencyGain = 0f;
+            cinemachineNoise.m_AmplitudeGain = 0f;
+            cinemachineNoise.m_FrequencyGain = 0f;
+        }
     }
 
     private void TriggerSpikeCollisionEffects()
