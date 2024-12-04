@@ -10,10 +10,10 @@ public class SpeedSetting : MonoBehaviour
     [SerializeField] private float originalRotationSpeed;
     private float rotateSpeed;
     private float[] speedMultipliers = { 1f, 1.25f, 1.50f, 1.75f, 2f };
-    private string[] shownMultipler = {"1", "1.5", "2", "2.5", "3"};
-    private int speedMultiplierIndex;
+    [HideInInspector] public string multiplerUIText;
+    private string[] shownMultiplers = {"1", "1.5", "2", "2.5", "3"};
+    [HideInInspector] public int speedMultiplierIndex;
 
-    public TextMeshProUGUI speedButton;
     void Awake()
     {
         if (instance == null)
@@ -40,10 +40,7 @@ public class SpeedSetting : MonoBehaviour
 
         rotateSpeed = (int)(originalRotationSpeed * speedMultipliers[speedMultiplierIndex]);
 
-        Debug.Log(rotateSpeed);
-
-        string text = "X" + shownMultipler[speedMultiplierIndex];
-        speedButton.SetText(text);
+        multiplerUIText = shownMultiplers[speedMultiplierIndex];
     }
 
     public float RotateSpeed()

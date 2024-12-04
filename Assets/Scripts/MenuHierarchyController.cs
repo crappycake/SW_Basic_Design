@@ -18,9 +18,11 @@ public class MenuHierarchyController : MonoBehaviour
 
     public UnityEvent OnPauseToggled;
 
+    private GeneralButtonHandler generalButtonHandler;
     private void Awake()
     {
         buttonClickSound = GetComponent<AudioSource>();
+        generalButtonHandler = GetComponent<GeneralButtonHandler>();
     }
 
     public void Update()
@@ -33,14 +35,14 @@ public class MenuHierarchyController : MonoBehaviour
     public void TogglePause()
     {
         buttonClickSound.Play();
-        OnPauseToggled.Invoke();
 
         //player is in-game or in menu
         if (menuStack.Count == 0)
         {
-            Debug.Log("Hi");
             menuStack.Push(topMenu);
             menuStack.Peek().SetActive(true);
+            OnPauseToggled.Invoke();
+
             if (!isOnMainMenu)
             {
                 Time.timeScale = 0f;
@@ -57,6 +59,7 @@ public class MenuHierarchyController : MonoBehaviour
             else if (menuStack.Count == 0 && !isOnMainMenu)
             {
                 Time.timeScale = 1f;
+                OnPauseToggled.Invoke();
             }
             if (menuStack.Count == 1 && isOnMainMenu)
             {
@@ -71,6 +74,7 @@ public class MenuHierarchyController : MonoBehaviour
     public void AddToStack(GameObject obj)
     {
         menuStack.Push(obj);
+        Debug.Log(menuStack.Count);
     }
 
     public void SetTopMenu(GameObject obj)
@@ -91,6 +95,11 @@ public class MenuHierarchyController : MonoBehaviour
             topMenu = previousTopMenu;
         }
 
+        if (menuStack.Count == 0 && !isOnMainMenu)
+        {
+            Time.timeScale = 1f;
+            OnPauseToggled.Invoke();
+        }
         Debug.Log(menuStack.Count);
     }
 

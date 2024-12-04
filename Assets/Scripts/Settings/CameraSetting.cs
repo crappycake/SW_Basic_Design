@@ -8,8 +8,8 @@ using UnityEngine.UIElements;
 public class CameraSetting : MonoBehaviour
 {
     public static CameraSetting instance;
-    public static bool cameraVibrate = true;
-    public TextMeshProUGUI cameraTMP;
+    public bool cameraVibrate = true;
+    
     void Awake()
     {
         if (instance == null)
@@ -24,19 +24,11 @@ public class CameraSetting : MonoBehaviour
     }
 
 
-    public void VibrateOnOff()
+    public void ToggleCameraVibration()
     {
         cameraVibrate = !cameraVibrate;
-        if (cameraVibrate)
-        {
-            cameraTMP.text = "on";
-            CFXR_Effect.GlobalDisableCameraShake = false;
-        }
-        else
-        {
-            cameraTMP.text = "off";
-            CFXR_Effect.GlobalDisableCameraShake = true;
-        }
+        CFXR_Effect.GlobalDisableCameraShake = !cameraVibrate;
+        Debug.Log(CFXR_Effect.GlobalDisableCameraShake);
     }
 
     public bool IsCameraVibrate()
