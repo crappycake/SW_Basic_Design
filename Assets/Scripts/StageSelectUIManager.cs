@@ -10,8 +10,6 @@ public class StageSelectUIManager : MonoBehaviour
     [SerializeField] GameObject moveLeftButton;
     [SerializeField] GameObject moveRightButton;
 
-    [Header("Boss Stage UIs")]
-    [SerializeField] Button stage4Button;
     [SerializeField] GameObject stage4HardPanel;
 
     private int currentIndex = 0;
@@ -21,7 +19,8 @@ public class StageSelectUIManager : MonoBehaviour
     {
         currentIndex = 0;
         moveLeftButton.SetActive(false);
-        maxIndex = stagePanels.Length - 1;
+        maxIndex = 3;
+        CheckStage4();
     }
 
     public void SelectChapter()
@@ -60,11 +59,25 @@ public class StageSelectUIManager : MonoBehaviour
     private void UpdatePanels()
     {
         stagePanels[currentIndex].SetActive(true);
-        for (int i = 0; i < maxIndex + 1; ++i)
+   
+        for (int i = 0; i <= maxIndex; ++i)
         {
             if (i == currentIndex) continue;
-            
+            if (stagePanels[i] == null) continue;
+
             stagePanels[i].SetActive(false);
         }
+    }
+
+    private void CheckStage4()
+    {
+        if (!GameLevelManager.instance.CanEnterStage4Hard())
+        {
+            maxIndex = 3;
+            return;
+        }
+
+        stagePanels[stagePanels.Length - 1] = stage4HardPanel;
+        if (maxIndex < 4) maxIndex++;
     }
 }

@@ -56,4 +56,17 @@ public class GeneralButtonHandler : MonoBehaviour
     {
         Application.Quit();
     }
+
+#if UNITY_EDITOR
+
+    public void Test1()
+    {
+        GameLevelManager.instance.Test1();
+    }
+
+    public void Test2()
+    {
+        GameLevelManager.instance.Test2();
+    }
+#endif
 }

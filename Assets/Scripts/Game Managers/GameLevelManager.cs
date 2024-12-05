@@ -11,7 +11,8 @@ public class GameLevelManager : MonoBehaviour
         {"1-1", 0},
         {"1-2", 0},
         {"1-3", 0},
-        {"1-4", 0}
+        {"1-4", 0},
+        {"1-4H", 0}
     };
 
     private Dictionary<string, int> levelProgress = new Dictionary<string, int>
@@ -19,7 +20,8 @@ public class GameLevelManager : MonoBehaviour
         {"1-1", 0},
         {"1-2", 0},
         {"1-3", 0},
-        {"1-4", 0}
+        {"1-4", 0},
+        {"1-4H", 0}
     };
 
     private Dictionary<string, bool> perfectClear = new Dictionary<string, bool>
@@ -27,7 +29,8 @@ public class GameLevelManager : MonoBehaviour
         {"1-1", false},
         {"1-2", false},
         {"1-3", false},
-        {"1-4", false}
+        {"1-4", false},
+        {"1-4H", false}
     };
 
     private string currentLevel;
@@ -141,6 +144,38 @@ public class GameLevelManager : MonoBehaviour
     }
     #endregion
 
+    #region BOSS STAGE CHECKERS
+
+    public bool CanEnterStage4()
+    {
+        int stars = levelStars["1-1"] + levelStars["1-2"] + levelStars["1-3"];
+
+        if (stars == 9) return true;
+        else return false;
+    }
+
+    public bool CanEnterStage4Hard()
+    {
+        if (levelProgress["1-4"] == 100) return true;
+        return false;
+    }
+    #endregion
+
+#if UNITY_EDITOR
+    public void Test1()
+    {
+        levelStars["1-1"] = 3;
+        levelStars["1-2"] = 3;
+        levelStars["1-3"] = 3;
+    }
+
+    public void Test2()
+    {
+        levelProgress["1-4"] = 100;
+    }
+#endif
+
+    #region GAME DATA FUNCTIONS
     private void SaveGameData()
     {
         foreach (var level in levelStars.Keys)
@@ -179,4 +214,6 @@ public class GameLevelManager : MonoBehaviour
             }
         }
     }
+
+    #endregion
 }
