@@ -5,6 +5,7 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using Cinemachine;
 
 public class PlayerUIController : MonoBehaviour
 {
@@ -99,16 +100,44 @@ public class PlayerUIController : MonoBehaviour
     void GameOver()
     {
         int progress = levelBeatManager.GetAudioSourceProgress();
+
+        CinemachineVirtualCamera virtualCamera = FindObjectOfType<CinemachineVirtualCamera>();
+        if (virtualCamera != null)
+        {
+            virtualCamera.Follow = transform;
+            virtualCamera.LookAt = transform;
+        }
+
         Time.timeScale = 0f;
-        StartCoroutine(GameOverCoroutine(progress));
+        StartCoroutine(GameOverCoroutine(progress, virtualCamera));
     }
 
-    IEnumerator GameOverCoroutine(int _progress)
+    IEnumerator GameOverCoroutine(int _progress, CinemachineVirtualCamera virtualCamera)
     {
+        float zoomDuration = 1.5f;
+        float elapsed = 0f;
+
+        if (virtualCamera != null && virtualCamera.m_Lens.Orthographic)
+        {
+            float initialSize = virtualCamera.m_Lens.OrthographicSize;
+            float targetSize = 3f; 
+
+            while (elapsed < zoomDuration)
+            {
+                elapsed += Time.unscaledDeltaTime;
+                float t = elapsed / zoomDuration;
+
+                virtualCamera.m_Lens.OrthographicSize = Mathf.Lerp(initialSize, targetSize, Mathf.SmoothStep(0f, 1f, t));
+                yield return null;
+            }
+
+            virtualCamera.m_Lens.OrthographicSize = targetSize;
+        }
+
         yield return new WaitForSecondsRealtime(1.5f);
 
         gameOverPanel.SetActive(true);
-        Debug.Log(_progress);
+        //Debug.Log(_progress);
         gameProgressText.text = $"ÁøÇàµµ: {_progress}%";
     }
 }

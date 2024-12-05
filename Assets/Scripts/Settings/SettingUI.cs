@@ -26,8 +26,8 @@ public class SettingUI : MonoBehaviour
         SFXMixer.GetFloat("SFXVolume", out sfxVolume);
         BGMMixer.GetFloat("BGMVolume", out bgmVolume);
 
-        SFXSlider.value = Mathf.InverseLerp(0f, 20f, sfxVolume);
-        BGMSlider.value = Mathf.InverseLerp(-80f, 0f, bgmVolume);
+        SFXSlider.value = Mathf.InverseLerp(-10f, 10f, sfxVolume);
+        BGMSlider.value = Mathf.InverseLerp(-20f, 10f, bgmVolume);
 
         SFXSlider.onValueChanged.AddListener(UpdateSFXVolumeUI);
         BGMSlider.onValueChanged.AddListener(UpdateBGMVolumeUI);
@@ -42,14 +42,14 @@ public class SettingUI : MonoBehaviour
 
     public void UpdateSFXVolumeUI(float value)
     {
-        float dB = Mathf.Lerp(0f, 20f, value);
+        float dB = Mathf.Lerp(-10f, 10f, value);
         SFXMixer.SetFloat("SFXVolume", dB);
 
     }
 
     public void UpdateBGMVolumeUI(float value)
     {
-        float dB = Mathf.Lerp(-80f, 0f, value);
+        float dB = Mathf.Lerp(-20f, 10f, value);
         BGMMixer.SetFloat("BGMVolume", dB);
     }
 

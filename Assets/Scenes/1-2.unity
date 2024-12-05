@@ -381,6 +381,32 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e47c3e6b0c14a5b4ab4c24a27b3741f5, type: 3}
+--- !u!1 &187225993 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3079579395813578961, guid: e47c3e6b0c14a5b4ab4c24a27b3741f5, type: 3}
+  m_PrefabInstance: {fileID: 187225992}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &187225994 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8614823328745741341, guid: e47c3e6b0c14a5b4ab4c24a27b3741f5, type: 3}
+  m_PrefabInstance: {fileID: 187225992}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &187225995 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6372072447009081267, guid: e47c3e6b0c14a5b4ab4c24a27b3741f5, type: 3}
+  m_PrefabInstance: {fileID: 187225992}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &187225996 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8004887466095111837, guid: e47c3e6b0c14a5b4ab4c24a27b3741f5, type: 3}
+  m_PrefabInstance: {fileID: 187225992}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &202241795
 GameObject:
   m_ObjectHideFlags: 0
@@ -4120,19 +4146,19 @@ PrefabInstance:
     - target: {fileID: 9214103997734293465, guid: 0b4333c0cc4ecc949938b8e5a40215bb, type: 3}
       propertyPath: gameOverPanel
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 187225993}
     - target: {fileID: 9214103997734293465, guid: 0b4333c0cc4ecc949938b8e5a40215bb, type: 3}
       propertyPath: gameClearPanel
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 187225996}
     - target: {fileID: 9214103997734293465, guid: 0b4333c0cc4ecc949938b8e5a40215bb, type: 3}
       propertyPath: gameProgressText
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 187225994}
     - target: {fileID: 9214103997734293465, guid: 0b4333c0cc4ecc949938b8e5a40215bb, type: 3}
       propertyPath: perfectClearText
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 187225995}
     - target: {fileID: 9214103997734293465, guid: 0b4333c0cc4ecc949938b8e5a40215bb, type: 3}
       propertyPath: playerStarImages.Array.data[0]
       value: 

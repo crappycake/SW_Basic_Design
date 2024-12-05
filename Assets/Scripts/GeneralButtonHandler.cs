@@ -5,11 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class GeneralButtonHandler : MonoBehaviour
 {
-    public AudioSource clickAudio;
+    private AudioSource clickAudio;
 
     private void Awake()
     {
-        clickAudio = GetComponent<AudioSource>();  
+        clickAudio = GetComponent<AudioSource>();
+
+        if (clickAudio == null) Debug.Log("HIFRHQ RQHRJEKWR");
     }
     public void RestartScene()
     {
