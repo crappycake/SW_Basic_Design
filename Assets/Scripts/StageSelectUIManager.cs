@@ -3,12 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.PlayerLoop;
 using UnityEngine.Rendering.UI;
-
+using UnityEngine.UI;
 public class StageSelectUIManager : MonoBehaviour
 {
     [SerializeField] GameObject[] stagePanels;
     [SerializeField] GameObject moveLeftButton;
     [SerializeField] GameObject moveRightButton;
+
+    [Header("Boss Stage UIs")]
+    [SerializeField] Button stage4Button;
+    [SerializeField] GameObject stage4HardPanel;
 
     private int currentIndex = 0;
     private int maxIndex;

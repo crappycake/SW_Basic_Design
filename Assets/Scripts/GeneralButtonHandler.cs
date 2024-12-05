@@ -10,8 +10,6 @@ public class GeneralButtonHandler : MonoBehaviour
     private void Awake()
     {
         clickAudio = GetComponent<AudioSource>();
-
-        if (clickAudio == null) Debug.Log("HIFRHQ RQHRJEKWR");
     }
     public void RestartScene()
     {
@@ -52,5 +50,10 @@ public class GeneralButtonHandler : MonoBehaviour
     public void Resume()
     {
         Time.timeScale = 1.0f;
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
     }
 }

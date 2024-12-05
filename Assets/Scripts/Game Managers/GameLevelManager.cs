@@ -1,16 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Runtime.InteropServices;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.Rendering;
 
 public class GameLevelManager : MonoBehaviour
 {
     public static GameLevelManager instance;
 
-    //Dictionary that keeps track of number of stars for each stage
-    private Dictionary<string, int> levelStars = new Dictionary<string, int> 
+    private Dictionary<string, int> levelStars = new Dictionary<string, int>
     {
         {"1-1", 0},
         {"1-2", 0},
@@ -34,8 +30,7 @@ public class GameLevelManager : MonoBehaviour
         {"1-4", false}
     };
 
-    //current stage player is in. ex) 1-1, 1-2
-    private string currentLevel; 
+    private string currentLevel;
 
     void Awake()
     {
@@ -43,6 +38,7 @@ public class GameLevelManager : MonoBehaviour
         {
             instance = this;
             DontDestroyOnLoad(gameObject);
+            LoadGameData(); 
         }
         else
         {
@@ -56,10 +52,7 @@ public class GameLevelManager : MonoBehaviour
         return currentLevel;
     }
 
-     /// <summary>
-    /// Stage info should be given as a string. For example, stage 1-1 would equal to "1-1". Number of stars for each stage can simply be used directly as an int.
-    /// </summary>
-    public void SetCurrentLevel(string level) 
+    public void SetCurrentLevel(string level)
     {
         if (levelStars.ContainsKey(level))
         {
@@ -78,7 +71,6 @@ public class GameLevelManager : MonoBehaviour
         return levelStars[currentLevel];
     }
 
-    //return number of stars of given "stage"
     public int GetSelectedLevelStars(string level)
     {
         if (levelStars.ContainsKey(level))
@@ -89,7 +81,6 @@ public class GameLevelManager : MonoBehaviour
         return 0;
     }
 
-    //return number of stars of the current stage that the player is in.
     public void SetCurrentLevelStars(int numberOfStars)
     {
         if (numberOfStars < 0 || numberOfStars > 3)
@@ -100,9 +91,9 @@ public class GameLevelManager : MonoBehaviour
 
         if (numberOfStars <= levelStars[currentLevel]) return;
 
-        levelStars[currentLevel] = numberOfStars;        
+        levelStars[currentLevel] = numberOfStars;
+        SaveGameData();  
     }
-
     #endregion
 
     #region LEVEL PROGRESS GETTER & SETTER
@@ -123,19 +114,20 @@ public class GameLevelManager : MonoBehaviour
 
     public void SetCurrentLevelProgress(int _progress)
     {
-        if (_progress < 0)          Debug.LogError("Current progress value is given wrong at GameLevelManager!");
-        else if ( _progress > 100) _progress = 100;
+        if (_progress < 0) Debug.LogError("Current progress value is given wrong at GameLevelManager!");
+        else if (_progress > 100) _progress = 100;
 
         if (_progress <= levelProgress[currentLevel]) return;
         levelProgress[currentLevel] = _progress;
+        SaveGameData();  
     }
     #endregion
 
     #region LEVEL PERFECT CLEAR
-
     public void SetCurrentLevelPrefectClear()
     {
         perfectClear[currentLevel] = true;
+        SaveGameData();  
     }
 
     public bool IsCurrentLevelPerfectClear()
@@ -148,4 +140,43 @@ public class GameLevelManager : MonoBehaviour
         return perfectClear[selected];
     }
     #endregion
+
+    private void SaveGameData()
+    {
+        foreach (var level in levelStars.Keys)
+        {
+            PlayerPrefs.SetInt(level + "_Stars", levelStars[level]);
+            PlayerPrefs.SetInt(level + "_Progress", levelProgress[level]);
+            PlayerPrefs.SetInt(level + "_PerfectClear", perfectClear[level] ? 1 : 0);
+        }
+        PlayerPrefs.SetString("CurrentLevel", currentLevel);
+        PlayerPrefs.Save();
+    }
+
+    // Load game data from PlayerPrefs
+    private void LoadGameData()
+    {
+        if (PlayerPrefs.HasKey("CurrentLevel"))
+        {
+            currentLevel = PlayerPrefs.GetString("CurrentLevel");
+        }
+
+        foreach (var level in levelStars.Keys)
+        {
+            if (PlayerPrefs.HasKey(level + "_Stars"))
+            {
+                levelStars[level] = PlayerPrefs.GetInt(level + "_Stars");
+            }
+
+            if (PlayerPrefs.HasKey(level + "_Progress"))
+            {
+                levelProgress[level] = PlayerPrefs.GetInt(level + "_Progress");
+            }
+
+            if (PlayerPrefs.HasKey(level + "_PerfectClear"))
+            {
+                perfectClear[level] = PlayerPrefs.GetInt(level + "_PerfectClear") == 1;
+            }
+        }
+    }
 }
