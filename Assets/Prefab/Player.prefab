@@ -263,6 +263,7 @@ MonoBehaviour:
   gameClearPanel: {fileID: 0}
   gameOverPanel: {fileID: 0}
   perfectClearText: {fileID: 0}
+  gameProgressText: {fileID: 0}
 --- !u!114 &8795675272183284380
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1993,7 +1993,7 @@ GameObject:
   - component: {fileID: 406667097303654602}
   - component: {fileID: 5332773016761928195}
   m_Layer: 5
-  m_Name: Progress
+  m_Name: 100% Progress
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
