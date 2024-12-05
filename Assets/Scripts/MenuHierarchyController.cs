@@ -19,10 +19,12 @@ public class MenuHierarchyController : MonoBehaviour
     public UnityEvent OnPauseToggled;
 
     private GeneralButtonHandler generalButtonHandler;
+    private Player_SFXController player_SFXController;
     private void Awake()
     {
         buttonClickSound = GetComponent<AudioSource>();
         generalButtonHandler = GetComponent<GeneralButtonHandler>();
+        player_SFXController = FindAnyObjectByType<Player_SFXController>();
     }
 
     public void Update()
@@ -42,9 +44,11 @@ public class MenuHierarchyController : MonoBehaviour
             menuStack.Push(topMenu);
             menuStack.Peek().SetActive(true);
             OnPauseToggled.Invoke();
+            player_SFXController.PauseShake();
 
             if (!isOnMainMenu)
             {
+
                 Time.timeScale = 0f;
             }
         }
@@ -60,6 +64,7 @@ public class MenuHierarchyController : MonoBehaviour
             {
                 Time.timeScale = 1f;
                 OnPauseToggled.Invoke();
+                player_SFXController.ResumeShake();
             }
             if (menuStack.Count == 1 && isOnMainMenu)
             {

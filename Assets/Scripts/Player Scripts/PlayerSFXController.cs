@@ -42,6 +42,12 @@ public class Player_SFXController : MonoBehaviour
     Vector3 originalCamPos;
     float camReturnSpeed = 5f;
 
+    private bool isShakeActive = false;
+    private bool isShakePaused = false;
+    private float remainingShakeTime = 0f;
+    private float currentAmplitude = 0f;
+    private float currentFrequency = 0f;
+
     void Awake()
     {
         trailRenderer = GetComponent<TrailRenderer>();
@@ -128,7 +134,7 @@ public class Player_SFXController : MonoBehaviour
         float threshold = 0.1f;
         if (Vector3.Distance(mainCamera.transform.position, originalCamPos) > threshold)
         {
-            mainCamera.transform.position = Vector3.MoveTowards(mainCamera.transform.position, originalCamPos, camReturnSpeed * Time.deltaTime);
+            mainCamera.transform.position = Vector3.MoveTowards(mainCamera.transform.position, originalCamPos, camReturnSpeed * Time.unscaledDeltaTime);
             mainCamera.transform.rotation = Quaternion.identity;
         }
     }
@@ -180,15 +186,56 @@ public class Player_SFXController : MonoBehaviour
     {
         if (CameraSetting.instance.IsCameraVibrate())
         {
-            cinemachineNoise.m_AmplitudeGain = 5f;
-            cinemachineNoise.m_FrequencyGain = 5f;
+            isShakeActive = true;
+            remainingShakeTime = shakeDuration;
+            currentAmplitude = shakeAmplitude;
+            currentFrequency = shakeFrequency;
 
-            yield return new WaitForSeconds(shakeDuration);
+            cinemachineNoise.m_AmplitudeGain = currentAmplitude;
+            cinemachineNoise.m_FrequencyGain = currentFrequency;
 
+            while (remainingShakeTime > 0f)
+            {
+                if (!isShakePaused)
+                {
+                    remainingShakeTime -= Time.unscaledDeltaTime;
+                }
+                yield return null;
+            }
+
+            StopShake(); 
+        }
+    }
+
+    public void PauseShake()
+    {
+        if (isShakeActive && !isShakePaused)
+        {
+            isShakePaused = true;
             cinemachineNoise.m_AmplitudeGain = 0f;
             cinemachineNoise.m_FrequencyGain = 0f;
         }
     }
+
+    public void ResumeShake()
+    {
+        if (isShakeActive && isShakePaused)
+        {
+            isShakePaused = false;
+            cinemachineNoise.m_AmplitudeGain = currentAmplitude;
+            cinemachineNoise.m_FrequencyGain = currentFrequency;
+        }
+    }
+    public void StopShake()
+    {
+        isShakeActive = false;
+        isShakePaused = false;
+        remainingShakeTime = 0f;
+
+        cinemachineNoise.m_AmplitudeGain = 0f;
+        cinemachineNoise.m_FrequencyGain = 0f;
+    }
+
 
     private void TriggerSpikeCollisionEffects()
     {
