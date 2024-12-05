@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class FireballShoot : MonoBehaviour
 {
@@ -36,7 +37,7 @@ public class FireballShoot : MonoBehaviour
 
         parrying = false;
 
-        Invoke("DestroyBall", 5);
+        Invoke("DestroyBall", 10);
 
     }
 
@@ -56,7 +57,19 @@ public class FireballShoot : MonoBehaviour
         else
         {
             Damage.tag = "Fireball_parried";
-            movePos = -(movePos * parryingSpeedMultiplier);
+
+            if (GameLevelManager.instance.GetCurrentLevel() == "1-5")
+            {
+                Vector3 temp = (Camera.main.ScreenToWorldPoint(Input.mousePosition) - gameObject.transform.position);
+                movePos = temp.normalized;
+            }
+            else movePos = -(movePos * parryingSpeedMultiplier);
+
+            Debug.Log("MovePos : " + movePos);
+            Debug.Log("TransformPos : " + transform.position);
+            Debug.Log("MousePos : " + Camera.main.ScreenToWorldPoint(Input.mousePosition));
+            
+
 
             Vector3 currentScale = transform.localScale;
             currentScale.x *= -1;
