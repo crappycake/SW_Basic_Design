@@ -137,7 +137,7 @@ public class PlayerUIController : MonoBehaviour
         yield return new WaitForSecondsRealtime(1.5f);
 
         gameOverPanel.SetActive(true);
-        //Debug.Log(_progress);
+        Debug.Log(_progress);
         gameProgressText.text = $"ÁøÇàµµ: {_progress}%";
     }
 }

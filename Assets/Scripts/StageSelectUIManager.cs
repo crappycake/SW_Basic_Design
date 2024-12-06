@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.PlayerLoop;
 using UnityEngine.Rendering.UI;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 public class StageSelectUIManager : MonoBehaviour
 {
@@ -21,6 +22,14 @@ public class StageSelectUIManager : MonoBehaviour
         moveLeftButton.SetActive(false);
         maxIndex = 3;
         CheckStage4();
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            SceneManager.LoadScene("MainMenu");
+        }
     }
 
     public void SelectChapter()

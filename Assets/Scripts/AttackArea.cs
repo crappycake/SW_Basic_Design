@@ -30,7 +30,7 @@ public class AttackArea : MonoBehaviour
         newSquareArea.transform.position = position.transform.position;
         return newSquareArea;
     }
-    
+
     private void EnableSquareArea(GameObject obj, float k)
     {
         StartCoroutine(SquareFadeInOut(obj, k));

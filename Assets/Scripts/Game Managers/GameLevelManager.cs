@@ -188,7 +188,6 @@ public class GameLevelManager : MonoBehaviour
         PlayerPrefs.Save();
     }
 
-    // Load game data from PlayerPrefs
     private void LoadGameData()
     {
         if (PlayerPrefs.HasKey("CurrentLevel"))
@@ -196,7 +195,9 @@ public class GameLevelManager : MonoBehaviour
             currentLevel = PlayerPrefs.GetString("CurrentLevel");
         }
 
-        foreach (var level in levelStars.Keys)
+        List<string> levelKeys = new List<string>(levelStars.Keys);
+
+        foreach (var level in levelKeys)
         {
             if (PlayerPrefs.HasKey(level + "_Stars"))
             {
@@ -214,6 +215,7 @@ public class GameLevelManager : MonoBehaviour
             }
         }
     }
+
 
     #endregion
 }
