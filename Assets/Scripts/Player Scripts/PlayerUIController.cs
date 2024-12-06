@@ -100,6 +100,7 @@ public class PlayerUIController : MonoBehaviour
     void GameOver()
     {
         int progress = levelBeatManager.GetAudioSourceProgress();
+        Debug.Log("progress: " + progress);
 
         CinemachineVirtualCamera virtualCamera = FindObjectOfType<CinemachineVirtualCamera>();
         if (virtualCamera != null)
@@ -114,6 +115,7 @@ public class PlayerUIController : MonoBehaviour
 
     IEnumerator GameOverCoroutine(int _progress, CinemachineVirtualCamera virtualCamera)
     {
+        Debug.Log("Coroutine called!");
         float zoomDuration = 1.5f;
         float elapsed = 0f;
 
@@ -137,7 +139,6 @@ public class PlayerUIController : MonoBehaviour
         yield return new WaitForSecondsRealtime(1.5f);
 
         gameOverPanel.SetActive(true);
-        Debug.Log(_progress);
         gameProgressText.text = $"ÁøÇàµµ: {_progress}%";
     }
 }

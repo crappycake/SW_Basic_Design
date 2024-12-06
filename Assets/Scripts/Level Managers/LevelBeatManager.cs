@@ -54,12 +54,6 @@ public class LevelBeatManager : MonoBehaviour
             return 0;
         }
 
-        if (!audioSource.isPlaying || audioSource.time == 0)
-        {
-            Debug.Log("Audio not started or at the beginning.");
-            return 0;
-        }
-
         float progress = audioSource.time / audioSource.clip.length;
         return (int)(progress * 100);
     }
@@ -72,7 +66,7 @@ public class LevelBeatManager : MonoBehaviour
     private void StopMusic()
     {
         musicEnded = true;
-        audioSource.Stop();
+        audioSource.Pause();
     }
 
     public float Bpm()

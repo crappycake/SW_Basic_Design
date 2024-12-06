@@ -49,6 +49,7 @@ public class PlayerHealthManager : MonoBehaviour
     
     private void GameOver()
     {
+        Debug.Log("HI!!!!");
         OnGameOver?.Invoke(); //Trigger game over panel
     }
 }
