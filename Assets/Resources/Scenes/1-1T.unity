@@ -645,7 +645,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0922959769f76784cb012e20f768801d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clickAudio: {fileID: 523630472}
 --- !u!4 &523630471
 Transform:
   m_ObjectHideFlags: 0
@@ -959,7 +958,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1476,6 +1475,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 826540773}
+  tutorial: {fileID: 733759676}
   standing: {fileID: 812292937}
   dialogueBox: {fileID: 1783386708}
   name: {fileID: 224049559}
@@ -2092,7 +2092,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -350}
-  m_SizeDelta: {x: 1641.6116, y: 263.5042}
+  m_SizeDelta: {x: 1640, y: 260}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1783386708
 MonoBehaviour:
@@ -2114,7 +2114,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 65d79163877243c4a9fdbd2cb0cab5a6, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3027,6 +3027,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Test Stage - Circle Up
       objectReference: {fileID: 0}
+    - target: {fileID: 2246625140083564010, guid: 994eee000bdd652479cb710bfc2a362c, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 536f38dccaffdc3429b735bd09f65742, type: 3}
+    - target: {fileID: 2246625140083564010, guid: 994eee000bdd652479cb710bfc2a362c, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2246625140083564010, guid: 994eee000bdd652479cb710bfc2a362c, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2246625140083564010, guid: 994eee000bdd652479cb710bfc2a362c, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4208973162081115524, guid: 994eee000bdd652479cb710bfc2a362c, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -3243,6 +3259,22 @@ PrefabInstance:
     - target: {fileID: 1867852769463473651, guid: 6db4ebf12e0f427488b3a3c33fba6e87, type: 3}
       propertyPath: rotationSpeed
       value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 2858020878046314092, guid: 6db4ebf12e0f427488b3a3c33fba6e87, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 536f38dccaffdc3429b735bd09f65742, type: 3}
+    - target: {fileID: 2858020878046314092, guid: 6db4ebf12e0f427488b3a3c33fba6e87, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2858020878046314092, guid: 6db4ebf12e0f427488b3a3c33fba6e87, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2858020878046314092, guid: 6db4ebf12e0f427488b3a3c33fba6e87, type: 3}
+      propertyPath: m_Color.r
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5664866657660901319, guid: 6db4ebf12e0f427488b3a3c33fba6e87, type: 3}
       propertyPath: m_RootOrder

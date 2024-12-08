@@ -19,6 +19,7 @@ public class Dialogue
 public class DialogueMaker : MonoBehaviour
 {
     public GameObject player;
+    public GameObject tutorial;
 
     //Dialogue
     [SerializeField] private Image standing;
@@ -36,7 +37,6 @@ public class DialogueMaker : MonoBehaviour
     public void ShowDialogue()
     {
         player.GetComponent<PlayerFlipController>().enabled = false;
-
         OnOffDialogue(true);
         count = 0;
         NextDialogue();
@@ -67,7 +67,9 @@ public class DialogueMaker : MonoBehaviour
     void Start()
     {
         ShowDialogue();
+        
         gameObject.GetComponent<TutorialMaker>().enabled = false;
+        tutorial.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
