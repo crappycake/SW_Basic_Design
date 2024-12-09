@@ -9,6 +9,8 @@ public class CameraSetting : MonoBehaviour
 {
     public static CameraSetting instance;
     public bool cameraVibrate = true;
+    public bool isShakeActive;
+    public bool isShakePaused;
     
     void Awake()
     {
@@ -23,6 +25,10 @@ public class CameraSetting : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        isShakeActive = false;
+    }
 
     public void ToggleCameraVibration()
     {

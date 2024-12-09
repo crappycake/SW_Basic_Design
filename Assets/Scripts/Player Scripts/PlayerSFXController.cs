@@ -42,8 +42,6 @@ public class Player_SFXController : MonoBehaviour
     Vector3 originalCamPos;
     float camReturnSpeed = 5f;
 
-    private bool isShakeActive = false;
-    private bool isShakePaused = false;
     private float remainingShakeTime = 0f;
     private float currentAmplitude = 0f;
     private float currentFrequency = 0f;
@@ -184,34 +182,33 @@ public class Player_SFXController : MonoBehaviour
 
     IEnumerator TriggerCameraShakeAfterDMG()
     {
-        if (CameraSetting.instance.IsCameraVibrate())
+        if (CameraSetting.instance.IsCameraVibrate() == false) yield break;
+
+        CameraSetting.instance.isShakeActive = true;
+        remainingShakeTime = shakeDuration;
+        currentAmplitude = shakeAmplitude;
+        currentFrequency = shakeFrequency;
+
+        cinemachineNoise.m_AmplitudeGain = currentAmplitude;
+        cinemachineNoise.m_FrequencyGain = currentFrequency;
+
+        while (remainingShakeTime > 0f)
         {
-            isShakeActive = true;
-            remainingShakeTime = shakeDuration;
-            currentAmplitude = shakeAmplitude;
-            currentFrequency = shakeFrequency;
-
-            cinemachineNoise.m_AmplitudeGain = currentAmplitude;
-            cinemachineNoise.m_FrequencyGain = currentFrequency;
-
-            while (remainingShakeTime > 0f)
+            if (!CameraSetting.instance.isShakePaused)
             {
-                if (!isShakePaused)
-                {
-                    remainingShakeTime -= Time.unscaledDeltaTime;
-                }
-                yield return null;
+                remainingShakeTime -= Time.unscaledDeltaTime;
             }
-
-            StopShake(); 
+            yield return null;
         }
+
+        StopShake();
     }
 
     public void PauseShake()
     {
-        if (isShakeActive && !isShakePaused)
+        if (CameraSetting.instance.isShakeActive && !CameraSetting.instance.isShakePaused)
         {
-            isShakePaused = true;
+            CameraSetting.instance.isShakePaused = true;
             cinemachineNoise.m_AmplitudeGain = 0f;
             cinemachineNoise.m_FrequencyGain = 0f;
         }
@@ -219,17 +216,17 @@ public class Player_SFXController : MonoBehaviour
 
     public void ResumeShake()
     {
-        if (isShakeActive && isShakePaused)
+        if (CameraSetting.instance.isShakeActive && CameraSetting.instance.isShakePaused)
         {
-            isShakePaused = false;
+            CameraSetting.instance.isShakePaused = false;
             cinemachineNoise.m_AmplitudeGain = currentAmplitude;
             cinemachineNoise.m_FrequencyGain = currentFrequency;
         }
     }
     public void StopShake()
     {
-        isShakeActive = false;
-        isShakePaused = false;
+        CameraSetting.instance.isShakeActive = false;
+        CameraSetting.instance.isShakePaused = false;
         remainingShakeTime = 0f;
 
         cinemachineNoise.m_AmplitudeGain = 0f;

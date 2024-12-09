@@ -1,3 +1,4 @@
+using Cinemachine;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -8,8 +9,14 @@ public class AttackArea : MonoBehaviour
     [Header("Area")]
     [SerializeField] private GameObject squareAreatemp;
     public GameObject squareArea;
+
+    [Header("Area Attack SFX")]
+    [SerializeField] GameObject bloodVFX1;
+    [SerializeField] GameObject bloodVFX2;
+
     private float bpm;
     // Start is called before the first frame update
+
     void Start()
     {
         squareArea = squareAreatemp;
@@ -67,16 +74,37 @@ public class AttackArea : MonoBehaviour
     IEnumerator DamageSquare(GameObject obj, float k)
     {
         SpriteRenderer renderer = obj.GetComponent<SpriteRenderer>();
-        yield return null;
-        renderer.material.color = new Color(255, 0, 0);
+        renderer.material.color = new Color(1, 0, 0);
         obj.tag = "Damage";
 
-        yield return new WaitForSeconds(GetBeat(bpm) * (float)0.7 * k);
+        SpriteRenderer objRenderer = obj.GetComponent<SpriteRenderer>();
+        Bounds bounds = objRenderer.bounds;
 
-        renderer.material.color = new Color(100, 100, 100);
+        for (int i = 0; i < 10; i++)
+        {
+            Vector3 randomPosition1 = new Vector3(
+                UnityEngine.Random.Range(bounds.min.x, bounds.max.x),
+                UnityEngine.Random.Range(bounds.min.y, bounds.max.y),
+                obj.transform.position.z
+            );
+
+            Vector3 randomPosition2 = new Vector3(
+                UnityEngine.Random.Range(bounds.min.x, bounds.max.x),
+                UnityEngine.Random.Range(bounds.min.y, bounds.max.y),
+                obj.transform.position.z
+            );
+
+            Instantiate(bloodVFX1, randomPosition1, Quaternion.identity);
+            Instantiate(bloodVFX2, randomPosition2, Quaternion.identity);
+        }
+
+        yield return new WaitForSeconds(GetBeat(bpm) * 0.7f * k);
+
+        renderer.material.color = new Color(0.4f, 0.4f, 0.4f);
         obj.tag = "Untagged";
         Destroy(obj);
     }
+
     #endregion
 
 
