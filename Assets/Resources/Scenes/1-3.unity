@@ -3102,6 +3102,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   squareAreatemp: {fileID: 8584857235679149319, guid: 586682fd12e496f44baf84b692b83c34, type: 3}
   squareArea: {fileID: 0}
+  bloodVFX1: {fileID: 0}
+  bloodVFX2: {fileID: 0}
 --- !u!1 &1710687145
 GameObject:
   m_ObjectHideFlags: 0
@@ -4344,6 +4346,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Test Stage - Circle Up
       objectReference: {fileID: 0}
+    - target: {fileID: 2246625140083564010, guid: 994eee000bdd652479cb710bfc2a362c, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 536f38dccaffdc3429b735bd09f65742, type: 3}
+    - target: {fileID: 2246625140083564010, guid: 994eee000bdd652479cb710bfc2a362c, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2246625140083564010, guid: 994eee000bdd652479cb710bfc2a362c, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2246625140083564010, guid: 994eee000bdd652479cb710bfc2a362c, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4208973162081115524, guid: 994eee000bdd652479cb710bfc2a362c, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -4559,6 +4577,22 @@ PrefabInstance:
     - target: {fileID: 1867852769463473651, guid: 6db4ebf12e0f427488b3a3c33fba6e87, type: 3}
       propertyPath: rotationSpeed
       value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 2858020878046314092, guid: 6db4ebf12e0f427488b3a3c33fba6e87, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 536f38dccaffdc3429b735bd09f65742, type: 3}
+    - target: {fileID: 2858020878046314092, guid: 6db4ebf12e0f427488b3a3c33fba6e87, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2858020878046314092, guid: 6db4ebf12e0f427488b3a3c33fba6e87, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2858020878046314092, guid: 6db4ebf12e0f427488b3a3c33fba6e87, type: 3}
+      propertyPath: m_Color.r
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5664866657660901319, guid: 6db4ebf12e0f427488b3a3c33fba6e87, type: 3}
       propertyPath: m_RootOrder
