@@ -1500,6 +1500,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   squareAreatemp: {fileID: 8584857235679149319, guid: 586682fd12e496f44baf84b692b83c34, type: 3}
   squareArea: {fileID: 0}
+  bloodVFX1: {fileID: 0}
+  bloodVFX2: {fileID: 0}
 --- !u!1 &1710687145
 GameObject:
   m_ObjectHideFlags: 0
@@ -2552,6 +2554,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 162749256886223805, guid: 930c51e57ac6cf14491c1eb3d205725b, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5087064737995959911, guid: 930c51e57ac6cf14491c1eb3d205725b, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -2636,9 +2642,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7797490676154842803, guid: 930c51e57ac6cf14491c1eb3d205725b, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7948844906290031067, guid: 930c51e57ac6cf14491c1eb3d205725b, type: 3}
       propertyPath: m_Name
       value: Play Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 8922014067808800547, guid: 930c51e57ac6cf14491c1eb3d205725b, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
