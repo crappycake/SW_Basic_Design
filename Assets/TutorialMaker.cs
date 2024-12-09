@@ -74,7 +74,6 @@ public class TutorialMaker : MonoBehaviour
         isShow = false;
         isDamage = false;
 
-        Tutorial.gameObject.SetActive(true);
         tutorialCnt = 0;
 
         //Attack
@@ -115,6 +114,7 @@ public class TutorialMaker : MonoBehaviour
             if (!isShow)
             {
                 isShow = true;
+                Tutorial.gameObject.SetActive(true);
                 StartCoroutine(ShowTutor());
             }
         }
