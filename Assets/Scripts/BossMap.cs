@@ -78,7 +78,6 @@ public class BossMap : MonoBehaviour
         0, 2, 0, 0,
         11, 3, 0, 0,
         11, 1, 0, 0,
-
     };
     // Update is called once per frame
     void Update()
