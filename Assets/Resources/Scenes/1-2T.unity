@@ -1495,7 +1495,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2700,9 +2700,12 @@ MonoBehaviour:
   Tutorzip:
   - dialogue: "\uC774\uB3D9\uC744 \uD65C\uC6A9\uD574 \uC601\uC5ED \uACF5\uACA9\uC744
       \uD53C\uD558\uC138\uC694."
-  - dialogue: "\uD53C\uD558\uC138\uC694. (1/3)"
-  - dialogue: "\uD53C\uD558\uC138\uC694. (2/3)"
-  - dialogue: "\uD53C\uD558\uC138\uC694. (3/3)"
+  - dialogue: "\uAE5C\uBE61\uC784\uC744 \uC8FC\uC2DC\uD558\uACE0 \uD53C\uD558\uC138\uC694.
+      (1/3)"
+  - dialogue: "\uAE5C\uBE61\uC784\uC744 \uC8FC\uC2DC\uD558\uACE0 \uD53C\uD558\uC138\uC694.
+      (2/3)"
+  - dialogue: "\uAE5C\uBE61\uC784\uC744 \uC8FC\uC2DC\uD558\uACE0 \uD53C\uD558\uC138\uC694.
+      (3/3)"
   - dialogue: "\uD29C\uD1A0\uB9AC\uC5BC\uC774 \uB05D\uB0AC\uC2B5\uB2C8\uB2E4."
   - dialogue: "\uC2DC\uB828\uC744 \uC644\uC218\uD558\uC138\uC694."
   isDamage: 0
@@ -3525,8 +3528,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   squareAreatemp: {fileID: 8584857235679149319, guid: 586682fd12e496f44baf84b692b83c34, type: 3}
   squareArea: {fileID: 0}
-  bloodVFX1: {fileID: 0}
-  bloodVFX2: {fileID: 0}
+  bloodVFX1: {fileID: 6823200998282874702, guid: 8f8fe12323625f5499b2853dd2ad3e58, type: 3}
+  bloodVFX2: {fileID: 4553287630450876385, guid: 15483e51212e3d74886ea57291f4639a, type: 3}
 --- !u!1 &1662582186
 GameObject:
   m_ObjectHideFlags: 0
@@ -5011,22 +5014,6 @@ PrefabInstance:
     - target: {fileID: 1867852769463473651, guid: 6db4ebf12e0f427488b3a3c33fba6e87, type: 3}
       propertyPath: rotationSpeed
       value: 90
-      objectReference: {fileID: 0}
-    - target: {fileID: 2858020878046314092, guid: 6db4ebf12e0f427488b3a3c33fba6e87, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 536f38dccaffdc3429b735bd09f65742, type: 3}
-    - target: {fileID: 2858020878046314092, guid: 6db4ebf12e0f427488b3a3c33fba6e87, type: 3}
-      propertyPath: m_Color.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2858020878046314092, guid: 6db4ebf12e0f427488b3a3c33fba6e87, type: 3}
-      propertyPath: m_Color.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2858020878046314092, guid: 6db4ebf12e0f427488b3a3c33fba6e87, type: 3}
-      propertyPath: m_Color.r
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5664866657660901319, guid: 6db4ebf12e0f427488b3a3c33fba6e87, type: 3}
       propertyPath: m_RootOrder
