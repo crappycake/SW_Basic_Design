@@ -74,7 +74,7 @@ public class AttackArea : MonoBehaviour
     IEnumerator DamageSquare(GameObject obj, float k)
     {
         SpriteRenderer renderer = obj.GetComponent<SpriteRenderer>();
-        renderer.material.color = new Color(1, 0, 0);
+        renderer.material.color = new Color(1f, 0.2f, 0.2f, 0.3f);
         obj.tag = "Damage";
 
         SpriteRenderer objRenderer = obj.GetComponent<SpriteRenderer>();
@@ -98,12 +98,23 @@ public class AttackArea : MonoBehaviour
             Instantiate(bloodVFX2, randomPosition2, Quaternion.identity);
         }
 
+        float targetTransparency = 0.1f;
+
+        for (float alpha = 0.3f; alpha >= targetTransparency; alpha -= 0.1f)
+        {
+            Color c = renderer.material.color;
+            c.a = alpha;
+            renderer.material.color = c;
+            yield return new WaitForSeconds(GetBeat(bpm) * 0.1f * k);
+        }
+
         yield return new WaitForSeconds(GetBeat(bpm) * 0.7f * k);
 
         renderer.material.color = new Color(0.4f, 0.4f, 0.4f);
         obj.tag = "Untagged";
         Destroy(obj);
     }
+
 
     #endregion
 
