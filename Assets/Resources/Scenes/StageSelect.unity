@@ -1552,7 +1552,7 @@ MonoBehaviour:
   ShapeProperties:
     FillColor:
       serializedVersion: 2
-      rgba: 4278190080
+      rgba: 4285756275
     DrawFill: 1
     DrawFillShadow: 1
     DrawOutline: 0
@@ -2062,7 +2062,7 @@ MonoBehaviour:
   ShapeProperties:
     FillColor:
       serializedVersion: 2
-      rgba: 4278190080
+      rgba: 4285822068
     DrawFill: 1
     DrawFillShadow: 1
     DrawOutline: 0
@@ -7865,7 +7865,7 @@ MonoBehaviour:
   ShapeProperties:
     FillColor:
       serializedVersion: 2
-      rgba: 4278190080
+      rgba: 4285822068
     DrawFill: 1
     DrawFillShadow: 1
     DrawOutline: 0
@@ -9494,7 +9494,7 @@ MonoBehaviour:
   ShapeProperties:
     FillColor:
       serializedVersion: 2
-      rgba: 4278190080
+      rgba: 4285822068
     DrawFill: 1
     DrawFillShadow: 1
     DrawOutline: 0
@@ -10362,7 +10362,7 @@ MonoBehaviour:
   ShapeProperties:
     FillColor:
       serializedVersion: 2
-      rgba: 4278190080
+      rgba: 4285822068
     DrawFill: 1
     DrawFillShadow: 1
     DrawOutline: 0
