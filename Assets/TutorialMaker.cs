@@ -141,6 +141,9 @@ public class TutorialMaker : MonoBehaviour
                 case 3:
                     SceneManager.LoadScene("1-3");
                     break;
+                case 5:
+                    SceneManager.LoadScene("1-4H");
+                    break;
                 default: break;
             }
         }
@@ -165,6 +168,9 @@ public class TutorialMaker : MonoBehaviour
                     AttackSwitch(8);
                 break;
             case 3:
+                AttackSwitch(6);
+                break;
+            case 5:
                 AttackSwitch(6);
                 break;
             default: break;
