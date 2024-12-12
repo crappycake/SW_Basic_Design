@@ -1189,8 +1189,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   squareAreatemp: {fileID: 8584857235679149319, guid: 586682fd12e496f44baf84b692b83c34, type: 3}
   squareArea: {fileID: 0}
-  bloodVFX1: {fileID: 0}
-  bloodVFX2: {fileID: 0}
+  bloodVFX1: {fileID: 6823200998282874702, guid: 8f8fe12323625f5499b2853dd2ad3e58, type: 3}
+  bloodVFX2: {fileID: 4553287630450876385, guid: 15483e51212e3d74886ea57291f4639a, type: 3}
 --- !u!1 &1710687145
 GameObject:
   m_ObjectHideFlags: 0

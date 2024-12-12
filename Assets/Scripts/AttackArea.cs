@@ -129,13 +129,13 @@ public class AttackArea : MonoBehaviour
     {
         SpriteRenderer renderer = obj.GetComponent<SpriteRenderer>();
         Color c = renderer.color;
-        for (float alpha = 1f; alpha >= 0; alpha -= 0.1f)
+        for (float alpha = 0f; alpha <= 1; alpha += 0.1f)
         {
             c.a = alpha;
             renderer.color = c;
             yield return new WaitForSeconds(GetBeat(bpm) / 10 * k);
         }
-        for (float alpha = 0f; alpha <= 1; alpha += 0.1f)
+        for (float alpha = 1f; alpha >= 0; alpha -= 0.1f)
         {
             c.a = alpha;
             renderer.color = c;
@@ -144,7 +144,7 @@ public class AttackArea : MonoBehaviour
         c.r = 255;
         c.g = 255;
         c.b = 0;
-        for (float alpha = 1f; alpha >= 0; alpha -= 0.1f)
+        for (float alpha = 0f; alpha <= 1; alpha += 0.1f)
         {
             c.a = alpha;
             renderer.color = c;

@@ -58,7 +58,7 @@ public class FireballShoot : MonoBehaviour
         {
             Damage.tag = "Fireball_parried";
 
-            if (GameLevelManager.instance.GetCurrentLevel() == "1-5")
+            if (GameLevelManager.instance.GetCurrentLevel() == "1-4H" || GameLevelManager.instance.GetCurrentLevel() == "1-4HT")
             {
                 Vector3 temp = (Camera.main.ScreenToWorldPoint(Input.mousePosition) - gameObject.transform.position);
                 movePos = temp.normalized;
