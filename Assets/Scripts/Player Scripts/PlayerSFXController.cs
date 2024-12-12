@@ -46,6 +46,8 @@ public class Player_SFXController : MonoBehaviour
     private float currentAmplitude = 0f;
     private float currentFrequency = 0f;
 
+    [HideInInspector] public bool canCameraReturn;
+
     void Awake()
     {
         trailRenderer = GetComponent<TrailRenderer>();
@@ -60,6 +62,8 @@ public class Player_SFXController : MonoBehaviour
         flipController.OnFlipEnded += TriggerFlipVFX;
 
         collisionManager.OnCollideWithSpike.AddListener(TriggerSpikeCollisionEffects);
+
+        canCameraReturn = true;
     }
 
     void Start()
@@ -129,6 +133,8 @@ public class Player_SFXController : MonoBehaviour
     #region DMG EFFECTS
     void ReturnCameraToOriginalPosition()
     {
+        if (!canCameraReturn) return;
+
         float threshold = 0.1f;
         if (Vector3.Distance(mainCamera.transform.position, originalCamPos) > threshold)
         {
