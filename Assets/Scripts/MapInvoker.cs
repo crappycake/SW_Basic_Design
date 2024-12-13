@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Assertions.Must;
+using UnityEngine.Events;
 
 public class MapInvoker : MonoBehaviour
 {
@@ -31,9 +32,13 @@ public class MapInvoker : MonoBehaviour
     [Header("Start Title")]
     [SerializeField] private GameObject Title;
 
+    [Header("Camera")]
+    [SerializeField] private GameObject Camera;
     private AttackArea attackArea;
     private GameObject fireball;
 
+    [Header("Event")]
+    [SerializeField] private UnityEvent event1;
     int[] BeatMap;
     int[] SFXMap;
     int beat = 0;
@@ -89,7 +94,6 @@ public class MapInvoker : MonoBehaviour
                 SummonSpikeDown();
                 SummonStarUp();
                 break;
-
             default: break;
         }
 
@@ -199,4 +203,32 @@ public class MapInvoker : MonoBehaviour
         Instantiate(testSFX, Vector3.zero, Quaternion.identity);
     }
     #endregion
+    /*
+    #region CAMERA FUNCTIONS
+    void MoveCamera(float x, float y, float n)
+    {
+        Vector2 startposition = Camera.GetComponent<Transform>().position;
+        x = x - startposition.x;
+        y = y - startposition.y;
+        StartCoroutine(CorutineMoveCamera(x, y, n));
+    }
+    IEnumerator CorutineMoveCamera(float x, float y, float n)  //n초안에 (x, y)만큼 이동시킴
+    {
+        float unittime = n * 10;
+        x = x / unittime;
+        y = y / unittime;
+        Vector2 pos = Camera.GetComponent<Transform>().position;
+        for (double i = 0; i < n * 10; i++)
+        {
+            pos.x += x;
+            pos.y += y;
+            Camera.GetComponent<Transform>().position = pos;
+            yield return new WaitForSeconds(1f / unittime);
+        }
+        Debug.Log(pos);
+        yield return null;
+    }
+    #endregion
+    */
+
 }

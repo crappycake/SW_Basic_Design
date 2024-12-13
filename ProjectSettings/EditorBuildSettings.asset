@@ -42,6 +42,9 @@ EditorBuildSettings:
     path: Assets/Resources/Scenes/1-4 Ending2.unity
     guid: 03ee630e4319c654da3b3565925d5c1b
   - enabled: 1
+    path: Assets/Resources/Scenes/1-4H Ending.unity
+    guid: 9ca7a5d7a3385c54bb0e965e17cef2c0
+  - enabled: 1
     path: Assets/Resources/Scenes/1-4H.unity
     guid: 38634d4d1823f4d44bd346f9b27eb33f
   - enabled: 1

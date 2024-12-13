@@ -12,7 +12,7 @@ public class BossScript : MonoBehaviour
     [SerializeField] Slider bossSlider;
     [SerializeField] GameObject destroySFX;
     [SerializeField] private AudioSource destroySound;
-
+    [SerializeField] string SceneName;
     public UnityEvent OnBossDead;
 
     float posx = -0.5f;
@@ -59,7 +59,7 @@ public class BossScript : MonoBehaviour
     IEnumerator WaitForBossDeath()
     {
         yield return new WaitForSecondsRealtime(1f);
-        SceneManager.LoadScene("1-4 Ending1");
+        SceneManager.LoadScene(SceneName);
     }
 
     IEnumerator TriggerExplosion()

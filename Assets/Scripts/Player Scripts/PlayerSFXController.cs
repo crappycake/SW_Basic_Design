@@ -85,6 +85,10 @@ public class Player_SFXController : MonoBehaviour
         originalCamPos = mainCamera.transform.position;
     }
 
+    public void Changeoriginalpos(GameObject obj)
+    {
+        originalCamPos = obj.GetComponent<Transform>().position;
+    }
     #region FLIP EFFECTS
     void TriggerFlipTrailRenderer()
     {
