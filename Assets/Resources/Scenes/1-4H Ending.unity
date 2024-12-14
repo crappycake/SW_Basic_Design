@@ -2944,7 +2944,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
   - dialugue: "\uC774\uB300\uB85C \uB05D\uC774\uB77C\uACE0 \uC0DD\uAC01\uD558\uBA74
-      \uC624\uB9CC\uC774\uB2E4. \uB2E4\uC74C\uC740... \uAC00.. \uB420 \uAC83\uC774\uB2E4..
+      \uC624\uB9CC\uC774\uB2E4. \uB2E4\uC74C\uC740... \uAC00.. \uB420 \uAC83\uC774\uB2E4...
       ."
     name: ???
     standing: {fileID: 0}
