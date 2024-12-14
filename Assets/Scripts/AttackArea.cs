@@ -108,7 +108,7 @@ public class AttackArea : MonoBehaviour
             yield return new WaitForSeconds(GetBeat(bpm) * 0.1f * k);
         }
 
-        yield return new WaitForSeconds(GetBeat(bpm) * 0.7f * k);
+        yield return new WaitForSeconds(GetBeat(bpm) * 0.5f * k);
 
         renderer.material.color = new Color(0.4f, 0.4f, 0.4f);
         obj.tag = "Untagged";
@@ -158,7 +158,7 @@ public class AttackArea : MonoBehaviour
         obj.GetComponent<SpriteRenderer>().color = new Color(255, 0, 0);
         obj.tag = "Damage";
 
-        yield return new WaitForSeconds(GetBeat(bpm) * (float)0.7 * k);
+        yield return new WaitForSeconds(GetBeat(bpm) * 0.5f * k);
 
         obj.GetComponent<SpriteRenderer>().color = new Color(255, 255, 255);
         obj.tag = "Untagged";
