@@ -2908,46 +2908,46 @@ MonoBehaviour:
   txt: {fileID: 1227320611}
   istutorial: 0
   dialoguezip:
-  - dialugue: "(\uB300\uCDA9 \uC2E0\uC138 \uD55C\uD0C4\uD558\uB294 \uB9D0)"
-    name: "\uC2DC\uD5D8\uAD00"
-    standing: {fileID: 21300000, guid: 4cc7e0ba9f78d6e4d99667756513d119, type: 3}
-    Effect:
-      m_PersistentCalls:
-        m_Calls: []
-  - dialugue: "(\uB300\uCDA9 \uB108\uC758 \uD589\uB3D9\uC744 \uD6C4\uD68C\uD558\uAC8C
-      \uB420\uAC70\uB77C\uB294 \uB9D0)"
-    name: "\uC2DC\uD5D8\uAD00"
-    standing: {fileID: 21300000, guid: 4cc7e0ba9f78d6e4d99667756513d119, type: 3}
-    Effect:
-      m_PersistentCalls:
-        m_Calls: []
-  - dialugue: "(\uB300\uCDA9 \uC720\uC5B8)\r"
-    name: "\uC2DC\uD5D8"
-    standing: {fileID: 21300000, guid: 4cc7e0ba9f78d6e4d99667756513d119, type: 3}
-    Effect:
-      m_PersistentCalls:
-        m_Calls: []
-  - dialugue: ...
+  - dialugue: "\uD5C9.. \uD5C9..."
     name: "\uC8FC\uC778\uACF5"
     standing: {fileID: 21300000, guid: 4cc7e0ba9f78d6e4d99667756513d119, type: 3}
     Effect:
       m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 0}
-          m_TargetAssemblyTypeName: BossScript, Assembly-CSharp
-          m_MethodName: TriggerDestroy
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-  - dialugue: "\uADF8\uB798\uC11C \uC774\uC81C \uBB50\uD568?"
+        m_Calls: []
+  - dialugue: "\uB098\uB3C4 \uB4DC\uB514\uC5B4 \uCC98\uC74C\uBD80\uD130 \uB2E4\uC2DC
+      \uC2DC\uC791\uD560 \uC218 \uC788\uC5B4.\r\n"
     name: "\uC8FC\uC778\uACF5"
     standing: {fileID: 21300000, guid: 36dd1a98f1ae6b04ba0e5fd1c2f6f5d5, type: 3}
+    Effect:
+      m_PersistentCalls:
+        m_Calls: []
+  - dialugue: "\uCCAB \uB2E8\uCD94\uBD80\uD130 \uC798\uBABB \uAFF0\uC5B4\uC9C4 \uC778\uC0DD\uC744
+      \uB4A4\uB85C\uD558\uACE0 \uB2E4\uC2DC \uC2DC\uC791\uD560 \uC218 \uC788\uC5B4.!!\r\n"
+    name: "\uC8FC\uC778\uACF5"
+    standing: {fileID: 21300000, guid: 36dd1a98f1ae6b04ba0e5fd1c2f6f5d5, type: 3}
+    Effect:
+      m_PersistentCalls:
+        m_Calls: []
+  - dialugue: "\uC0AC\uACF5\uC774\uC5EC, \uC800 \uC544\uC774\uAC00 \uB098\uC758 \uC2DC\uD5D8\uAD00\uC744
+      \uC8FD\uC778 \uC544\uC774\uC778\uAC00?"
+    name: ???
+    standing: {fileID: 0}
+    Effect:
+      m_PersistentCalls:
+        m_Calls: []
+  - dialugue: "\uC5B4\uB9AC\uC11D\uC740 \uC790\uC774\uAD70. \uC5C5\uBCF4\uB97C \uBAA8\uB450
+      \uCCAD\uC0B0\uD588\uB2E4 \uD574\uB3C4 \uAC1C\uC778\uC758 \uC6D0\uD55C\uC740
+      \uC0AC\uB77C\uC9C0\uC9C0 \uC54A\uB294 \uBC95\uC778\uB370."
+    name: ???
+    standing: {fileID: 0}
+    Effect:
+      m_PersistentCalls:
+        m_Calls: []
+  - dialugue: "\uC774\uB300\uB85C \uB05D\uC774\uB77C\uACE0 \uC0DD\uAC01\uD558\uBA74
+      \uC624\uB9CC\uC774\uB2E4. \uB2E4\uC74C\uC740... \uAC00.. \uB420 \uAC83\uC774\uB2E4..
+      ."
+    name: ???
+    standing: {fileID: 0}
     Effect:
       m_PersistentCalls:
         m_Calls: []
