@@ -2909,19 +2909,19 @@ MonoBehaviour:
   istutorial: 0
   dialoguezip:
   - dialugue: "\uD5C9.. \uD5C9...."
-    name: "\uC2DC\uD5D8\uAD00"
+    name: "\uC8FC\uC778\uACF5"
     standing: {fileID: 21300000, guid: 4cc7e0ba9f78d6e4d99667756513d119, type: 3}
     Effect:
       m_PersistentCalls:
         m_Calls: []
   - dialugue: "\uB4DC\uB514\uC5B4 \uB05D\uC774 \uB09C \uAC74\uAC00?"
-    name: "\uC2DC\uD5D8\uAD00"
+    name: "\uC8FC\uC778\uACF5"
     standing: {fileID: 21300000, guid: 4cc7e0ba9f78d6e4d99667756513d119, type: 3}
     Effect:
       m_PersistentCalls:
         m_Calls: []
   - dialugue: "\uB2E4\uC74C \uC0DD\uC5D0\uB294 \uB098\uB3C4 \uB0A8\uB4E4\uCC98\uB7FC..\r"
-    name: "\uC2DC\uD5D8"
+    name: "\uC8FC\uC778\uACF5"
     standing: {fileID: 21300000, guid: 4cc7e0ba9f78d6e4d99667756513d119, type: 3}
     Effect:
       m_PersistentCalls:
@@ -2929,7 +2929,7 @@ MonoBehaviour:
   - dialugue: "(\uBA40\uB9AC\uC11C\uBD80\uD130 \uBC1C\uAC78\uC74C \uC18C\uB9AC\uAC00
       \uB4E4\uB9B0\uB2E4)"
     name: ' '
-    standing: {fileID: 0}
+    standing: {fileID: 21300000, guid: 70e3d4866adef294291bdf1b36a6af13, type: 3}
     Effect:
       m_PersistentCalls:
         m_Calls:
@@ -2961,20 +2961,20 @@ MonoBehaviour:
   - dialugue: "\uC5B4\uCC0C \uAC10\uD788 \uC2E0\uC131\uD55C \uC2DC\uD5D8\uC758 \uC7A5\uC5D0\uC11C
       \uC2DC\uD5D8\uAD00\uC744 \uC8FD\uC774\uB294 \uC0DD\uAC01\uC744 \uD558\uB2E4\uB2C8"
     name: "\uAD50\uB3C4\uAD00"
-    standing: {fileID: 21300000, guid: 36dd1a98f1ae6b04ba0e5fd1c2f6f5d5, type: 3}
+    standing: {fileID: 21300000, guid: 7e2b1ffcd490cb542851e50bfc0609dd, type: 3}
     Effect:
       m_PersistentCalls:
         m_Calls: []
   - dialugue: "\uB108 \uAC19\uC740 \uC790\uC5D0\uAC8C \uD658\uC0DD\uC774\uB77C\uB294
       \uAE30\uD68C\uB294 \uC5C6\uB2E4!!\r"
     name: "\uAD50\uB3C4\uAD00"
-    standing: {fileID: 21300000, guid: 36dd1a98f1ae6b04ba0e5fd1c2f6f5d5, type: 3}
+    standing: {fileID: 21300000, guid: 7e2b1ffcd490cb542851e50bfc0609dd, type: 3}
     Effect:
       m_PersistentCalls:
         m_Calls: []
   - dialugue: "\uC800.. \uC800\uB294 \uC800 \uC790\uAC00 \uB9D0\uD558\uB294......\r"
     name: "\uC8FC\uC778\uACF5"
-    standing: {fileID: 21300000, guid: 36dd1a98f1ae6b04ba0e5fd1c2f6f5d5, type: 3}
+    standing: {fileID: 21300000, guid: 4cc7e0ba9f78d6e4d99667756513d119, type: 3}
     Effect:
       m_PersistentCalls:
         m_Calls: []
@@ -2994,7 +2994,7 @@ MonoBehaviour:
         m_Calls: []
   - dialugue: "\uC0C1\uD669\uC740 \uC54C\uACA0\uB2E4.\r"
     name: "\uAD50\uB3C4\uAD00"
-    standing: {fileID: 21300000, guid: 5ca8b9b6eda41e64aa633f5bf28c17b2, type: 3}
+    standing: {fileID: 21300000, guid: 7e2b1ffcd490cb542851e50bfc0609dd, type: 3}
     Effect:
       m_PersistentCalls:
         m_Calls: []
@@ -3003,7 +3003,7 @@ MonoBehaviour:
       \uD3EC\uC0C1\uC73C\uB85C \n\uC8FC\uC778\uACF5\uC758 \uC99D\uD45C\uB97C \uC8FC\uB3C4\uB85D
       \uD558\uB9C8.\r"
     name: "\uAD50\uB3C4\uAD00"
-    standing: {fileID: 21300000, guid: 5ca8b9b6eda41e64aa633f5bf28c17b2, type: 3}
+    standing: {fileID: 21300000, guid: 7e2b1ffcd490cb542851e50bfc0609dd, type: 3}
     Effect:
       m_PersistentCalls:
         m_Calls: []
