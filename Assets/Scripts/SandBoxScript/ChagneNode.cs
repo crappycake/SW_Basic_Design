@@ -11,6 +11,8 @@ public class ChagneNode : MonoBehaviour
     static int currentNode;
 
 
+    //getBeatMap
+
     private void Awake()
     {
         currentNode = 0;
@@ -18,23 +20,17 @@ public class ChagneNode : MonoBehaviour
     public void nextBeat()
     {
         currentNode++;
-        //changeImage();
-        //changeText();
+        nextImage();
+        nextText();
     }
 
-    private void Update()
+    void nextImage()
     {
-        for (int i = 0; i <= 8; ++i)
-        {
-            if (Input.GetKeyDown(KeyCode.Alpha0 + i))
-            {
-                //ModifyInfoWithKey
-            }
-        }
+        //Array[currentNode + nodeGap]
     }
-    private void ModifyInfoWithKey(int key)
+    void nextText()
     {
-        //changeArray
-        //changeImage
+        //currentNode + nodeGap
+        //if currentNode + nodeGap > nodeLength : text = endNode
     }
 }
