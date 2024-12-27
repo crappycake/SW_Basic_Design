@@ -801,7 +801,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 249432414}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 460638042}
+        m_TargetAssemblyTypeName: RecordButton, Assembly-CSharp
+        m_MethodName: PressRMove
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &249432414
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1422,6 +1434,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 9cce094462a94134c8ac996888c143f5, type: 3}
   - {fileID: 21300000, guid: 164f30445a8c28b41981f85fe9ef8adf, type: 3}
   beatManager: {fileID: 1409699071}
+  nodes: {fileID: 2110421073}
 --- !u!1 &498581109
 GameObject:
   m_ObjectHideFlags: 0
@@ -5334,7 +5347,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2123911597}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 460638042}
+        m_TargetAssemblyTypeName: RecordButton, Assembly-CSharp
+        m_MethodName: PressLMove
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2123911597
 MonoBehaviour:
   m_ObjectHideFlags: 0

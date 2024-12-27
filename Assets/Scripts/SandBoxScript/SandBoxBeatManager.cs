@@ -38,6 +38,24 @@ public class SandBoxBeatManager : MonoBehaviour
         return (int)(audioSource.clip.length * bpm / 60);
     }
 
+    public void Rmove()
+    {
+        float newTime = audioSource.time + (60 / (float)bpm);
+        audioSource.time = Mathf.Max(newTime, 0);
+        audioSource.time = Mathf.Min(newTime, audioSource.clip.length);
+    }
+
+    public void Lmove()
+    {
+        float newTime = audioSource.time - (60 / (float)bpm);
+        audioSource.time = Mathf.Max(newTime, 0);
+        audioSource.time = Mathf.Min(newTime, audioSource.clip.length);
+    }
+
+    public void GotoBeat(int beat)
+    {
+        audioSource.time = (60 / (float)bpm) * beat;
+    }
     private void Update()
     {
         if (musicStarted)

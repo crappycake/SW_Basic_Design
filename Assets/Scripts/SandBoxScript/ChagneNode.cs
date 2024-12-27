@@ -38,7 +38,29 @@ public class ChagneNode : MonoBehaviour
     }
     public void nextBeat()
     {
+        if (nodeGap > nodeLength + 4)
+        {
+            Debug.Log("print로 출력하고 다시 만드세요. 이러면 오류 납니다;;");
+        }
         nodeGap++;
+        nextImage();
+        nextText();
+    }
+
+    public void prevBeat()
+    {
+        if (nodeGap < -4)
+        {
+            Debug.Log("print로 출력하고 다시 만드세요. 이러면 오류 납니다;;");
+        }
+        nodeGap--;
+        nextImage();
+        nextText();
+    }
+
+    public void GotoBeat(int Beat)
+    {
+        nodeGap = Beat;
         nextImage();
         nextText();
     }
