@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Numerics;
 using TMPro;
 using Unity.VisualScripting;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.Rendering.UI;
 using UnityEngine.UI;
@@ -10,6 +11,7 @@ using UnityEngine.UI;
 public class ChangeNode : MonoBehaviour
 {
     [SerializeField] private Sprite[] sprites;
+    public static Slider slider;
     public int nodeGap;
     static int nodeLength;
     TextMeshProUGUI nodeText;
@@ -23,6 +25,7 @@ public class ChangeNode : MonoBehaviour
         nodeSprite = transform.GetChild(0).GetComponent<Image>();
         nodeText = transform.GetChild(1).GetComponent<TextMeshProUGUI>();
         beatManager = GameObject.Find("Beat Manager").GetComponent<SandBoxBeatManager>();
+        slider = GameObject.Find("Music Slider").GetComponent<Slider>();
     }
 
     public static void MakeBeatMap()
@@ -36,6 +39,8 @@ public class ChangeNode : MonoBehaviour
         else
         {
             CustomBeatMap = new int[nodeLength];
+            slider.minValue = 0;
+            slider.maxValue = nodeLength;
         }
     }
     public static void LoadBeatMap()
@@ -51,6 +56,9 @@ public class ChangeNode : MonoBehaviour
                 CustomBeatMap[i] = PlayerPrefs.GetInt($"TestMap_{i}", 0); // 기본값 0
             }
             Debug.Log("TestMap loaded!");
+
+            slider.minValue = 0;
+            slider.maxValue = nodeLength;
         }
     }
 
@@ -73,7 +81,7 @@ public class ChangeNode : MonoBehaviour
     {
         if (nodeGap > nodeLength + 4)
         {
-            Debug.Log("print로 출력하고 다시 만드세요. 이러면 오류 납니다;;");
+            beatManager.musicStop();
         }
         nodeGap++;
         nextImage();
@@ -84,7 +92,7 @@ public class ChangeNode : MonoBehaviour
     {
         if (nodeGap < -4)
         {
-            Debug.Log("print로 출력하고 다시 만드세요. 이러면 오류 납니다;;");
+            beatManager.musicStop();
         }
         nodeGap--;
         nextImage();
@@ -107,17 +115,21 @@ public class ChangeNode : MonoBehaviour
             {
                 int chooseSprite = CustomBeatMap[nodeGap];
                 if (sprites[chooseSprite] == null) Debug.Log("null sprites" + chooseSprite);
-                else nodeSprite.sprite = sprites[chooseSprite];
+                else
+                {
+                    if (chooseSprite > 2)   nodeSprite.sprite = sprites[chooseSprite - 2];
+                    else                    nodeSprite.sprite = sprites[chooseSprite];
+                }
             }
         }
     }
+
     void nextText()
     {
         int thisNode = nodeGap;
         if (thisNode < 0 || thisNode > nodeLength) nodeText.text = "";
         else nodeText.text = (nodeGap).ToString();
     }
-
 
     public static int readNodeLength()
     {

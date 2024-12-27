@@ -17,6 +17,7 @@ public class SandBoxBeatManager : MonoBehaviour
     void Awake()
     {
         musicStarted = false;
+        audioSource.time = (60 / (float)bpm) * 8;
     }
 
     public void musicStart()
@@ -54,7 +55,7 @@ public class SandBoxBeatManager : MonoBehaviour
 
     public void GotoBeat(int beat)
     {
-        audioSource.time = (60 / (float)bpm) * beat;
+        audioSource.time = (60 / (float)bpm) * (beat + 8);
     }
     private void Update()
     {
@@ -71,15 +72,6 @@ public class SandBoxBeatManager : MonoBehaviour
                 float sampledTime = audioSource.timeSamples / (audioSource.clip.frequency * interval.GetIntervalLength(bpm));
                 interval.CheckForNewInterval(sampledTime);
             }
-
-            //slider 변경
-        }
-        else
-        {
-            //슬라이더의 값을 박자에 떨어지게 변경
-            //해당 박자를 일시저장
-            //해당 박자 * 2로 카메라 위치 변경
-            //해당 박자의 시간으로 음악 시작 위치를 변경
         }
     }
 
