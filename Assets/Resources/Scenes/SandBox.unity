@@ -2733,7 +2733,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1147306121}
-  - component: {fileID: 1147306122}
+  - component: {fileID: 1147306123}
   m_Layer: 5
   m_Name: node (4)
   m_TagString: Untagged
@@ -2763,7 +2763,7 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1147306122
+--- !u!114 &1147306123
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2772,7 +2772,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1147306120}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8ec4aaa88123e0141acd22fe34273f28, type: 3}
+  m_Script: {fileID: 11500000, guid: e608970567b27e246b6b7121b9a64760, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   sprites:
@@ -2786,6 +2786,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: b63ba759280c4c54795831f6b1be0ba9, type: 3}
   - {fileID: 21300000, guid: 85c9dca0ca5f2914a9fcdefe7d5be425, type: 3}
   nodeGap: 0
+  recordManager: {fileID: 460638042}
 --- !u!1 &1159560188
 GameObject:
   m_ObjectHideFlags: 0
@@ -3478,7 +3479,7 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-        - m_Target: {fileID: 1147306122}
+        - m_Target: {fileID: 1147306123}
           m_TargetAssemblyTypeName: ChagneNode, Assembly-CSharp
           m_MethodName: nextBeat
           m_Mode: 1

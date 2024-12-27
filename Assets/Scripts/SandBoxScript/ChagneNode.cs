@@ -5,6 +5,7 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Rendering.UI;
+using UnityEngine.UI;
 
 public class ChagneNode : MonoBehaviour
 {
@@ -12,14 +13,14 @@ public class ChagneNode : MonoBehaviour
     public int nodeGap;
     static int nodeLength;
     TextMeshProUGUI nodeText;
-    Sprite nodeSprite;
+    Image nodeSprite;
     static SandBoxBeatManager beatManager;
 
-    static int[] CustomBeatMap;
+    public static int[] CustomBeatMap;
 
     private void Awake()
     {
-        nodeSprite = transform.GetChild(0).GetComponent<Sprite>();
+        nodeSprite = transform.GetChild(0).GetComponent<Image>();
         nodeText = transform.GetChild(1).GetComponent<TextMeshProUGUI>();
         beatManager = GameObject.Find("Beat Manager").GetComponent<SandBoxBeatManager>();
     }
@@ -65,7 +66,7 @@ public class ChagneNode : MonoBehaviour
         nextText();
     }
 
-    void nextImage()
+    public void nextImage()
     {
         if (nodeGap >= 0)
         {
@@ -74,7 +75,7 @@ public class ChagneNode : MonoBehaviour
             {
                 int chooseSprite = CustomBeatMap[nodeGap];
                 if (sprites[chooseSprite] == null) Debug.Log("null sprites" + chooseSprite);
-                else nodeSprite = sprites[chooseSprite];
+                else nodeSprite.sprite = sprites[chooseSprite];
             }
         }
     }

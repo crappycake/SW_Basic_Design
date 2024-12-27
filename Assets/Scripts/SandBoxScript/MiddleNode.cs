@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class MiddleNode : ChagneNode
 {
+    [SerializeField] RecordManager recordManager;
     //getBeatMap : ChangeNode
     private void Update()
     {
@@ -14,10 +15,15 @@ public class MiddleNode : ChagneNode
                 ModifyInfoWithKey(i);
             }
         }
+
+        if (Input.GetKeyDown(KeyCode.Space))        { recordManager.PressRecord(); }
+        if (Input.GetKeyDown(KeyCode.LeftArrow))    { recordManager.PressLMove(); }
+        if (Input.GetKeyDown(KeyCode.RightArrow))   { recordManager.PressRMove(); }
     }
     private void ModifyInfoWithKey(int key)
     {
-        //array[currentNode] = key
-        //changeImage
+        CustomBeatMap[nodeGap] = key;
+        nextImage();
+        //Debug.Log("Map Modified : " + nodeGap + " | " + CustomBeatMap[nodeGap]);
     }
 }
