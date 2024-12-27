@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MiddleNode : ChagneNode
+public class MiddleNode : ChangeNode
 {
     [SerializeField] RecordManager recordManager;
     //getBeatMap : ChangeNode

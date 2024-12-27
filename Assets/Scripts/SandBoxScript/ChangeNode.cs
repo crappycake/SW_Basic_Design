@@ -7,7 +7,7 @@ using UnityEngine;
 using UnityEngine.Rendering.UI;
 using UnityEngine.UI;
 
-public class ChagneNode : MonoBehaviour
+public class ChangeNode : MonoBehaviour
 {
     [SerializeField] private Sprite[] sprites;
     public int nodeGap;
@@ -25,9 +25,10 @@ public class ChagneNode : MonoBehaviour
         beatManager = GameObject.Find("Beat Manager").GetComponent<SandBoxBeatManager>();
     }
 
-    public static void LoadBPM()
+    public static void MakeBeatMap()
     {
         nodeLength = beatManager.musicLength();
+        CustomBeatMap = BeatMap.LoadTestMap();
         if (nodeLength <= 0)
         {
             Debug.Log("nodeLength ERROR");
@@ -36,6 +37,37 @@ public class ChagneNode : MonoBehaviour
         {
             CustomBeatMap = new int[nodeLength];
         }
+    }
+    public static void LoadBeatMap()
+    {
+        nodeLength = PlayerPrefs.GetInt("TestMapLength", 0); // 기본값 0
+        if (nodeLength == 0) Debug.Log("비어있는 배열입니다.");
+        else if (nodeLength != beatManager.musicLength()) Debug.Log("다른 노래의 배열로 사용 중입니다.");
+        else
+        {
+            CustomBeatMap = new int[nodeLength];
+            for (int i = 0; i < nodeLength; i++)
+            {
+                CustomBeatMap[i] = PlayerPrefs.GetInt($"TestMap_{i}", 0); // 기본값 0
+            }
+            Debug.Log("TestMap loaded!");
+        }
+    }
+
+    public static void SaveBeatMap()
+    {
+        for (int i = 0; i < CustomBeatMap.Length; i++)
+        {
+            PlayerPrefs.SetInt($"TestMap_{i}", CustomBeatMap[i]);
+        }
+        PlayerPrefs.SetInt("TestMapLength", CustomBeatMap.Length);
+        PlayerPrefs.Save();
+        Debug.Log("TestMap saved!");
+    }
+    public static void PrintBeatMap()
+    {
+        string str = string.Join(",", CustomBeatMap);
+        Debug.Log(str);
     }
     public void nextBeat()
     {
@@ -84,5 +116,11 @@ public class ChagneNode : MonoBehaviour
         int thisNode = nodeGap;
         if (thisNode < 0 || thisNode > nodeLength) nodeText.text = "";
         else nodeText.text = (nodeGap).ToString();
+    }
+
+
+    public static int readNodeLength()
+    {
+        return nodeLength;
     }
 }

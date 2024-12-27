@@ -36,7 +36,7 @@ public class RecordManager : MonoBehaviour
     {
         for (int i = 0; i <= 8; ++i)
         {
-            ChagneNode nowNode = nodes.transform.GetChild(i).GetComponent<ChagneNode>();
+            ChangeNode nowNode = nodes.transform.GetChild(i).GetComponent<ChangeNode>();
             nowNode.prevBeat();
         }
         beatManager.Lmove();
@@ -46,7 +46,7 @@ public class RecordManager : MonoBehaviour
     {
         for (int i = 0; i <= 8; ++i)
         {
-            ChagneNode nowNode = nodes.transform.GetChild(i).GetComponent<ChagneNode>();
+            ChangeNode nowNode = nodes.transform.GetChild(i).GetComponent<ChangeNode>();
             nowNode.nextBeat();
         }
         beatManager.Rmove();
@@ -56,7 +56,7 @@ public class RecordManager : MonoBehaviour
     {
         for (int i = -4; i <= 4; ++i)
         {
-            ChagneNode nowNode = nodes.transform.GetChild(i + 4).GetComponent<ChagneNode>();
+            ChangeNode nowNode = nodes.transform.GetChild(i + 4).GetComponent<ChangeNode>();
             nowNode.GotoBeat(i);
         }
         beatManager.GotoBeat(0);
