@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Numerics;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Rendering.UI;
@@ -8,29 +10,56 @@ public class ChagneNode : MonoBehaviour
 {
     [SerializeField] private Sprite[] sprites;
     public int nodeGap;
-    static int currentNode;
+    static int nodeLength;
+    TextMeshProUGUI nodeText;
+    Sprite nodeSprite;
+    static SandBoxBeatManager beatManager;
 
-
-    //getBeatMap
+    static int[] CustomBeatMap;
 
     private void Awake()
     {
-        currentNode = 0;
+        nodeSprite = transform.GetChild(0).GetComponent<Sprite>();
+        nodeText = transform.GetChild(1).GetComponent<TextMeshProUGUI>();
+        beatManager = GameObject.Find("Beat Manager").GetComponent<SandBoxBeatManager>();
+    }
+
+    public static void LoadBPM()
+    {
+        nodeLength = beatManager.musicLength();
+        if (nodeLength <= 0)
+        {
+            Debug.Log("nodeLength ERROR");
+        }
+        else
+        {
+            CustomBeatMap = new int[nodeLength];
+        }
     }
     public void nextBeat()
     {
-        currentNode++;
+        nodeGap++;
         nextImage();
         nextText();
     }
 
     void nextImage()
     {
-        //Array[currentNode + nodeGap]
+        if (nodeGap >= 0)
+        {
+            if (nodeGap >= nodeLength) Debug.Log("null beat");
+            else
+            {
+                int chooseSprite = CustomBeatMap[nodeGap];
+                if (sprites[chooseSprite] == null) Debug.Log("null sprites" + chooseSprite);
+                else nodeSprite = sprites[chooseSprite];
+            }
+        }
     }
     void nextText()
     {
-        //currentNode + nodeGap
-        //if currentNode + nodeGap > nodeLength : text = endNode
+        int thisNode = nodeGap;
+        if (thisNode < 0 || thisNode > nodeLength) nodeText.text = "";
+        else nodeText.text = (nodeGap).ToString();
     }
 }

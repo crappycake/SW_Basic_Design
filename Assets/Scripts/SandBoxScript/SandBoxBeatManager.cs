@@ -31,6 +31,13 @@ public class SandBoxBeatManager : MonoBehaviour
         musicStarted = false;
     }
 
+    public int musicLength()
+    {
+        Debug.Log("audioClipLength : " + audioSource.clip.length);
+        Debug.Log("BPM : " + bpm);
+        return (int)(audioSource.clip.length * bpm / 60);
+    }
+
     private void Update()
     {
         if (musicStarted)
@@ -68,10 +75,5 @@ public class SandBoxBeatManager : MonoBehaviour
 
         float progress = audioSource.time / audioSource.clip.length;
         return (int)(progress * 100);
-    }
-
-    public int Bpm()
-    {
-        return bpm;
     }
 }

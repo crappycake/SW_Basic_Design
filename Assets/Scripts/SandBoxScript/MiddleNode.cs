@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MiddleNode : MonoBehaviour
+public class MiddleNode : ChagneNode
 {
-    //getBeatMap
+    //getBeatMap : ChangeNode
     private void Update()
     {
         for (int i = 0; i <= 8; ++i)
@@ -17,7 +17,7 @@ public class MiddleNode : MonoBehaviour
     }
     private void ModifyInfoWithKey(int key)
     {
-        //array[currentNode] = key || MapInvoker refer
+        //array[currentNode] = key
         //changeImage
     }
 }
