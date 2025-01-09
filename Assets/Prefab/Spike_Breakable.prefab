@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2385218559271189404}
   - component: {fileID: -173373837991409217}
   m_Layer: 0
-  m_Name: Spike
+  m_Name: Spike_Breakable
   m_TagString: Damage
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -80,7 +80,7 @@ SpriteRenderer:
   m_Sprite: {fileID: 21300000, guid: 1db1f4c02df14c247b080de33d5b892d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
-  m_FlipY: 0
+  m_FlipY: 1
   m_DrawMode: 0
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
@@ -190,4 +190,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91dc58a1190dab84aa5d61b5d232dd46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isBreakable: 0
+  isBreakable: 1
