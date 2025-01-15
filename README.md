@@ -16,7 +16,7 @@ SW Basic Design Lecture for Sejong Uni. Software Major 2024-02
  - 스테이지 클리어<br>일반 스테이지의 경우 곡이 끝날 때까지 생존하면 클리어합니다. 챕터 1의 하드 스테이지 이후부터는 곡이 끝나기 전 적과의 전투에서 승리하면 클리어합니다.<br><br>
 ### chapter 2
  - 파티 시스템이 활성화 됩니다.
-   <br>게임 시작 전 액티브 능력과 패시브 능력을 능력을 가진 캐릭터를 파티에 참여시킬 수 있습니다.
+   <br>게임 시작 전 액티브 능력과 패시브 능력을 능력을 가진 캐릭터를 파티에 참여시킬 수 있습니다.<br><br>
  - 더욱 다양한 캐릭터가 추가 됩니다.
    <br>- 패시브 : 단단한 피부, 빠른 회복, 조준 보조
    <br>- 액티브 : 가짜 장애물 파괴, 투사체 회피<br><br>
@@ -28,3 +28,11 @@ SW Basic Design Lecture for Sejong Uni. Software Major 2024-02
    <br> 스킨 구매, 체력 강화, 공격력 강화, 재화 획득률 강화가 가능해집니다.<br><br>
 ## Play Video
 [![프로젝트 시연](https://img.youtube.com/vi/SgMVQtrweXw/0.jpg)](https://www.youtube.com/watch?v=SgMVQtrweXw)
+## sandbox mode (제작 과정 및 방법)
+ - beat Manager의 audioSource에 음악을 삽입하고, bpm을 설정합니다. (삽입하는 audio는 모두 8박자 이후 음악이 시작되도록 사전에 설정해둡니다)
+ - make map 또는 load map 버튼을 눌러 음악의 길이와 bpm에 맞는 맵을 생성하거나 불러옵니다.
+ - audio의 pitch를 이용하여 사용자의 편의에 맞는 속도를 지정합니다.
+ - left&right arrow key를 통해 한 비트씩 음악을 움직일 수 있으며, space로 음악을 잠시 정지할 수 있습니다. (<< 버튼을 눌러 처음 위치로 빠르게 돌아갈 수 있습니다)
+ - 0-9까지의 숫자를 눌러 해당 비트에 어떠한 장애물을 설정할 지 결정할 수 있습니다.
+ - beatMap 출력 및 저장을 눌러 player prefab에 저장하고, debug창에 출력할 수 있습니다.
+ - debug에 출력된 맵을 beatMap script에 옮겨 적어 새로운 맵에 적용시킵니다.
