@@ -114,11 +114,16 @@ public class ChangeNode : MonoBehaviour
             else
             {
                 int chooseSprite = CustomBeatMap[nodeGap];
-                if (sprites[chooseSprite] == null) Debug.Log("null sprites" + chooseSprite);
+
+                if (chooseSprite > 2)
+                {
+                    if (sprites[chooseSprite - 2] == null) Debug.Log("null sprites" + (chooseSprite - 2));
+                    else nodeSprite.sprite = sprites[chooseSprite - 2];
+                }
                 else
                 {
-                    if (chooseSprite > 2)   nodeSprite.sprite = sprites[chooseSprite - 2];
-                    else                    nodeSprite.sprite = sprites[chooseSprite];
+                    if (sprites[chooseSprite] == null) Debug.Log("null sprites" + chooseSprite);
+                    else nodeSprite.sprite = sprites[chooseSprite];
                 }
             }
         }
