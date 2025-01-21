@@ -3184,13 +3184,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1448067804}
+  - component: {fileID: 1448067805}
   m_Layer: 0
   m_Name: '___________Fireball_____________ '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1448067804
 Transform:
   m_ObjectHideFlags: 0
@@ -3199,17 +3200,30 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1448067803}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 9.5, y: 1.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1592552321}
   - {fileID: 1318572657}
   - {fileID: 1710687146}
   - {fileID: 216041841}
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1448067805
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1448067803}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9641eadfd1e11bb4e90af0514589ed7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fireball: {fileID: 2865519444121687294, guid: 70f09f2b41647694181adbfdb53fc0bf, type: 3}
+  fake_fireball: {fileID: 0}
 --- !u!1 &1475035021
 GameObject:
   m_ObjectHideFlags: 0
@@ -3301,54 +3315,6 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
---- !u!1 &1592552319
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1592552321}
-  - component: {fileID: 1592552320}
-  m_Layer: 0
-  m_Name: Ball Maker
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!114 &1592552320
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1592552319}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a07599fa83381e543b80909a583ab224, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fireballPrefab: {fileID: 2865519444121687294, guid: 70f09f2b41647694181adbfdb53fc0bf, type: 3}
-  startDestination: {fileID: 216041840}
-  upDestination: {fileID: 1318572656}
-  downDestination: {fileID: 1710687145}
---- !u!4 &1592552321
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1592552319}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 21.76, y: -2.34, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1448067804}
-  m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1643816798
 GameObject:
   m_ObjectHideFlags: 0
@@ -3394,7 +3360,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39adb35a2a9e0fd409cb26db8e3ac470, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireballPrefab: {fileID: 2865519444121687294, guid: 70f09f2b41647694181adbfdb53fc0bf, type: 3}
+  shooter: {fileID: 1448067803}
   starPrefab: {fileID: 935248269927852924, guid: 677f24414bff8e841b2ac63212259ab4, type: 3}
   startDestination: {fileID: 216041840}
   upDestination: {fileID: 1318572656}
@@ -3407,6 +3373,10 @@ MonoBehaviour:
   playerOtherPosition: {fileID: 1373658582}
   testSFX: {fileID: 8472128668451917206, guid: a4a96bb339309f3488367e21e32e8946, type: 3}
   Title: {fileID: 0}
+  Camera: {fileID: 0}
+  event1:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &1643816801
 MonoBehaviour:
   m_ObjectHideFlags: 0
