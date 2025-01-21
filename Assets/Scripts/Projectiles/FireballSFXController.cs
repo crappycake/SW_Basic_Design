@@ -6,7 +6,7 @@ using UnityEngine;
 public class FireballSFXController : MonoBehaviour
 {
     public ParticleSystem particleSystem;
-    private FireballShoot fireballShoot;
+    private Fireball fireballShoot;
 
     [SerializeField] private GameObject parrySFX;
     [SerializeField] private AudioSource parrySound;
@@ -19,7 +19,7 @@ public class FireballSFXController : MonoBehaviour
 
     void Awake()
     {
-        fireballShoot = GetComponent<FireballShoot>();
+        fireballShoot = GetComponent<Fireball>();
     }
 
     void Start()

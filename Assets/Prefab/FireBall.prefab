@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2323817061403686683}
   - component: {fileID: 2864585944143255261}
   m_Layer: 0
-  m_Name: Damage
+  m_Name: DamageArea
   m_TagString: Fireball
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -186,7 +186,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bpm: 150
   parryingSpeedMultiplier: 3.5
-  Damage: {fileID: 363207177779263514}
+  DamageArea: {fileID: 363207177779263514}
   startPos: {x: 0, y: 0, z: 0}
   destinationPos: {x: 0, y: 0, z: 0}
   betweenPos: {x: 0, y: 0, z: 0}

@@ -3,18 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public class FireballShoot : MonoBehaviour
+public class Fireball : MonoBehaviour
 {
     public float bpm;
     [SerializeField] private float parryingSpeedMultiplier;
-    [SerializeField] private GameObject Damage;
+    [SerializeField] private GameObject DamageArea;
     [HideInInspector] public Vector3 startPos;
     [HideInInspector] public Vector3 destinationPos;
 
     [HideInInspector] public Vector3 betweenPos;
     [HideInInspector] public Vector3 movePos;
 
-    private bool parrying;
+    private bool parryEnabled;
 
     PlayerFlipController playerFlipController;
     FireballSFXController fireballSFXController;
@@ -29,34 +29,33 @@ public class FireballShoot : MonoBehaviour
 
     void Start()
     {
-        //startPos = transform.position;
+        startPos = transform.position;
         //destinationPos = playerPos.position;
         
         betweenPos = destinationPos-startPos;
         movePos = betweenPos/(40f);
 
-        parrying = false;
+        parryEnabled = false;
 
         Invoke("DestroyBall", 10);
-
     }
 
     void FixedUpdate()
     {
-        transform.position += new Vector3(movePos.x, movePos.y, movePos.z);
+        transform.position += movePos;
     }
 
    
 
     void Parry()
     {
-        if (!parrying)
+        if (!parryEnabled)
         { 
             return;
         }
         else
         {
-            Damage.tag = "Fireball_parried";
+            DamageArea.tag = "Fireball_parried";
 
             if (GameLevelManager.instance.GetCurrentLevel() == "1-4H" || GameLevelManager.instance.GetCurrentLevel() == "1-4HT")
             {
@@ -76,7 +75,7 @@ public class FireballShoot : MonoBehaviour
             transform.localScale = currentScale;
 
             fireballSFXController.CallFunctionsAfterParried();
-            parrying = false;
+            parryEnabled = false;
         }
 
     }
@@ -85,7 +84,7 @@ public class FireballShoot : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            parrying = true;
+            parryEnabled = true;
         }
     }
 
@@ -93,7 +92,7 @@ public class FireballShoot : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            parrying = false;
+            parryEnabled = false;
         }
     }
 

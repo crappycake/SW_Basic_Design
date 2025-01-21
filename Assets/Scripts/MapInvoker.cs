@@ -8,7 +8,7 @@ using UnityEngine.Events;
 public class MapInvoker : MonoBehaviour
 {
     [Header("Obstacle Prefabs")]
-    public GameObject fireballPrefab;
+    public GameObject shooter;
     public GameObject starPrefab;
 
     [Header("Game Positions")]
@@ -45,9 +45,6 @@ public class MapInvoker : MonoBehaviour
 
     private void Start()
     {
-        fireball = fireballPrefab;
-        fireball.GetComponent<FireballShoot>().startPos = startDestination.transform.position;
-
         attackArea = GetComponent<AttackArea>();
     }
 
@@ -76,8 +73,8 @@ public class MapInvoker : MonoBehaviour
             case 2: SummonSpikeDown(); break;
             //case 3: SummonJumpPad("UP");                                   break;
             //case 4: SummonJumpPad("DOWN");                                 break;
-            case 5: ShootFireBallUp(); break;
-            case 6: ShootFireballDown(); break;
+            case 5: shooter.GetComponent<Shooter>().ShootFireball(playerOtherPosition); break;
+            case 6: shooter.GetComponent<Shooter>().ShootFireball(playerStartPosition); break;
             case 7: attackArea.TriggerSquareAreaAttack(playerOtherPosition); break;
             case 8: attackArea.TriggerSquareAreaAttack(playerStartPosition); break;
             case 9: attackArea.TriggerCircleAreaAttack(circleUp); break;
@@ -155,25 +152,6 @@ public class MapInvoker : MonoBehaviour
     void SummonJumpPad(string direction)
     {
 
-    }
-    #endregion
-
-    #region SUMMON FIREBALL FUNCTIONS
-    void ShootFireBallUp()
-    {
-        fireball.GetComponent<FireballShoot>().destinationPos = upDestination.transform.position;
-        InstantiateFireBall();
-    }
-
-    void ShootFireballDown()
-    {
-        fireball.GetComponent<FireballShoot>().destinationPos = downDestination.transform.position;
-        InstantiateFireBall();
-    }
-
-    void InstantiateFireBall()
-    {
-        Instantiate(fireball, startDestination.transform.position, startDestination.transform.rotation);
     }
     #endregion
 

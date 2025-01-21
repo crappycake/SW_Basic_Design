@@ -78,7 +78,7 @@ public class TutorialMaker : MonoBehaviour
 
         //Attack
         fireball = fireballPrefab;
-        fireball.GetComponent<FireballShoot>().startPos = startDestination.transform.position;
+        fireball.GetComponent<Fireball>().startPos = startDestination.transform.position;
 
         attackArea = GetComponent<AttackArea>();
     }
@@ -290,13 +290,13 @@ public class TutorialMaker : MonoBehaviour
     #region SUMMON FIREBALL FUNCTIONS
     void ShootFireBallUp()
     {
-        fireball.GetComponent<FireballShoot>().destinationPos = upDestination.transform.position;
+        fireball.GetComponent<Fireball>().destinationPos = upDestination.transform.position;
         InstantiateFireBall();
     }
 
     void ShootFireballDown()
     {
-        fireball.GetComponent<FireballShoot>().destinationPos = downDestination.transform.position;
+        fireball.GetComponent<Fireball>().destinationPos = downDestination.transform.position;
         InstantiateFireBall();
     }
 
