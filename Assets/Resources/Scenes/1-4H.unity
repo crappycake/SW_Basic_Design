@@ -406,9 +406,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fireball: {fileID: 2865519444121687294, guid: 70f09f2b41647694181adbfdb53fc0bf, type: 3}
-  fake_fireball: {fileID: 0}
-  UpDestinationPos: {fileID: 1318572656}
-  DownDestinationPos: {fileID: 1710687145}
+  fake_fireball: {fileID: 2865519444121687294, guid: 267703ac739b3e349923f7e181a92c30, type: 3}
 --- !u!1001 &270022923
 PrefabInstance:
   m_ObjectHideFlags: 0
