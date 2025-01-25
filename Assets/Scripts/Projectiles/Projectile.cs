@@ -11,6 +11,7 @@ public class Projectile : MonoBehaviour
     [HideInInspector] public Vector3 destinationPos;
 
     protected Vector3 movePos;
+    protected float speed;
     protected bool parryEnabled = false;
 
     protected PlayerFlipController playerFlipController;
@@ -28,7 +29,8 @@ public class Projectile : MonoBehaviour
     {
         startPos = transform.position;
         Vector3 betweenPos = destinationPos - startPos;
-        movePos = betweenPos / (6000f / bpm);
+        movePos = betweenPos / (6000 / bpm);
+        speed = movePos.magnitude;
 
         Invoke(nameof(DestroyBall), 10);
     }
@@ -61,5 +63,11 @@ public class Projectile : MonoBehaviour
     protected void DestroyBall()
     {
         Destroy(gameObject);
+    }
+
+    protected void SetmovePos(Vector3 desPos, float speed)
+    {
+        Vector3 pos = desPos - transform.position;
+        movePos = Vector3.Normalize(pos) * speed;
     }
 }

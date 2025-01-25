@@ -7,6 +7,9 @@ using UnityEngine.Events;
 
 public class MapInvoker : MonoBehaviour
 {
+    [Header("Player")]
+    public GameObject player;
+
     [Header("Obstacle Prefabs")]
     public GameObject shooter;
     public GameObject starPrefab;
@@ -43,9 +46,11 @@ public class MapInvoker : MonoBehaviour
     int[] SFXMap;
     int beat = 0;
 
+    
     private void Start()
     {
         attackArea = GetComponent<AttackArea>();
+        player = GameObject.Find("Player");
     }
 
     private void Awake()
@@ -91,6 +96,8 @@ public class MapInvoker : MonoBehaviour
                 SummonSpikeDown();
                 SummonStarUp();
                 break;
+            case 17: shooter.GetComponent<Shooter>().ShootGuidedFireBall(playerOtherPosition, player); break;
+            case 18: shooter.GetComponent<Shooter>().ShootGuidedFireBall(playerStartPosition, player); break;
             default: break;
         }
 

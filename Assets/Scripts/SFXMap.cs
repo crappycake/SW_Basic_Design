@@ -190,6 +190,8 @@ public class SFXMap : MonoBehaviour
 
         },
     };
+
+    int[] Testmap = new int[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, };
     void Awake()
     {
         if (instance == null)
@@ -209,6 +211,8 @@ public class SFXMap : MonoBehaviour
         string[] split = currentLevel.Split('-');
         if (currentLevel.Equals("1-4H"))
             return chapter1[4];
+        if (currentLevel.Equals("Test"))
+            return Testmap;
         if (int.TryParse(split[1], out int index))
         {
             return chapter1[index - 1];

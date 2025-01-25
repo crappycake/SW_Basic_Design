@@ -12,7 +12,8 @@ public class GameLevelManager : MonoBehaviour
         {"1-2", 0},
         {"1-3", 0},
         {"1-4", 0},
-        {"1-4H", 0}
+        {"1-4H", 0},
+        {"Test", 0}
     };
 
     private Dictionary<string, int> levelProgress = new Dictionary<string, int>
