@@ -308,7 +308,9 @@ MonoBehaviour:
   initialBlinkInterval: 0.2
   blinkSpeedIncrease: 0.5
   flipVFX: {fileID: 3432958286849152088, guid: 87ee7299dd44ed747af24dbb91bcd33b, type: 3}
+  webVFX: {fileID: 2413349339504804004, guid: 88031d54ad2ae684b92b48868f160809, type: 3}
   flipSoundEffect: {fileID: 1729235210038439067}
+  canCameraReturn: 0
 --- !u!114 &8540236327997108200
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -322,6 +324,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   OnCollideWithSpike:
+    m_PersistentCalls:
+      m_Calls: []
+  OnCollideWithTrap:
     m_PersistentCalls:
       m_Calls: []
   OnGetStar:

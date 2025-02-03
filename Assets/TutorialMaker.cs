@@ -258,7 +258,7 @@ public class TutorialMaker : MonoBehaviour
     #region SUMMON SPIKE FUNCTION
     void SummonSpikeUp()
     {
-        GameObject spikeClone = ObjectPool.SharedInstance.GetPooledObject();
+        GameObject spikeClone = ObjectPool.SharedInstance.GetPooledObject(0);
         spikeClone.SetActive(true);
         var spikeScript = spikeClone.GetComponent<AttachToCircle>();
 
@@ -270,7 +270,7 @@ public class TutorialMaker : MonoBehaviour
     void SummonSpikeDown()
     {
         Debug.Log("Splike");
-        GameObject spikeClone = ObjectPool.SharedInstance.GetPooledObject();
+        GameObject spikeClone = ObjectPool.SharedInstance.GetPooledObject(0);
         spikeClone.SetActive(true);
         var spikeScript = spikeClone.GetComponent<AttachToCircle>();
 

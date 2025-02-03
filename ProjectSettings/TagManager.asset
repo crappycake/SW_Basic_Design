@@ -13,6 +13,7 @@ TagManager:
   - FxTemporaire
   - Fireball_parried
   - Boss
+  - Trap
   layers:
   - Default
   - TransparentFX
@@ -23,7 +24,7 @@ TagManager:
   - Boss
   - Bossattack
   - Post
-  - 
+  - Effect
   - 
   - 
   - 

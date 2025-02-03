@@ -36,6 +36,8 @@ public class Player_SFXController : MonoBehaviour
     [Header("Flip SFX")]
     [SerializeField] private GameObject flipVFX;
 
+    [Header("Status SFX")]
+    [SerializeField] private GameObject webVFX;
     [Header("Sound Effects")]
     [SerializeField] private AudioSource flipSoundEffect;
 
@@ -62,6 +64,7 @@ public class Player_SFXController : MonoBehaviour
         flipController.OnFlipEnded += TriggerFlipVFX;
 
         collisionManager.OnCollideWithSpike.AddListener(TriggerSpikeCollisionEffects);
+        collisionManager.OnCollideWithTrap.AddListener(TriggerWebTrapCollisionEffects);
 
         canCameraReturn = true;
     }
@@ -253,4 +256,30 @@ public class Player_SFXController : MonoBehaviour
         Instantiate(collisionVFX, offsetPos, quaternion.identity);
     }
     #endregion
+
+    public void TriggerWebTrapCollisionEffects()
+    {
+        StartCoroutine(WebTrapEffect());
+    }
+    
+    IEnumerator WebTrapEffect()
+    {
+        GameObject VFX = Instantiate(webVFX, gameObject.transform);
+        Color c = VFX.GetComponent<SpriteRenderer>().color;
+        VFX.transform.localScale = new Vector3(0, 0, 0);
+        for(int i = 0; i < 3; i++)
+        {
+            VFX.transform.localScale += gameObject.transform.localScale * 0.5f;
+            yield return new WaitForSeconds(0.1f);
+        }
+
+        for(float i = 0; i < 5; i++)
+        {
+            c.a = 1 - 0.2f * i;
+            VFX.GetComponent<SpriteRenderer>().color = c;
+            VFX.transform.localScale -= gameObject.transform.localScale * 0.1f;
+            yield return new WaitForSeconds(0.1f);
+        }
+        Destroy(VFX);
+    }
 }

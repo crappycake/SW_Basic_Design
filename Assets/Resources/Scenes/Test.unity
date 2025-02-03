@@ -172,8 +172,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61790ca0569e74f4cb2ce5ee81b6bfd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pooledObjects: []
-  objectToPool: {fileID: 3470413815152025801, guid: 257e5501cb230a24ab0de9d7a819207e, type: 3}
+  objectToPool:
+  - {fileID: 3470413815152025801, guid: 257e5501cb230a24ab0de9d7a819207e, type: 3}
+  - {fileID: 3470413815152025801, guid: d43872f7844507c4e95886898d627e41, type: 3}
   amountToPool: 30
   objectToAttachTo: {fileID: 23710581}
 --- !u!1 &50196198
@@ -2615,6 +2616,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39adb35a2a9e0fd409cb26db8e3ac470, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
   shooter: {fileID: 1448067803}
   starPrefab: {fileID: 935248269927852924, guid: 677f24414bff8e841b2ac63212259ab4, type: 3}
   startDestination: {fileID: 216041840}

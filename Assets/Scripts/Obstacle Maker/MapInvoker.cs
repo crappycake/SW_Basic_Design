@@ -98,6 +98,8 @@ public class MapInvoker : MonoBehaviour
                 break;
             case 17: shooter.GetComponent<Shooter>().ShootGuidedFireBall(playerOtherPosition, player); break;
             case 18: shooter.GetComponent<Shooter>().ShootGuidedFireBall(playerStartPosition, player); break;
+            case 19: SummonWebUp(); break;
+            case 20: SummonWebDown(); break;
             default: break;
         }
 
@@ -131,10 +133,31 @@ public class MapInvoker : MonoBehaviour
     #endregion
     */
 
+
+    void SummonWebUp()
+    {
+        GameObject webClone = ObjectPool.SharedInstance.GetPooledObject(1);
+        webClone.SetActive(true);
+        var webScript = webClone.GetComponent<AttachToCircle>();
+
+        webClone.transform.position = new Vector3(spikeDownSpawnPosition.transform.position.x, spikeUpSpawnPosition.transform.position.y);
+        webClone.transform.SetParent(circleUp.transform, true);
+        webScript.attachedObject = circleUp;
+    }
+    void SummonWebDown()
+    {
+        GameObject webClone = ObjectPool.SharedInstance.GetPooledObject(1);
+        webClone.SetActive(true);
+        var webScript = webClone.GetComponent<AttachToCircle>();
+
+        webClone.transform.position = new Vector3(spikeUpSpawnPosition.transform.position.x, spikeDownSpawnPosition.transform.position.y);
+        webClone.transform.SetParent(circleDown.transform, true);
+        webScript.attachedObject = circleDown;
+    }
     #region SUMMON SPIKE FUNCTION
     void SummonSpikeUp()
     {
-        GameObject spikeClone = ObjectPool.SharedInstance.GetPooledObject();
+        GameObject spikeClone = ObjectPool.SharedInstance.GetPooledObject(0);
         spikeClone.SetActive(true);
         var spikeScript = spikeClone.GetComponent<AttachToCircle>();
 
@@ -145,7 +168,7 @@ public class MapInvoker : MonoBehaviour
 
     void SummonSpikeDown()
     {
-        GameObject spikeClone = ObjectPool.SharedInstance.GetPooledObject();
+        GameObject spikeClone = ObjectPool.SharedInstance.GetPooledObject(0);
         spikeClone.SetActive(true);
         var spikeScript = spikeClone.GetComponent<AttachToCircle>();
 

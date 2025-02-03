@@ -467,8 +467,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61790ca0569e74f4cb2ce5ee81b6bfd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pooledObjects: []
-  objectToPool: {fileID: 3470413815152025801, guid: 257e5501cb230a24ab0de9d7a819207e, type: 3}
+  objectToPool:
+  - {fileID: 3470413815152025801, guid: 257e5501cb230a24ab0de9d7a819207e, type: 3}
   amountToPool: 30
   objectToAttachTo: {fileID: 23710581}
 --- !u!1 &85006871
@@ -1473,7 +1473,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39adb35a2a9e0fd409cb26db8e3ac470, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireballPrefab: {fileID: 2865519444121687294, guid: 70f09f2b41647694181adbfdb53fc0bf, type: 3}
+  player: {fileID: 0}
+  shooter: {fileID: 0}
   starPrefab: {fileID: 935248269927852924, guid: 677f24414bff8e841b2ac63212259ab4, type: 3}
   startDestination: {fileID: 216041840}
   upDestination: {fileID: 1318572656}
@@ -1486,6 +1487,10 @@ MonoBehaviour:
   playerOtherPosition: {fileID: 1373658582}
   testSFX: {fileID: 8472128668451917206, guid: a4a96bb339309f3488367e21e32e8946, type: 3}
   Title: {fileID: 0}
+  Camera: {fileID: 0}
+  event1:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &1643816801
 MonoBehaviour:
   m_ObjectHideFlags: 0

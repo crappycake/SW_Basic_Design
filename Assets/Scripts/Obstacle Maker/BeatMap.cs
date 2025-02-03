@@ -268,7 +268,7 @@ public class BeatMap : MonoBehaviour
         }
     };
 
-    static int[] TestMap = new int[]{18, 0, 0, 18, 0, 0, 18, 0, 0,
+    static int[] TestMap = new int[]{20, 19, 20, 19, 0, 0, 0, 18, 0, 0, 18, 0, 0, 18, 0, 0, 0,
     };
     void Awake()
     {

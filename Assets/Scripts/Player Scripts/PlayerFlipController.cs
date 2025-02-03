@@ -12,7 +12,7 @@ public class PlayerFlipController : MonoBehaviour
     [HideInInspector] public bool isFliped = false;
     [HideInInspector] public bool canFlip = true;
     [SerializeField] float flipSpeed;
-
+    float flipDebuff = 1;
     private bool flipInvoked = true;
 
     public event Action OnFlipFunctionCalled;
@@ -60,7 +60,7 @@ public class PlayerFlipController : MonoBehaviour
     
     void MoveTowardsPosition(Vector3 targetPos)
     {
-        transform.position = Vector2.MoveTowards(transform.position, targetPos, flipSpeed * Time.deltaTime);
+        transform.position = Vector2.MoveTowards(transform.position, targetPos, flipSpeed * Time.deltaTime / flipDebuff);
 
         //can flip again if flipping has finished
         if (Vector2.Distance(transform.position, targetPos) < 0.01f)
@@ -76,5 +76,16 @@ public class PlayerFlipController : MonoBehaviour
         {
             canFlip = false; 
         }
+    }
+
+    public void TriggerFlipDebuff(float time)
+    {
+        StartCoroutine(FlipDebuff(time));
+    }
+    IEnumerator FlipDebuff(float time)
+    {
+        flipDebuff += 2;
+        yield return new WaitForSeconds(time);
+        flipDebuff -= 2;
     }
 }

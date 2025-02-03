@@ -6,14 +6,17 @@ using UnityEngine.Events;
 public class PlayerCollisionManager : MonoBehaviour
 {
     private PlayerHealthManager healthManager;
+    private PlayerFlipController flipController;
     private LevelProgressManager levelProgressManager;
     
     public UnityEvent OnCollideWithSpike;
+    public UnityEvent OnCollideWithTrap;
     public UnityEvent OnGetStar;
     
     void Awake()
     {
         healthManager = GetComponent<PlayerHealthManager>();
+        flipController = GetComponent<PlayerFlipController>();
         levelProgressManager = FindObjectOfType<LevelProgressManager>();
     }
 
@@ -28,6 +31,11 @@ public class PlayerCollisionManager : MonoBehaviour
         {
             levelProgressManager.AddStars();
             OnGetStar.Invoke();
+        }
+        if (collision.gameObject.CompareTag("Trap"))
+        {
+            OnCollideWithTrap.Invoke();
+            flipController.TriggerFlipDebuff(1f);
         }
     }
     
